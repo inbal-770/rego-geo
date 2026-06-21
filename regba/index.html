@@ -67,7 +67,10 @@
   .hero .copy p{margin:0 0 16px; color:var(--muted); font-weight:600}
   .hero .copy strong{color:var(--ink)}
   .sovbars{display:flex; flex-direction:column; gap:9px}
-  .sovbars.cols{display:grid; grid-template-columns:1fr 1fr; gap:10px 30px}
+  .sovbars.cols{display:grid; grid-template-columns:1fr 1fr; gap:11px 30px}
+  .sovbars.cols .sovrow .track{height:11px}
+  .sovbars.cols .sovrow .fill{background:#9B97A8}
+  .sovbars.cols .sovrow.own .fill{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
   .sovrow{display:grid; grid-template-columns:84px 1fr 46px; align-items:center; gap:10px; font-size:13px}
   .sovrow .name{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
   .sovrow .track{height:9px; background:#F1EFE9; border-radius:999px; overflow:hidden}
@@ -80,8 +83,15 @@
   .kpi .k-val sup{font-size:15px; color:var(--muted)} .kpi .k-val .den{font-size:18px; color:var(--faint)}
   .kpi .k-sub{font-size:12px; font-weight:600; color:var(--faint)}
   .kpi .glyph{width:30px;height:30px;border-radius:9px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand)} .kpi .glyph svg{width:16px;height:16px}
-  .trendbox{direction:ltr}
-  .axislabels{direction:ltr; display:flex; justify-content:space-between; margin-top:8px; color:var(--faint); font-size:11px; font-weight:600}
+  .trendbox{direction:ltr; position:relative}
+  .trendbox .ylabels{position:absolute; inset-block:0; left:0; width:22px; pointer-events:none}
+  .trendbox .ylabels span{position:absolute; left:0; width:20px; text-align:right; transform:translateY(-50%); font-size:10.5px; font-weight:700; color:var(--faint)}
+  .trendstats{display:flex; gap:30px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line)}
+  .trendstats .ts{display:flex; flex-direction:column; gap:2px}
+  .trendstats .ts-v{font-family:"Sora",sans-serif; font-size:24px; font-weight:800; line-height:1; color:var(--ink)}
+  .trendstats .ts:first-child .ts-v{color:var(--brand)}
+  .trendstats .ts-l{font-size:12px; font-weight:600; color:var(--muted)}
+  .axislabels{direction:ltr; display:flex; justify-content:space-between; margin-top:8px; padding:0 2% 0 5%; color:var(--faint); font-size:11px; font-weight:600}
   .mlist{display:flex; flex-direction:column; gap:11px}
   .mrow{display:grid; grid-template-columns:78px 1fr 30px; align-items:center; gap:10px; font-size:13px}
   .mrow .name{font-weight:700} .mrow.own .name{color:var(--brand)}
@@ -2013,6 +2023,8 @@ const DICT = {
     kPagesTip:"כמה כתובות שונות של אתר {brand} הופיעו כמקור בתשובות ה-AI, על פני כל {n} השאילתות. עמוד אחד (למשל ‎/page) יכול להופיע בכמה שאילתות.",
     kMentions:"אזכורים ליום", kPeak:"שיא", avgDay:"ממוצע",
     trendCard:"מגמת אזכורים", trendSub:"אזכורי הברנד ליום",
+    trendTip:"מספר התשובות שבהן הברנד הוזכר בשמו, מדי יום, על פני תקופת המעקב. הציר האנכי מציין את מספר האזכורים ביום.",
+    tsAvg:"ממוצע ליום", tsPeak:"שיא יומי", tsNow:"נוכחי",
     mentCard:"אזכורים לפי ברנד", mentSub:"תצלום אחרון", solo:"אזכור בלעדי", shared:"משותף עם מתחרה",
     clustersH:"קלסטרים ושאילתות",
     clTip:"הציון מבוסס על כמה משאילתות הקלסטר כללו ציטוט לעמוד {brand}: 0 = הזדמנות, 1–2 = נוכחות חלקית, 3+ = נוכחות מובילה. פתחו קלסטר כדי לראות אילו שאילתות מצטטות את {brand} ובאילו עמודים.",
@@ -2041,6 +2053,8 @@ const DICT = {
     kPagesTip:"How many distinct {domain} URLs appeared as a source in AI answers, across all {n} queries. One page (e.g. /page) can appear in several queries.",
     kMentions:"Mentions / day", kPeak:"peak", avgDay:"avg",
     trendCard:"Mentions trend", trendSub:"Brand mentions per day",
+    trendTip:"How many AI answers named the brand each day across the tracked period. The vertical axis shows the number of mentions per day.",
+    tsAvg:"avg / day", tsPeak:"daily peak", tsNow:"latest",
     mentCard:"Mentions by brand", mentSub:"Latest snapshot", solo:"Brand-only", shared:"Shared w/ competitor",
     clustersH:"Clusters & queries",
     clTip:"The score is based on how many of the cluster's queries cited an {brand} page: 0 = opportunity, 1–2 = partial, 3+ = leading. Open a cluster to see which queries cite {brand} and on which pages.",
@@ -2073,7 +2087,8 @@ function ring(v){ const r=78,c=2*Math.PI*r,off=c*(1-v/100);
    <circle cx="94" cy="94" r="${r}" fill="none" stroke="#F1EFE9" stroke-width="15"/>
    <circle cx="94" cy="94" r="${r}" fill="none" stroke="url(#rg)" stroke-width="15" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" transform="rotate(-90 94 94)" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)"/></svg>`; }
 
-function trend(daily,startISO){ const W=520,H=180,pl=8,pr=8,pt=16,pb=8,n=daily.length,max=Math.max(...daily)+1;
+function trend(daily,startISO){ const W=520,H=180,pl=26,pr=10,pt=16,pb=8,n=daily.length;
+  const peak=Math.max(...daily,0), max=Math.max(peak,1);
   const x=i=>pl+i*(W-pl-pr)/(n-1), y=v=>pt+(1-v/max)*(H-pt-pb);
   const pts=daily.map((v,i)=>[x(i),y(v)]);
   const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
@@ -2081,9 +2096,12 @@ function trend(daily,startISO){ const W=520,H=180,pl=8,pr=8,pt=16,pb=8,n=daily.l
   const last=pts[n-1], sd=new Date(startISO);
   const dl=i=>{const d=new Date(sd);d.setDate(sd.getDate()+i);return d.getDate()+"/"+(d.getMonth()+1);};
   const ticks=[0,Math.round((n-1)/2),n-1].map(i=>`<span>${dl(i)}</span>`).join("");
-  return `<div class="trendbox"><svg viewBox="0 0 ${W} ${H}" width="100%" height="180" preserveAspectRatio="none" role="img">
+  const yv = peak<=1?[0,1]:(peak<=4?[0,peak]:[0,Math.round(peak/2),peak]);
+  const grid = yv.map(v=>`<line x1="${pl}" y1="${y(v).toFixed(1)}" x2="${(W-pr).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join("");
+  const ylab = yv.map(v=>`<span style="top:${y(v).toFixed(1)}px">${v}</span>`).join("");
+  return `<div class="trendbox"><div class="ylabels">${ylab}</div><svg viewBox="0 0 ${W} ${H}" width="100%" height="180" preserveAspectRatio="none" role="img">
    <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E11D3C" stop-opacity=".22"/><stop offset="1" stop-color="#E11D3C" stop-opacity="0"/></linearGradient></defs>
-   <path d="${area}" fill="url(#tg)"/><path d="${line}" fill="none" stroke="#E11D3C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+   ${grid}<path d="${area}" fill="url(#tg)"/><path d="${line}" fill="none" stroke="#E11D3C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="4.5" fill="#fff" stroke="#E11D3C" stroke-width="2.5"/></svg>
    <div class="axislabels">${ticks}</div></div>`; }
 
@@ -2195,9 +2213,8 @@ function render(){
     <div class="grid kpis" style="margin-top:8px">${kpiBlock}</div>
     <div class="card" style="margin-top:16px"><h2>${t.presenceH}${info(t.presenceTip)}</h2>${presencePanel}</div>`;
 
-  $("#app").innerHTML = head + `
-    ${topSection}
-
+  const latest = d.mentionsDaily[d.mentionsDaily.length-1];
+  const mentionsSection = hasComp ? `
     <div class="grid two" style="margin-top:16px">
       <div class="card"><h2>${t.trendCard}</h2>${trend(d.mentionsDaily,d.mentionsStart)}<div class="sub" style="margin-top:6px">${t.trendSub}</div></div>
       <div class="card"><h2>${t.mentCard} · <span class="sub">${t.mentSub}</span></h2>
@@ -2208,7 +2225,21 @@ function render(){
             <span class="v">${tot}</span></div>`;}).join("")}</div>
         <div class="legend"><span><i style="background:var(--brand)"></i>${t.solo}</span><span><i style="background:var(--brand-soft)"></i>${t.shared}</span></div>
       </div>
-    </div>
+    </div>` : `
+    <div class="card" style="margin-top:16px"><h2>${t.trendCard}${info(t.trendTip)}</h2>
+      ${trend(d.mentionsDaily,d.mentionsStart)}
+      <div class="trendstats">
+        <div class="ts"><span class="ts-v num">${fmt(avg)}</span><span class="ts-l">${t.tsAvg}</span></div>
+        <div class="ts"><span class="ts-v num">${peak}</span><span class="ts-l">${t.tsPeak}</span></div>
+        <div class="ts"><span class="ts-v num">${latest}</span><span class="ts-l">${t.tsNow}</span></div>
+      </div>
+      <div class="sub" style="margin-top:12px">${t.trendSub}</div>
+    </div>`;
+
+  $("#app").innerHTML = head + `
+    ${topSection}
+
+    ${mentionsSection}
 
     <div class="sechead"><h2>${t.clustersH}${info(t.clTip)}</h2><span class="line"></span><span class="count">${citedQ}/${totalQ}</span></div>
     <div class="clusters">${d.clusters.map((c,i)=>{
