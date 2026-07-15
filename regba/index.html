@@ -150,6 +150,12 @@
   .aempty{color:var(--faint); font-weight:600; padding:6px 0}
   @media (max-width:880px){ .hero-grid,.two,.clusters{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} .hero{flex-direction:column; align-items:flex-start} .ring{margin:0 auto} .sovbars.cols{grid-template-columns:1fr} }
   @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+  .mchip{display:inline-block;font-size:11px;font-weight:700;color:#1E9E6A;background:rgba(30,158,106,.1);border:1px solid rgba(30,158,106,.28);border-radius:999px;padding:1px 8px;margin-inline-start:6px;vertical-align:1px}
+  .extmeta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .extdom{font-weight:800;font-size:15px}
+  .extcnt{font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-soft);border-radius:999px;padding:3px 11px}
+  .exttitle{font-weight:700;color:var(--ink);text-decoration:none;font-size:15px}
+  .exttitle:hover{color:var(--brand)}
 </style>
 </head>
 <body>
@@ -478,7 +484,8 @@ const DATA = {
                   "url": "www.regba.co.il/magazine/kitchen-design/חברת-מטבחים-מומלצת/",
                   "note": "מגזין"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "למה כל כך הרבה ישראלים ממליצים לקנות את המטבח הבא שלהם מבית רגבה?",
@@ -496,27 +503,32 @@ const DATA = {
                   "url": "www.regba.co.il/stores/haifa/",
                   "note": "סניף חיפה"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "מי היא חברת המטבחים המומלצת ביותר בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "על אילו חברות מטבחים יש את ההמלצות הכי טובות ברשת לגבי איכות ועמידות לאורך שנים?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "אילו מותגי מטבחים מציעים את סטנדרט האיכות הגבוה ביותר בשוק הישראלי למשפחות?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": false
             }
           ]
         }
@@ -766,7 +778,8 @@ const DATA = {
                   "url": "www.regba.co.il/magazine/kitchen-design/חברת-מטבחים-מומלצת/",
                   "note": "מגזין"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
@@ -776,7 +789,8 @@ const DATA = {
                   "url": "www.regba.co.il/magazine/kitchen-design/חברת-מטבחים-מומלצת/",
                   "note": "מגזין"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "למה כל כך הרבה ישראלים ממליצים לקנות את המטבח הבא שלהם מבית רגבה?",
@@ -790,22 +804,26 @@ const DATA = {
                   "url": "www.regba.co.il",
                   "note": "עמוד הבית"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "מי היא חברת המטבחים המומלצת ביותר בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "על אילו חברות מטבחים יש את ההמלצות הכי טובות ברשת לגבי איכות ועמידות לאורך שנים?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "אילו מותגי מטבחים מציעים את סטנדרט האיכות הגבוה ביותר בשוק הישראלי למשפחות?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             }
           ]
         }
@@ -1102,32 +1120,38 @@ const DATA = {
                   "url": "www.regba.co.il/about-2/",
                   "note": "אודות"
                 }
-              ]
+              ],
+              "m": true
             },
             {
               "t": "מהי חברת המטבחים המומלצת, החדשנית והמובילה ביותר בישראל לשנת 2026?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "מי היא חברת המטבחים המומלצת ביותר בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": false
             },
             {
               "t": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "על אילו חברות מטבחים יש את ההמלצות הכי טובות ברשת לגבי איכות ועמידות לאורך שנים?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": false
             },
             {
               "t": "אילו מותגי מטבחים מציעים את סטנדרט האיכות הגבוה ביותר בשוק הישראלי למשפחות?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             }
           ]
         }
@@ -1281,38 +1305,104 @@ const DATA = {
             {
               "t": "מי היא חברת המטבחים המומלצת ביותר בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "מהי חברת המטבחים המומלצת, החדשנית והמובילה ביותר בישראל לשנת 2026?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "על אילו חברות מטבחים יש את ההמלצות הכי טובות ברשת לגבי איכות ועמידות לאורך שנים?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "אילו מותגי מטבחים מציעים את סטנדרט האיכות הגבוה ביותר בשוק הישראלי למשפחות?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             },
             {
               "t": "למה כל כך הרבה ישראלים ממליצים לקנות את המטבח הבא שלהם מבית רגבה?",
               "c": false,
-              "u": []
+              "u": [],
+              "m": true
             }
           ]
         }
       ]
     }
-  }
+  },
+  "extMentions": [
+    {
+      "domain": "omemo.co.il",
+      "url": "omemo.co.il/what-are-the-reviews-of-the-service-reliability-and-delivery-of-the-leading-kitchen-companies-in-israel/",
+      "title": {
+        "he": "שירות, אמינות ואספקה: מה אומרים הלקוחות על חברות המטבחים המובילות בישראל",
+        "en": "Service, reliability & delivery: what customers say about Israel's leading kitchen companies"
+      },
+      "note": {
+        "he": "מאמר אזכורי AI שהופק עבור רגבה במסגרת אופטימיזציית הקלסטר — מצוטט כעת כמקור בתשובות המנועים",
+        "en": "An AI-mention article produced for Regba as part of the cluster optimization — now cited as a source in engine answers"
+      },
+      "cites": [
+        {
+          "src": "ChatGPT",
+          "q": {
+            "he": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
+            "en": "What are the reviews of service, reliability & delivery of Israel's leading kitchen companies?"
+          },
+          "d": {
+            "he": "מקור ראשון בתשובה; רגבה מדורגת במקום 1 — ״המוניטין העקבי ביותר״",
+            "en": "First source in the answer; Regba ranked #1 — “the most consistent reputation”"
+          }
+        },
+        {
+          "src": "ChatGPT",
+          "q": {
+            "he": "מי היא חברת המטבחים המומלצת ביותר בישראל?",
+            "en": "Which is the most recommended kitchen company in Israel?"
+          },
+          "d": {
+            "he": "מצוטט כמקור; רגבה בין המובילות",
+            "en": "Cited as a source; Regba among the leaders"
+          }
+        },
+        {
+          "src": "ChatGPT",
+          "q": {
+            "he": "למה כל כך הרבה ישראלים ממליצים לקנות את המטבח הבא שלהם מבית רגבה?",
+            "en": "Why do so many Israelis recommend buying their next kitchen from Regba?"
+          },
+          "d": {
+            "he": "מצוטט כמקור תומך להמלצות על רגבה",
+            "en": "Cited as a supporting source for Regba recommendations"
+          }
+        },
+        {
+          "src": "Copilot",
+          "q": {
+            "he": "מהן הביקורות על השירות, האמינות והאספקה של חברות המטבחים המובילות בישראל?",
+            "en": "What are the reviews of service, reliability & delivery of Israel's leading kitchen companies?"
+          },
+          "d": {
+            "he": "התשובה נבנתה סביב המאמר: ״רגבה מובילה באמינות ועמידה בזמנים״, ציון 4.6, אחריות 10 שנים",
+            "en": "The answer is built around the article: “Regba leads on reliability and on-time delivery”, 4.6 rating, 10-year warranty"
+          }
+        }
+      ]
+    }
+  ]
 };
 /* ============================= DATA:END ============================= */
 
@@ -1344,7 +1434,7 @@ const DICT = {
     clTip:"הציון מבוסס על כמה משאילתות הקלסטר כללו ציטוט לעמוד {brand}: 0 = הזדמנות, 1–2 = נוכחות חלקית, 3+ = נוכחות מובילה. פתחו קלסטר כדי לראות אילו שאילתות מצטטות את {brand} ובאילו עמודים.",
     pagesCard:"עמודי {brand} שזכו לציטוט", pagesNote:"מצטבר על פני כל {n} השאילתות · המספר = בכמה שאילתות צוטט העמוד",
     domainsCard:"נוף הציטוטים בקטגוריה", domainsNote:"מספר התשובות שבהן צוטט כל דומיין",
-    qCited:"{brand} צוטטה", qMiss:"{brand} לא צוטטה", inQ:n=>`${n}/8 שאילתות`,
+    qCited:"עמוד {brand} צוטט בתשובה", qMiss:"עמוד {brand} לא צוטט", inQ:n=>`${n}/8 שאילתות`, mChip:"אזכור", mChipTip:"{brand} מוזכרת/מדורגת בתשובה", clSummary:(m,c,n)=>`אזכור ב-${m}/${n} · ציטוט עמוד ב-${c}/${n}`, extH:"אזכורי AI חיצוניים שנקלטו במנועים", extTip:"מאמרים שהופקו עבור {brand} באתרים חיצוניים במסגרת אופטימיזציית הקלסטר, ושמנועי ה-AI מצטטים כעת כמקור בתשובותיהם.", extCites:n=>`${n} ציטוטים`,
     full:"נוכחות מובילה", part:"נוכחות חלקית", opp:"הזדמנות", brandTag:"ברנד", dirTag:"מדריך/זירה",
     srcTitle:"מקור נתונים",
     notTrackedH:l=>`${l} עדיין לא נמדד בדוח הזה`,
@@ -1374,7 +1464,7 @@ const DICT = {
     clTip:"The score is based on how many of the cluster's queries cited an {brand} page: 0 = opportunity, 1–2 = partial, 3+ = leading. Open a cluster to see which queries cite {brand} and on which pages.",
     pagesCard:"{brand} pages earning citations", pagesNote:"Aggregated across all {n} queries · number = in how many queries the page was cited",
     domainsCard:"Category citation landscape", domainsNote:"Number of answers that cited each domain",
-    qCited:"{brand} cited", qMiss:"{brand} not cited", inQ:n=>`${n}/8 queries`,
+    qCited:"{brand} page cited in the answer", qMiss:"{brand} page not cited", inQ:n=>`${n}/8 queries`, mChip:"mention", mChipTip:"{brand} is named/ranked in the answer", clSummary:(m,c,n)=>`mentioned in ${m}/${n} · page cited in ${c}/${n}`, extH:"External AI mentions picked up by the engines", extTip:"Articles produced for {brand} on external sites as part of the cluster optimization, now cited by the AI engines as sources in their answers.", extCites:n=>`${n} citations`,
     full:"Leading", part:"Partial", opp:"Opportunity", brandTag:"Brand", dirTag:"Directory/Market",
     srcTitle:"Data source",
     notTrackedH:l=>`${l} isn't measured in this report yet`,
@@ -1561,24 +1651,31 @@ function render(){
       const stTxt = st==="full"?t.full:(st==="part"?t.part:t.opp);
       return `<details class="cl" ${i===0?'open':''}><summary>
         <span class="idx num">${String(i+1).padStart(2,'0')}</span>
-        <span class="cn"><b>${esc(c.name[lang])}</b><small class="ratio">${t.inQ(cc)}</small></span>
+        <span class="cn"><b>${esc(c.name[lang])}</b><small class="ratio">${t.clSummary(c.q.filter(x=>x.m).length,cc,c.q.length)}</small></span>
         <span class="status ${st}">${stTxt}</span>
         <svg class="caret" width="16" height="16" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary><div class="qs">${c.q.map(q=>`
         <div class="qrow ${q.c?'hit':'miss'}">
           <span class="qmark ${q.c?'hit':'miss'}" title="${q.c?esc(t.qCited):esc(t.qMiss)}">${q.c?checkSvg:dashSvg}</span>
-          <div class="qbody"><span class="qtext">${esc(q.t)}</span>
+          <div class="qbody"><span class="qtext">${esc(q.t)}${q.m?` <span class="mchip" title="${esc(t.mChipTip)}">${t.mChip}</span>`:''}</span>
             ${q.c&&q.u?`<div class="qpages">${q.u.map(p=>`<a href="https://${esc(p.url)}" target="_blank" rel="noopener">${esc(p.url)}${p.note?` <span class="pn">— ${esc(p.note)}</span>`:''}</a>`).join("")}</div>`:''}
           </div>
         </div>`).join("")}</div></details>`;
     }).join("")}</div>
 
-    <div class="sechead"><h2>${t.actionsH}</h2><span class="line"></span><span class="count">${(DATA.actions||[]).length}</span></div>
-    <div class="card"><div class="rows">${(DATA.actions&&DATA.actions.length)? DATA.actions.map(a=>`
+    ${(DATA.actions&&DATA.actions.length)?`<div class="sechead"><h2>${t.actionsH}</h2><span class="line"></span><span class="count">${DATA.actions.length}</span></div>
+    <div class="card"><div class="rows">${DATA.actions.map(a=>`
       <div class="arow"><span class="abolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z" fill="currentColor"/></svg></span>
         <span class="atext">${esc(a.task)}</span>
-        ${a.link?`<a class="alink" href="${esc(a.link)}" target="_blank" rel="noopener">${t.fileLink}</a>`:""}</div>`).join("") : `<div class="aempty">${t.noActions}</div>`}</div>
-      <div class="sub" style="margin-top:12px">${t.actionsNote}</div></div>
+        ${a.link?`<a class="alink" href="${esc(a.link)}" target="_blank" rel="noopener">${t.fileLink}</a>`:""}</div>`).join("")}</div>
+      <div class="sub" style="margin-top:12px">${t.actionsNote}</div></div>`:``}
+    ${(DATA.extMentions&&DATA.extMentions.length)?`<div class="sechead"><h2>${t.extH}${info(t.extTip)}</h2><span class="line"></span><span class="count">${DATA.extMentions.reduce((a,e)=>a+e.cites.length,0)}</span></div>
+    ${DATA.extMentions.map(e=>`<div class="card"><div class="extmeta"><span class="extdom num">${esc(e.domain)}</span><span class="extcnt">${t.extCites(e.cites.length)}</span></div>
+      <a class="exttitle" href="https://${esc(e.url)}" target="_blank" rel="noopener">${esc(e.title[lang])}</a>
+      <div class="sub" style="margin:6px 0 12px">${esc(e.note[lang])}</div>
+      <div class="rows">${e.cites.map(c2=>`<div class="qrow hit"><span class="qmark hit">${checkSvg}</span>
+        <div class="qbody"><span class="qtext"><b>${esc(c2.src)}</b> · ${esc(c2.q[lang])}</span>
+          <div class="sub" style="margin-top:2px">${esc(c2.d[lang])}</div></div></div>`).join("")}</div></div>`).join("")}`:``}
 
     <div class="grid two" style="margin-top:16px">
       <div class="card"><h2>${t.pagesCard}</h2><div class="rows">${d.citedPages.map(p=>`
