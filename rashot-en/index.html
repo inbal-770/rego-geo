@@ -1,164 +1,1462 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Israel Innovation Authority · GEO Quarterly Q2 2026</title>
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Israel Innovation Authority — GEO Quarterly (May–Jul 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--red:#E11D3C;--ink:#1A1614;--sub:#6B6560;--line:#E8E4DD;--bg:#FAF8F4;--card:#fff;--soft:#F4F1EB;--good:#1F9D6B;--gold:#B98900}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Arial,"Helvetica Neue",sans-serif;line-height:1.55}
-.wrap{max-width:1040px;margin:0 auto;padding:26px 20px 60px}
-a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
-.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
-.rego{height:30px}.brandmark{font-weight:700;letter-spacing:.02em}
-.toggle{margin-inline-start:auto;display:flex;gap:6px;background:var(--soft);border-radius:999px;padding:3px}
-.toggle button{border:0;background:transparent;padding:6px 14px;border-radius:999px;cursor:pointer;font-weight:600;color:var(--sub);font-size:13px}
-.toggle button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.context{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
-.clogo{height:46px;border-radius:8px}
-.eyebrow{color:var(--red);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-h1{font-size:26px;margin:2px 0 0}
-.meta{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.chip{background:var(--soft);border-radius:999px;padding:5px 11px;font-size:12px;color:var(--sub);display:inline-flex;gap:6px;align-items:center}
-.live{width:7px;height:7px;border-radius:50%;background:var(--good);display:inline-block}
-.srcbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 20px}
-.srcbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:13px;color:var(--sub);display:flex;align-items:center;gap:7px}
-.srcbtn[aria-pressed=true]{border-color:var(--red);color:var(--ink)}
-.sd{width:7px;height:7px;border-radius:50%;background:var(--good)}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px}
-.kpi .lbl{font-size:12px;color:var(--sub);font-weight:600}
-.kpi .val{font-size:30px;font-weight:800;margin-top:6px;line-height:1}
-.kpi .val .den{font-size:15px;color:var(--sub);font-weight:600}
-.kpi .foot{font-size:11px;color:var(--sub);margin-top:6px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:18px}
-.card h2{font-size:17px;margin:0 0 4px}.card .csub{color:var(--sub);font-size:13px;margin:0 0 14px}
-.trendwrap{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
-.trendsvg{flex:1;min-width:300px}
-.deltacard{min-width:150px}
-.delta{font-size:34px;font-weight:800;color:var(--good)}
-.delta .arrow{font-size:22px}
-.deltalabel{font-size:12px;color:var(--sub)}
-.clrow{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);cursor:pointer}
-.clrow:last-child{border-bottom:0}
-.clname{flex:1;font-weight:600}
-.badge{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
-.b-full{background:rgba(31,157,107,.12);color:var(--good)}
-.b-part{background:rgba(185,137,0,.12);color:var(--gold)}
-.b-opp{background:rgba(225,29,60,.10);color:var(--red)}
-.track{width:120px;height:8px;background:var(--soft);border-radius:999px;overflow:hidden}
-.fill{height:100%;background:var(--red);border-radius:999px}
-.qlist{display:none;padding:6px 0 12px}
-.qlist.open{display:block}
-.qi{display:flex;gap:9px;padding:6px 0;font-size:13px;align-items:flex-start;border-top:1px dashed var(--line)}
-.qi .mk{width:18px;height:18px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#fff;margin-top:1px}
-.qi .mk.y{background:var(--good)}.qi .mk.n{background:#CBC6BE}
-.qi .qt{flex:1}.qi .qu{display:block;font-size:11px;color:var(--sub);margin-top:2px;word-break:break-all}
-.mrow{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
-.mrow:last-child{border-bottom:0}
-.mstate{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;flex:none}
-.mstate.cited{background:rgba(31,157,107,.12);color:var(--good)}
-.mstate.pending{background:var(--soft);color:var(--sub)}
-.murl{font-size:13px;word-break:break-all}.mq{font-size:12px;color:var(--sub);margin-top:3px}
-.msrc{font-size:11px;color:var(--good);font-weight:600}
-.alist{columns:2;column-gap:26px}
-@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.alist{columns:1}}
-.ai{display:flex;gap:9px;padding:8px 0;font-size:13px;break-inside:avoid;align-items:flex-start}
-.ai .dot{color:var(--good);font-weight:800;margin-top:1px}
-.foot{color:var(--sub);font-size:12px;text-align:center;margin-top:26px}
-.note{background:var(--soft);border-radius:10px;padding:11px 13px;font-size:12px;color:var(--sub);margin-top:10px}
-</style></head><body><div class="wrap">
-<div class="topbar"><img class="rego" src="data:image/png;base64,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" alt="ReGo"><span class="brandmark">GEO Visibility</span>
-<div class="toggle"><button id="he" onclick="setLang('he')">עברית</button><button id="en" onclick="setLang('en')">EN</button></div></div>
-<div id="app"></div>
-<div class="foot" id="foot"></div>
-</div>
+  :root{
+    --paper:#FBFAF6; --card:#FFFFFF; --ink:#17161D; --muted:#75727F; --faint:#A9A6B2;
+    --line:#ECE9E2; --brand:#E11D3C; --brand-2:#FF5C7C; --brand-soft:#FDEAEE;
+    --comp:#CFCCD8; --amber:#E8A11C; --pos:#1E9E6A; --neg:#D2483F;
+    --shadow:0 1px 2px rgba(20,19,30,.04), 0 8px 24px rgba(20,19,30,.05); --r:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper); color:var(--ink); font-family:"Heebo",system-ui,-apple-system,Segoe UI,Arial,sans-serif; font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased}
+  .num{font-family:"Sora","Heebo",system-ui,sans-serif; font-feature-settings:"tnum" 1; letter-spacing:-.01em}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px 64px}
+  .topbar{position:sticky; top:0; z-index:20; background:#0F0E14; backdrop-filter:saturate(1.2) blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
+  .topbar .inner{max-width:1120px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; gap:16px}
+  .mark{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.02em}
+  .mark .dot{width:11px; height:11px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 4px var(--brand-soft)}
+  .mark small{font-weight:600; color:#9C99A6; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase}
+  .spacer{flex:1}
+  .lang{display:inline-flex; border:1px solid rgba(255,255,255,.14); border-radius:10px; overflow:hidden; background:rgba(255,255,255,.06)}
+  .lang button{font-family:inherit; font-weight:700; font-size:13px; border:0; background:transparent; color:#C9C7D0; padding:9px 12px; cursor:pointer}
+  .lang button[aria-pressed="true"]{background:#fff; color:#0F0E14}
+  .lang button:focus-visible{outline:2px solid var(--brand); outline-offset:-2px}
+  .context{display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; padding:24px 0 4px}
+  .eyebrow{font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand)}
+  .context h1{font-family:"Sora","Heebo",sans-serif; font-size:clamp(26px,4vw,38px); margin:0; font-weight:800; letter-spacing:-.025em; line-height:1.05}
+  .clientline{display:flex; align-items:center; gap:11px}
+  .avatar{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff; display:grid; place-items:center; font-weight:800; font-size:17px; flex:none}
+  .meta{display:flex; gap:8px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13.5px; font-weight:600}
+  .chip{display:inline-flex; align-items:center; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:5px 11px; font-size:12.5px; font-weight:700; color:var(--muted)}
+  .chip .live{width:7px;height:7px;border-radius:50%;background:var(--pos)}
+  .srcwrap{display:flex; align-items:center; gap:10px 14px; flex-wrap:wrap; padding:18px 0 6px}
+  .srclbl{font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--faint)}
+  .srcbar{display:flex; gap:8px; flex-wrap:wrap}
+  .srcbtn{font-family:inherit; font-weight:700; font-size:13px; border:1px solid var(--line); background:var(--card); color:var(--muted); padding:8px 13px; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; box-shadow:var(--shadow)}
+  .srcbtn[aria-pressed="true"]{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .srcbtn .sd{width:6px;height:6px;border-radius:50%}
+  .srcbtn .sd.on{background:var(--pos)} .srcbtn .sd.off{background:var(--faint)}
+  .srcbtn:focus-visible{outline:2px solid var(--brand); outline-offset:2px}
+  .info{position:relative; display:inline-flex; vertical-align:middle; margin-inline-start:6px}
+  .info .i{width:16px; height:16px; border-radius:50%; border:1.5px solid var(--faint); color:var(--muted); font-size:11px; font-weight:800; line-height:1; display:grid; place-items:center; cursor:pointer; font-family:"Sora",sans-serif; background:var(--card)}
+  .info .tip{display:none; position:absolute; top:150%; inset-inline-end:-6px; width:min(280px,76vw); background:var(--ink); color:#fff; font-weight:600; font-size:12px; line-height:1.55; padding:11px 13px; border-radius:11px; box-shadow:0 10px 30px rgba(20,19,30,.22); z-index:40; text-align:start}
+  .info:hover .tip, .info:focus-within .tip, .info.open .tip{display:block}
+  .info .i:focus-visible{outline:2px solid var(--brand); outline-offset:2px}
+  .grid{display:grid; gap:16px}
+  .hero-grid{grid-template-columns:1.15fr 1fr; align-items:stretch}
+  .two{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow)}
+  .card h2{font-size:13px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 16px; display:flex; align-items:center}
+  .card .sub{color:var(--faint); font-weight:600; font-size:12px}
+  .hero{display:flex; gap:22px; align-items:center}
+  .ring{flex:none; width:188px; height:188px; position:relative}
+  .ring .center{position:absolute; inset:0; display:grid; place-content:center; text-align:center}
+  .ring .big{font-family:"Sora",sans-serif; font-size:42px; font-weight:800; line-height:1}
+  .ring .big sup{font-size:18px; font-weight:700; color:var(--muted)}
+  .ring .lbl{font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+  .hero .copy{flex:1; min-width:0}
+  .hero .copy p{margin:0 0 16px; color:var(--muted); font-weight:600}
+  .hero .copy strong{color:var(--ink)}
+  .sovbars{display:flex; flex-direction:column; gap:9px}
+  .sovbars.cols{display:grid; grid-template-columns:1fr 1fr; gap:11px 30px}
+  .sovbars.cols .sovrow .track{height:11px; background:#F6EEF0}
+  .sovbars.cols .sovrow .fill{background:#F4A6B8}
+  .sovbars.cols .sovrow.own .fill{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .sovrow{display:grid; grid-template-columns:84px 1fr 46px; align-items:center; gap:10px; font-size:13px}
+  .sovrow .name{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .sovrow .track{height:9px; background:#F1EFE9; border-radius:999px; overflow:hidden}
+  .sovrow .fill{height:100%; border-radius:999px; background:var(--comp)}
+  .sovrow.own .fill{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .sovrow.own .name{color:var(--brand)} .sovrow .val{text-align:end; font-weight:700; color:var(--muted)} .sovrow.own .val{color:var(--brand)}
+  .kpi .k-top{display:flex; align-items:center; justify-content:space-between; gap:8px}
+  .kpi .k-label{font-size:12.5px; font-weight:700; color:var(--muted); display:flex; align-items:center}
+  .kpi .k-val{font-family:"Sora",sans-serif; font-size:32px; font-weight:800; letter-spacing:-.02em; margin:10px 0 2px; line-height:1}
+  .kpi .k-val sup{font-size:15px; color:var(--muted)} .kpi .k-val .den{font-size:18px; color:var(--faint)}
+  .kpi .k-sub{font-size:12px; font-weight:600; color:var(--faint)}
+  .kpi .glyph{width:30px;height:30px;border-radius:9px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand)} .kpi .glyph svg{width:16px;height:16px}
+  .trendbox{direction:ltr; position:relative}
+  .trendbox .ylabels{position:absolute; inset-block:0; left:0; width:22px; pointer-events:none}
+  .trendbox .ylabels span{position:absolute; left:0; width:20px; text-align:right; transform:translateY(-50%); font-size:10.5px; font-weight:700; color:var(--faint)}
+  .trendstats{display:flex; gap:30px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line)}
+  .trendstats .ts{display:flex; flex-direction:column; gap:2px}
+  .trendstats .ts-v{font-family:"Sora",sans-serif; font-size:24px; font-weight:800; line-height:1; color:var(--ink)}
+  .trendstats .ts:first-child .ts-v{color:var(--brand)}
+  .trendstats .ts-l{font-size:12px; font-weight:600; color:var(--muted)}
+  .axislabels{direction:ltr; display:flex; justify-content:space-between; margin-top:8px; padding:0 2% 0 5%; color:var(--faint); font-size:11px; font-weight:600}
+  .mlist{display:flex; flex-direction:column; gap:11px}
+  .mrow{display:grid; grid-template-columns:78px 1fr 30px; align-items:center; gap:10px; font-size:13px}
+  .mrow .name{font-weight:700} .mrow.own .name{color:var(--brand)}
+  .mrow .track{height:22px; background:#F5F3EE; border-radius:7px; overflow:hidden; display:flex} .mrow .seg{height:100%}
+  .mrow .seg.solo{background:linear-gradient(90deg,var(--brand),var(--brand-2))} .mrow .seg.shared{background:var(--brand-soft)}
+  .mrow.comp .seg.solo{background:var(--comp)} .mrow.comp .seg.shared{background:#E7E5EE}
+  .mrow .v{text-align:end; font-weight:800; font-family:"Sora",sans-serif}
+  .legend{display:flex; gap:16px; margin-top:14px; font-size:12px; font-weight:600; color:var(--muted); flex-wrap:wrap}
+  .legend span{display:inline-flex; align-items:center; gap:7px} .legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+  .clusters{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .cl{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:#fff}
+  .cl summary{list-style:none; cursor:pointer; padding:15px 18px; display:flex; align-items:center; gap:12px}
+  .cl summary::-webkit-details-marker{display:none}
+  .cl .idx{font-family:"Sora",sans-serif; font-weight:800; color:var(--faint); font-size:13px; width:22px; flex:none}
+  .cl .cn{flex:1; min-width:0} .cl .cn b{display:block; font-weight:700; font-size:15px}
+  .ratio{font-family:"Sora",sans-serif; font-weight:800; font-size:13px; color:var(--muted)}
+  .status{font-size:11px; font-weight:800; padding:4px 9px; border-radius:999px; white-space:nowrap}
+  .status.full{background:#E7F6EE; color:#157a4f} .status.part{background:#FBF1DD; color:#9a6a09} .status.opp{background:#FDEAEE; color:#B0173A}
+  .cl .caret{color:var(--faint); transition:transform .2s; flex:none} .cl[open] .caret{transform:rotate(180deg)}
+  .cl .qs{padding:0 16px 14px; display:flex; flex-direction:column; gap:2px}
+  .qrow{display:flex; gap:11px; padding:10px 4px; border-top:1px solid var(--line)}
+  .qrow .qmark{flex:none; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; margin-top:1px}
+  .qrow .qmark.hit{background:#E7F6EE; color:var(--pos)} .qrow .qmark.miss{background:#F4F2EC; color:var(--faint)}
+  .qrow .qmark svg{width:12px;height:12px}
+  .qbody{flex:1; min-width:0}
+  .qtext{font-size:13px; line-height:1.45; color:var(--ink)} .qrow.miss .qtext{color:var(--muted)}
+  .qpages{display:flex; flex-direction:column; gap:3px; margin-top:6px}
+  .qpages a{font-size:12px; color:var(--brand); text-decoration:none; font-weight:600; word-break:break-all; direction:ltr; text-align:start}
+  .qpages a:hover{text-decoration:underline} .qpages a .pn{color:var(--faint); direction:rtl}
+  .rows{display:flex; flex-direction:column}
+  .prow{display:flex; align-items:center; gap:12px; padding:12px 0; border-top:1px solid var(--line)} .prow:first-child{border-top:0}
+  .prow .badge{font-family:"Sora",sans-serif; font-weight:800; font-size:14px; min-width:30px; height:30px; padding:0 8px; border-radius:9px; display:grid; place-items:center; background:var(--brand-soft); color:var(--brand); flex:none}
+  .prow .pt{flex:1; min-width:0} .prow .pt b{display:block; font-weight:700; font-size:14px}
+  .prow .pt a{color:var(--muted); font-weight:600; font-size:12px; word-break:break-all; direction:ltr; display:inline-block; text-decoration:none} .prow .pt a:hover{color:var(--brand); text-decoration:underline}
+  .drow{display:grid; grid-template-columns:1fr 60px 38px; align-items:center; gap:10px; padding:10px 0; border-top:1px solid var(--line); font-size:13.5px} .drow:first-child{border-top:0}
+  .drow .dn{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis} .drow .dt{height:7px; background:#F1EFE9; border-radius:999px; overflow:hidden}
+  .drow .df{height:100%; background:var(--comp); border-radius:999px} .drow.own .dn{color:var(--brand)} .drow.own .df{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .drow .dv{text-align:end; font-weight:800; font-family:"Sora",sans-serif; color:var(--muted)}
+  .tag{font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; margin-inline-start:8px; vertical-align:middle} .tag.brand{background:var(--brand-soft); color:var(--brand)} .tag.dir{background:#F2F1ED; color:var(--faint)}
+  .sechead{display:flex; align-items:center; gap:12px; margin:30px 2px 4px}
+  .sechead h2{font-family:"Sora","Heebo",sans-serif; font-size:19px; font-weight:800; margin:0; letter-spacing:-.01em; display:flex; align-items:center}
+  .sechead .line{flex:1; height:1px; background:var(--line)} .sechead .count{color:var(--faint); font-weight:700; font-size:13px}
+  .emptysrc{text-align:center; padding:54px 24px}
+  .emptysrc .ic{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 16px}
+  .emptysrc h3{margin:0 0 8px;font-size:19px;font-weight:800} .emptysrc p{margin:0 auto;max-width:440px;color:var(--muted);font-weight:600}
+  footer{margin-top:34px; padding-top:20px; border-top:1px solid var(--line); color:var(--faint); font-size:12.5px; font-weight:600; line-height:1.7} footer b{color:var(--muted)}
+  .rego{height:30px; width:auto; display:block}
+  .logobox{height:46px; padding:6px 12px; background:#fff; border:1px solid var(--line); border-radius:12px; display:inline-flex; align-items:center; box-shadow:var(--shadow)}
+  .clogo{height:26px; width:auto; display:block}
+  .prepared{margin-top:18px; background:#0F0E14; border-radius:14px; padding:15px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .prepared img{height:26px; width:auto} .prepared span{color:#C9C7D0; font-weight:600; font-size:12.5px}
+  .arow{display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-top:1px solid var(--line)} .arow:first-child{border-top:0}
+  .abolt{flex:none; width:28px;height:28px;border-radius:8px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin-top:1px} .abolt svg{width:15px;height:15px}
+  .atext{flex:1; min-width:0; font-size:14px; font-weight:600; line-height:1.45}
+  .alink{flex:none; font-size:12px; font-weight:700; color:var(--brand); text-decoration:none; border:1px solid var(--line); padding:5px 10px; border-radius:8px; white-space:nowrap} .alink:hover{background:var(--brand-soft)}
+  .aempty{color:var(--faint); font-weight:600; padding:6px 0}
+  @media (max-width:880px){ .hero-grid,.two,.clusters{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} .hero{flex-direction:column; align-items:flex-start} .ring{margin:0 auto} .sovbars.cols{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="inner">
+    <div class="mark"><img id="regoLogo" class="rego" alt="ReGo Digital Marketing"><small id="markSub">GEO Visibility</small></div>
+    <div class="spacer"></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="langHe" aria-pressed="true">עברית</button>
+      <button id="langEn" aria-pressed="false">EN</button>
+    </div>
+  </div></div>
+  <div class="wrap" id="app"></div>
+
 <script>
-const DATA={"name": {"he": "רשות החדשנות (אנגלית)", "en": "Israel Innovation Authority"}, "domain": "innovationisrael.org.il", "market": "US", "period": {"he": "סיכום רבעוני · Q2 2026", "en": "Quarterly Review · Q2 2026"}, "since": "13.04.2026", "totalQ": 80, "trend": [{"d": "13/04", "v": 43}, {"d": "20/04", "v": 52}, {"d": "27/04", "v": 57}, {"d": "04/05", "v": 50}, {"d": "11/05", "v": 55}, {"d": "18/05", "v": 57}, {"d": "25/05", "v": 49}, {"d": "01/06", "v": 46}, {"d": "08/06", "v": 53}, {"d": "15/06", "v": 48}, {"d": "22/06", "v": 70}, {"d": "29/06", "v": 67}, {"d": "06/07", "v": 67}, {"d": "13/07", "v": 61}, {"d": "15/07", "v": 61}], "trendTotals": {"start": 43, "end": 61}, "sources": {"chatgpt": {"label": "ChatGPT", "mentions": 30, "citations": 43, "clusters": [{"he": "ביוקונברג'נס וטכנולוגיות ביולוגיות", "en": "Bioconvergence & Bio-tech", "q": [{"t": "Who are the key players in the Israeli bioconvergence ecosystem?", "c": true, "u": ["innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "innovationisrael.org.il/en/report/bc-executive-summary/", "innovationisrael.org.il/en/report/bc-summary/", "innovationisrael.org.il/en/report/bio-convergence-2/"]}, {"t": "Which innovation centers in Israel work with biology startups?", "c": true, "u": ["innovationisrael.org.il/en/press_release/2-new-deep-tech-incubators/", "innovationisrael.org.il/en/press_release/israel-innovation-authority-launches-new-incubators-program/", "innovationisrael.org.il/en/the-israel-innovation-authority-2/", "innovationisrael.org.il/en/the-israel-innovation-authority/"]}, {"t": "Which incubators in Israel invest in computational biology and AI-driven drug discovery ventures?", "c": true, "u": ["innovationisrael.org.il/en/press_release/2-new-deep-tech-incubators/", "innovationisrael.org.il/en/press_release/israel-innovation-authority-launches-new-incubators-program/", "innovationisrael.org.il/en/press_release/selected-winning-group-to-establish-innovation-lab-for-digital-health-and-computational-biology/", "innovationisrael.org.il/en/press_release/technological-incubators-funding-program/"]}, {"t": "Which Israeli companies are developing biology-based solutions to tackle the climate crisis?", "c": true, "u": ["innovationisrael.org.il/en/press_release/ydlabs-to-establish-microorganism-fermentation-labs-for-the-foodtech-industry/", "innovationisrael.org.il/wp-content/uploads/2023/12/climatech-engl.pdf"]}, {"t": "Where can I find recordings of academia-industry meetups in the field of biomanufacturing?", "c": false, "u": []}, {"t": "What upcoming events and conferences are scheduled in Israel in the field of bioconvergence?", "c": true, "u": ["innovationisrael.org.il/wp-content/uploads/2026/04/National-Bioconvergence-Program-Activity-Summary-Midterm-Report-2026.pdf"]}, {"t": "What programs exist in Israel to encourage multidisciplinary innovation?", "c": true, "u": ["innovationisrael.org.il/en/calls_for_proposal/siird-strategic-program-2025/", "innovationisrael.org.il/en/calls_for_proposal/training-programs-2025/", "innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "innovationisrael.org.il/en/press_release/new-consortia-2025/"]}, {"t": "What new technologies exist to combat desertification and water scarcity?", "c": false, "u": []}, {"t": "What infrastructures in Israel enable the scale-up of fermentation processes?", "c": true, "u": ["innovationisrael.org.il/en/bc-2024-overview/", "innovationisrael.org.il/en/calls_for_proposal/call-for-proposal-to-establish-infrastructure-for-microorganism-fermentation-by-a-service-provider-focusing-mainly-on-novel-food/", "innovationisrael.org.il/en/press_release/infrastructure-for-fermentation-of-microorganisms-for-nutrients/", "innovationisrael.org.il/en/press_release/ydlabs-to-establish-microorganism-fermentation-labs-for-the-foodtech-industry/"]}, {"t": "What does the Israeli bioconvergence map look like by application fields and technologies?", "c": true, "u": ["innovationisrael.org.il/document/bioconvergence-program-activity-summary-midterm-report-2026/", "innovationisrael.org.il/en/press_release/serbia-and-israels-leadership/", "innovationisrael.org.il/en/report/bc-executive-summary/", "innovationisrael.org.il/en/report/bc-summary/"]}, {"t": "What calls for proposals are currently open for entrepreneurs and researchers in biology and engineering?", "c": false, "u": []}, {"t": "What are the most promising technologies in the field of bio-fabrication?", "c": false, "u": []}, {"t": "What are the main barriers to developing bioconvergence technologies, and how are they addressed?", "c": false, "u": []}, {"t": "I am developing a technology that combines biology and AI - who should I connect with in Israel?", "c": true, "u": ["innovationisrael.org.il/en/press_release/bc-activity-report-2026/"]}, {"t": "How many bioconvergence companies currently operate in Israel, and in what fields?", "c": true, "u": ["innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "innovationisrael.org.il/en/report/bc-summary/", "innovationisrael.org.il/en/report/bio-convergence-2/", "innovationisrael.org.il/en/report/israel-bc-ecosystem/"]}, {"t": "How is artificial intelligence transforming the drug development process?", "c": false, "u": []}, {"t": "How do you find investors interested in bioconvergence and biological deep-tech?", "c": false, "u": []}, {"t": "How do you connect life sciences with the high-tech industry?", "c": false, "u": []}, {"t": "How can biomanufacturing help reduce carbon emissions?", "c": false, "u": []}, {"t": "How can I find Israeli partners for biochip technology development?", "c": true, "u": ["innovationisrael.org.il/en/invested-companies-2026/", "innovationisrael.org.il/en/press_release/2-new-deep-tech-incubators/", "innovationisrael.org.il/en/press_release/israel-innovation-authority-launches-new-incubators-program/", "innovationisrael.org.il/en/press_release/nis-75-million-for-new-groundbreaking-bio-devices-and-bio-chips-lab/"]}]}, {"he": "מינרלים קריטיים ושרשרת אספקה", "en": "Critical Minerals & Supply Chain", "q": [{"t": "Which hot startups are currently developing synthetic alternatives instead of using rare earth metals?", "c": false, "u": []}, {"t": "Which giant corporations are currently looking to acquire technologies or startups to solve their mineral shortage issues?", "c": false, "u": []}, {"t": "Which funds around the world focus on or emphasize investments in companies solving the current challenges surrounding critical minerals?", "c": false, "u": []}, {"t": "Where are the major venture capital funds (VCs) putting their money today when it comes to critical minerals?", "c": false, "u": []}, {"t": "What technologies are currently helping to make mineral mining much greener and cleaner?", "c": false, "u": []}, {"t": "What new grants or laws have been introduced recently in the US and Europe to push startups in the minerals sector?", "c": false, "u": []}, {"t": "What are the most innovative methods today for recycling electronic waste to extract critical minerals from it?", "c": false, "u": []}, {"t": "How is the global geopolitical turmoil affecting companies that need to manufacture hardware, and how is technology trying to help them with this?", "c": false, "u": []}, {"t": "How do AI and software tools help solve delays and problems in the mineral supply chain?", "c": false, "u": []}, {"t": "How are companies using Artificial Intelligence (AI) today to discover new mineral deposits?", "c": false, "u": []}, {"t": "Find me new technological developments for batteries that work without lithium and cobalt.", "c": false, "u": []}]}, {"he": "דיפ-טק ישראלי", "en": "Israeli Deep-Tech", "q": [{"t": "Who are the leading startups and Deep Tech companies in Israel in the fields of Artificial Intelligence (AI), drug development, and medical devices?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "Which venture capital funds and institutional bodies invest in Deep Tech startups in Israel, and how is the Innovation Authority's Yozma Fund related to this?", "c": true, "u": ["innovationisrael.org.il/en/calls_for_proposal/yozma-2-0-fund/", "innovationisrael.org.il/en/calls_for_proposal/yozma-deep-tech/", "innovationisrael.org.il/en/press_release/yoazma-deep-tech/", "innovationisrael.org.il/en/press_release/yozma-impact/"]}, {"t": "Which Israeli companies are considered global pioneers in the fields of semiconductors, quantum computing, and robotics?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "What are the fastest-growing and most promising fields in the Israeli Deep Tech ecosystem, and which sectors are attracting the most investments today?", "c": true, "u": ["innovationisrael.org.il/document/israeli-deep-tech-report-2025-eng/", "innovationisrael.org.il/en/digital-reports/", "innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/"]}, {"t": "How is the Israeli Deep Tech industry positioned compared to leading global tech hubs, and who are the prominent foreign investors operating within it?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "innovationisrael.org.il/en/report/deep-tech-in-israel/", "innovationisrael.org.il/en/report/preface-2025/"]}]}, {"he": "חדשנות ואקוסיסטם (מיצוב)", "en": "Innovation Ecosystem & Positioning", "q": [{"t": "Why is Israel a preferred destination for technology scouting?", "c": true, "u": ["innovationisrael.org.il/en/", "innovationisrael.org.il/en/deep-tech-nation-israels-strategic-imperative/", "innovationisrael.org.il/en/israeli-tech-ecosystem/", "innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "Why do multinational corporations seek partnerships with startups?", "c": false, "u": []}, {"t": "Why do multinational corporations invest in Israeli innovation?", "c": true, "u": ["innovationisrael.org.il/en/co-invest-with-the-israel-innovation-authority/", "innovationisrael.org.il/en/encouraging-rd-centers-activity-in-forgotten-technological-fields/", "innovationisrael.org.il/en/programs/pilot-programs-with-multinational-corporations-mncs/", "innovationisrael.org.il/en/programs/rd-collaboration-with-multinational-corporations-program-mnc/"]}, {"t": "What makes Israel one of the most dynamic innovation ecosystems in the world?", "c": true, "u": ["innovationisrael.org.il/en/", "innovationisrael.org.il/en/israeli-tech-ecosystem/"]}, {"t": "What makes Israel an innovation leader globally?", "c": true, "u": ["innovationisrael.org.il/en/", "innovationisrael.org.il/en/deep-tech-nation-israels-strategic-imperative/", "innovationisrael.org.il/en/israeli-tech-ecosystem/", "innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "What makes Israel a global leader in technology innovation?", "c": true, "u": ["innovationisrael.org.il/document/", "innovationisrael.org.il/document/israel-innovation-authority-2026-high-tech-report/", "innovationisrael.org.il/document/israeli-deep-tech-report-2025-eng/", "innovationisrael.org.il/document_type/publication/"]}, {"t": "How does Israel's government support innovation?", "c": true, "u": ["innovationisrael.org.il/en/about-the-innovation-authority/", "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2026/", "innovationisrael.org.il/en/programs/pilots-fund/", "innovationisrael.org.il/en/programs/startup-fund/"]}, {"t": "How does Israel encourage international R&D collaboration?", "c": true, "u": ["innovationisrael.org.il/en/calls_for_proposal/international-rampd-and-pilots-collaboration-2024-call-for-proposals/", "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2025-26/", "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2026/", "innovationisrael.org.il/en/calls_for_proposal/international-rnd-and-pilot-collaborations-2025ii/"]}, {"t": "How do innovation ecosystems help startups scale globally?", "c": false, "u": []}, {"t": "How do global companies collaborate with Israeli startups?", "c": true, "u": ["innovationisrael.org.il/en/programs/rd-collaboration-with-multinational-corporations-program-mnc/"]}, {"t": "How can innovation hubs accelerate startup growth?", "c": false, "u": []}]}, {"he": "השקעות וכלכלת ידע", "en": "Investment & Knowledge Economy", "q": [{"t": "Why are research-driven startups appealing to global investors?", "c": false, "u": []}, {"t": "What role does government play in R&D backed startup success?", "c": false, "u": []}, {"t": "What makes a country attractive for technology investment overall?", "c": false, "u": []}, {"t": "What is a knowledge economy and how does Israel leverage it?", "c": true, "u": ["innovationisrael.org.il/en/press_release/knowledge-commercialization/"]}, {"t": "What emerging technologies are coming out of Israel's research ecosystem?", "c": true, "u": ["innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "innovationisrael.org.il/en/press_release/beta-sites-for-pilots/", "innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/new-consortia-2025/"]}, {"t": "What are the signs of a sustainable technology innovation ecosystem?", "c": false, "u": []}, {"t": "How does public R&D support strengthen private investment in Israel?", "c": true, "u": ["innovationisrael.org.il/en/report/a-global-comparison/", "innovationisrael.org.il/en/royalties-intellectual-property/", "innovationisrael.org.il/en/strategy-and-policy/", "innovationisrael.org.il/en/the-israel-innovation-authority/"]}, {"t": "How does Israel's education system feed its knowledge economy?", "c": false, "u": []}, {"t": "How does Israel's R&D ecosystem support breakthrough technologies?", "c": true, "u": ["innovationisrael.org.il/en/", "innovationisrael.org.il/en/about-the-innovation-authority/", "innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "How do startups turn breakthrough research into commercial success?", "c": false, "u": []}, {"t": "How do innovation-friendly environments attract venture capital?", "c": false, "u": []}, {"t": "How do governments facilitate the transfer of tech IP from academia to business?", "c": false, "u": []}, {"t": "How can public innovation support reduce investment risk in startups?", "c": false, "u": []}, {"t": "How can early public funding attract private investors?", "c": false, "u": []}, {"t": "Why should investors consider early-stage technology startups?", "c": false, "u": []}, {"t": "Why should investors consider Israeli startups?", "c": true, "u": ["innovationisrael.org.il/en/", "innovationisrael.org.il/en/co-invest-with-the-israel-innovation-authority/", "innovationisrael.org.il/en/israeli-tech-ecosystem/", "innovationisrael.org.il/en/press_release/innovation-report-2025/"]}, {"t": "Why is Israel called the Startup Nation?", "c": false, "u": []}, {"t": "Why are Israeli startups attractive acquisition targets?", "c": false, "u": []}, {"t": "What makes the Israeli tech ecosystem attractive to foreign investors?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "innovationisrael.org.il/en/report/overview-israeli-high-tech-in-2025/", "innovationisrael.org.il/en/report/preface-2026/"]}, {"t": "What makes Israeli entrepreneurs globally competitive?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "innovationisrael.org.il/en/report/preface-2025/", "innovationisrael.org.il/en/report/preface-2026/"]}, {"t": "What is unique about Israel's startup ecosystem?", "c": true, "u": ["innovationisrael.org.il/en/israeli-tech-ecosystem/"]}, {"t": "What is Israel's track record in tech exits?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "innovationisrael.org.il/en/report/deep-tech-in-israel/", "innovationisrael.org.il/en/report/overview-israeli-high-tech-in-2025/"]}, {"t": "What factors signal strong growth potential in a tech startup market?", "c": false, "u": []}, {"t": "What are the most successful Israeli startups?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/"]}, {"t": "What are the benefits of co-investing in Israeli technology ventures?", "c": true, "u": ["innovationisrael.org.il/en/co-invest-with-the-israel-innovation-authority/", "innovationisrael.org.il/en/invest-with-us/", "innovationisrael.org.il/en/press_release/stimulus-to-boost-israeli-high-tech/", "innovationisrael.org.il/en/press_release/yozma-impact/"]}, {"t": "What advantages do Israeli startups offer foreign investors?", "c": true, "u": ["innovationisrael.org.il/en/investment-considerations/", "innovationisrael.org.il/en/press_release/high-tech-and-export-support-package/", "innovationisrael.org.il/sites/default/files/2023%20%20The%20state%20of%20High-Tech.pdf"]}, {"t": "How many unicorns has Israel produced?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/"]}, {"t": "How does Israel's innovation ecosystem compare globally?", "c": true, "u": ["innovationisrael.org.il/en/press_release/innovation-report-2025/", "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "innovationisrael.org.il/en/report/a-global-comparison/", "innovationisrael.org.il/en/report/preface-2025/"]}, {"t": "How does Israel encourage collaboration between startups and global companies?", "c": true, "u": ["innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2025-26/", "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2026/", "innovationisrael.org.il/en/calls_for_proposal/international-rnd-and-pilots-collaborations-2025/", "innovationisrael.org.il/en/global-collaborations/"]}, {"t": "How do startups from small markets compete globally?", "c": false, "u": []}, {"t": "How do Israeli startups scale to international markets so quickly?", "c": true, "u": ["innovationisrael.org.il/en/report/barriers-to-scaling-and-growth-faced-by-israeli-startups/", "innovationisrael.org.il/en/report/preface-2026/"]}, {"t": "How can investors access high-quality startup deal flow internationally?", "c": false, "u": []}, {"t": "How can foreign investors partner with Israeli startups?", "c": true, "u": ["innovationisrael.org.il/en/collaborate-with-us/", "innovationisrael.org.il/en/programs/technological-incubators-2024/", "innovationisrael.org.il/en/report/part-3-investors/"]}]}], "citedPages": [{"u": "innovationisrael.org.il/en/press_release/innovation-report-2025/", "l": "Press release", "n": 16}, {"u": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "l": "Press release", "n": 11}, {"u": "innovationisrael.org.il/en/report/preface-2025/", "l": "Report page", "n": 9}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority/", "l": "Innovation Authority page", "n": 8}, {"u": "innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "l": "Press release", "n": 6}, {"u": "innovationisrael.org.il/en/report/preface-2026/", "l": "Report page", "n": 6}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority-2/", "l": "Innovation Authority page", "n": 5}, {"u": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025/", "l": "Report page", "n": 5}]}, "copilot": {"label": "Copilot", "mentions": 26, "citations": 24, "clusters": [{"he": "ביוקונברג'נס וטכנולוגיות ביולוגיות", "en": "Bioconvergence & Bio-tech", "q": [{"t": "Who are the key players in the Israeli bioconvergence ecosystem?", "c": true, "u": []}, {"t": "Which innovation centers in Israel work with biology startups?", "c": false, "u": []}, {"t": "Which incubators in Israel invest in computational biology and AI-driven drug discovery ventures?", "c": false, "u": []}, {"t": "Which Israeli companies are developing biology-based solutions to tackle the climate crisis?", "c": false, "u": []}, {"t": "Where can I find recordings of academia-industry meetups in the field of biomanufacturing?", "c": false, "u": []}, {"t": "What upcoming events and conferences are scheduled in Israel in the field of bioconvergence?", "c": false, "u": []}, {"t": "What programs exist in Israel to encourage multidisciplinary innovation?", "c": true, "u": []}, {"t": "What new technologies exist to combat desertification and water scarcity?", "c": false, "u": []}, {"t": "What infrastructures in Israel enable the scale-up of fermentation processes?", "c": true, "u": []}, {"t": "What does the Israeli bioconvergence map look like by application fields and technologies?", "c": true, "u": []}, {"t": "What calls for proposals are currently open for entrepreneurs and researchers in biology and engineering?", "c": false, "u": []}, {"t": "What are the most promising technologies in the field of bio-fabrication?", "c": false, "u": []}, {"t": "What are the main barriers to developing bioconvergence technologies, and how are they addressed?", "c": false, "u": []}, {"t": "I am developing a technology that combines biology and AI - who should I connect with in Israel?", "c": false, "u": []}, {"t": "How many bioconvergence companies currently operate in Israel, and in what fields?", "c": true, "u": []}, {"t": "How is artificial intelligence transforming the drug development process?", "c": false, "u": []}, {"t": "How do you find investors interested in bioconvergence and biological deep-tech?", "c": false, "u": []}, {"t": "How do you connect life sciences with the high-tech industry?", "c": false, "u": []}, {"t": "How can biomanufacturing help reduce carbon emissions?", "c": false, "u": []}, {"t": "How can I find Israeli partners for biochip technology development?", "c": true, "u": []}]}, {"he": "מינרלים קריטיים ושרשרת אספקה", "en": "Critical Minerals & Supply Chain", "q": [{"t": "Which hot startups are currently developing synthetic alternatives instead of using rare earth metals?", "c": false, "u": []}, {"t": "Which giant corporations are currently looking to acquire technologies or startups to solve their mineral shortage issues?", "c": false, "u": []}, {"t": "Which funds around the world focus on or emphasize investments in companies solving the current challenges surrounding critical minerals?", "c": false, "u": []}, {"t": "Where are the major venture capital funds (VCs) putting their money today when it comes to critical minerals?", "c": false, "u": []}, {"t": "What technologies are currently helping to make mineral mining much greener and cleaner?", "c": false, "u": []}, {"t": "What new grants or laws have been introduced recently in the US and Europe to push startups in the minerals sector?", "c": false, "u": []}, {"t": "What are the most innovative methods today for recycling electronic waste to extract critical minerals from it?", "c": false, "u": []}, {"t": "How is the global geopolitical turmoil affecting companies that need to manufacture hardware, and how is technology trying to help them with this?", "c": false, "u": []}, {"t": "How do AI and software tools help solve delays and problems in the mineral supply chain?", "c": false, "u": []}, {"t": "How are companies using Artificial Intelligence (AI) today to discover new mineral deposits?", "c": false, "u": []}, {"t": "Find me new technological developments for batteries that work without lithium and cobalt.", "c": false, "u": []}]}, {"he": "דיפ-טק ישראלי", "en": "Israeli Deep-Tech", "q": [{"t": "Who are the leading startups and Deep Tech companies in Israel in the fields of Artificial Intelligence (AI), drug development, and medical devices?", "c": false, "u": []}, {"t": "Which venture capital funds and institutional bodies invest in Deep Tech startups in Israel, and how is the Innovation Authority's Yozma Fund related to this?", "c": true, "u": []}, {"t": "Which Israeli companies are considered global pioneers in the fields of semiconductors, quantum computing, and robotics?", "c": false, "u": []}, {"t": "What are the fastest-growing and most promising fields in the Israeli Deep Tech ecosystem, and which sectors are attracting the most investments today?", "c": false, "u": []}, {"t": "How is the Israeli Deep Tech industry positioned compared to leading global tech hubs, and who are the prominent foreign investors operating within it?", "c": true, "u": []}]}, {"he": "חדשנות ואקוסיסטם (מיצוב)", "en": "Innovation Ecosystem & Positioning", "q": [{"t": "Why is Israel a preferred destination for technology scouting?", "c": false, "u": []}, {"t": "Why do multinational corporations seek partnerships with startups?", "c": false, "u": []}, {"t": "Why do multinational corporations invest in Israeli innovation?", "c": false, "u": []}, {"t": "What makes Israel one of the most dynamic innovation ecosystems in the world?", "c": true, "u": []}, {"t": "What makes Israel an innovation leader globally?", "c": true, "u": []}, {"t": "What makes Israel a global leader in technology innovation?", "c": true, "u": []}, {"t": "How does Israel's government support innovation?", "c": true, "u": []}, {"t": "How does Israel encourage international R&D collaboration?", "c": true, "u": []}, {"t": "How do innovation ecosystems help startups scale globally?", "c": false, "u": []}, {"t": "How do global companies collaborate with Israeli startups?", "c": false, "u": []}, {"t": "How can innovation hubs accelerate startup growth?", "c": false, "u": []}]}, {"he": "השקעות וכלכלת ידע", "en": "Investment & Knowledge Economy", "q": [{"t": "Why are research-driven startups appealing to global investors?", "c": false, "u": []}, {"t": "What role does government play in R&D backed startup success?", "c": false, "u": []}, {"t": "What makes a country attractive for technology investment overall?", "c": false, "u": []}, {"t": "What is a knowledge economy and how does Israel leverage it?", "c": false, "u": []}, {"t": "What emerging technologies are coming out of Israel's research ecosystem?", "c": true, "u": []}, {"t": "What are the signs of a sustainable technology innovation ecosystem?", "c": false, "u": []}, {"t": "How does public R&D support strengthen private investment in Israel?", "c": false, "u": []}, {"t": "How does Israel's education system feed its knowledge economy?", "c": false, "u": []}, {"t": "How does Israel's R&D ecosystem support breakthrough technologies?", "c": true, "u": []}, {"t": "How do startups turn breakthrough research into commercial success?", "c": false, "u": []}, {"t": "How do innovation-friendly environments attract venture capital?", "c": false, "u": []}, {"t": "How do governments facilitate the transfer of tech IP from academia to business?", "c": false, "u": []}, {"t": "How can public innovation support reduce investment risk in startups?", "c": false, "u": []}, {"t": "How can early public funding attract private investors?", "c": false, "u": []}, {"t": "Why should investors consider early-stage technology startups?", "c": false, "u": []}, {"t": "Why should investors consider Israeli startups?", "c": false, "u": []}, {"t": "Why is Israel called the Startup Nation?", "c": false, "u": []}, {"t": "Why are Israeli startups attractive acquisition targets?", "c": false, "u": []}, {"t": "What makes the Israeli tech ecosystem attractive to foreign investors?", "c": true, "u": []}, {"t": "What makes Israeli entrepreneurs globally competitive?", "c": true, "u": []}, {"t": "What is unique about Israel's startup ecosystem?", "c": true, "u": []}, {"t": "What is Israel's track record in tech exits?", "c": true, "u": []}, {"t": "What factors signal strong growth potential in a tech startup market?", "c": false, "u": []}, {"t": "What are the most successful Israeli startups?", "c": false, "u": []}, {"t": "What are the benefits of co-investing in Israeli technology ventures?", "c": true, "u": []}, {"t": "What advantages do Israeli startups offer foreign investors?", "c": false, "u": []}, {"t": "How many unicorns has Israel produced?", "c": false, "u": []}, {"t": "How does Israel's innovation ecosystem compare globally?", "c": true, "u": []}, {"t": "How does Israel encourage collaboration between startups and global companies?", "c": true, "u": []}, {"t": "How do startups from small markets compete globally?", "c": false, "u": []}, {"t": "How do Israeli startups scale to international markets so quickly?", "c": false, "u": []}, {"t": "How can investors access high-quality startup deal flow internationally?", "c": false, "u": []}, {"t": "How can foreign investors partner with Israeli startups?", "c": true, "u": []}]}], "citedPages": [{"u": "innovationisrael.org.il/en/press_release/innovation-report-2025/", "l": "Press release", "n": 16}, {"u": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "l": "Press release", "n": 11}, {"u": "innovationisrael.org.il/en/report/preface-2025/", "l": "Report page", "n": 9}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority/", "l": "Innovation Authority page", "n": 8}, {"u": "innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "l": "Press release", "n": 6}, {"u": "innovationisrael.org.il/en/report/preface-2026/", "l": "Report page", "n": 6}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority-2/", "l": "Innovation Authority page", "n": 5}, {"u": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025/", "l": "Report page", "n": 5}]}, "gemini": {"label": "Gemini", "mentions": 31, "citations": 32, "clusters": [{"he": "ביוקונברג'נס וטכנולוגיות ביולוגיות", "en": "Bioconvergence & Bio-tech", "q": [{"t": "Who are the key players in the Israeli bioconvergence ecosystem?", "c": true, "u": []}, {"t": "Which innovation centers in Israel work with biology startups?", "c": false, "u": []}, {"t": "Which incubators in Israel invest in computational biology and AI-driven drug discovery ventures?", "c": true, "u": []}, {"t": "Which Israeli companies are developing biology-based solutions to tackle the climate crisis?", "c": false, "u": []}, {"t": "Where can I find recordings of academia-industry meetups in the field of biomanufacturing?", "c": false, "u": []}, {"t": "What upcoming events and conferences are scheduled in Israel in the field of bioconvergence?", "c": true, "u": []}, {"t": "What programs exist in Israel to encourage multidisciplinary innovation?", "c": false, "u": []}, {"t": "What new technologies exist to combat desertification and water scarcity?", "c": false, "u": []}, {"t": "What infrastructures in Israel enable the scale-up of fermentation processes?", "c": false, "u": []}, {"t": "What does the Israeli bioconvergence map look like by application fields and technologies?", "c": true, "u": []}, {"t": "What calls for proposals are currently open for entrepreneurs and researchers in biology and engineering?", "c": false, "u": []}, {"t": "What are the most promising technologies in the field of bio-fabrication?", "c": false, "u": []}, {"t": "What are the main barriers to developing bioconvergence technologies, and how are they addressed?", "c": false, "u": []}, {"t": "I am developing a technology that combines biology and AI - who should I connect with in Israel?", "c": true, "u": []}, {"t": "How many bioconvergence companies currently operate in Israel, and in what fields?", "c": false, "u": []}, {"t": "How is artificial intelligence transforming the drug development process?", "c": false, "u": []}, {"t": "How do you find investors interested in bioconvergence and biological deep-tech?", "c": false, "u": []}, {"t": "How do you connect life sciences with the high-tech industry?", "c": false, "u": []}, {"t": "How can biomanufacturing help reduce carbon emissions?", "c": false, "u": []}, {"t": "How can I find Israeli partners for biochip technology development?", "c": true, "u": []}]}, {"he": "מינרלים קריטיים ושרשרת אספקה", "en": "Critical Minerals & Supply Chain", "q": [{"t": "Which hot startups are currently developing synthetic alternatives instead of using rare earth metals?", "c": false, "u": []}, {"t": "Which giant corporations are currently looking to acquire technologies or startups to solve their mineral shortage issues?", "c": false, "u": []}, {"t": "Which funds around the world focus on or emphasize investments in companies solving the current challenges surrounding critical minerals?", "c": false, "u": []}, {"t": "Where are the major venture capital funds (VCs) putting their money today when it comes to critical minerals?", "c": false, "u": []}, {"t": "What technologies are currently helping to make mineral mining much greener and cleaner?", "c": false, "u": []}, {"t": "What new grants or laws have been introduced recently in the US and Europe to push startups in the minerals sector?", "c": false, "u": []}, {"t": "What are the most innovative methods today for recycling electronic waste to extract critical minerals from it?", "c": false, "u": []}, {"t": "How is the global geopolitical turmoil affecting companies that need to manufacture hardware, and how is technology trying to help them with this?", "c": false, "u": []}, {"t": "How do AI and software tools help solve delays and problems in the mineral supply chain?", "c": false, "u": []}, {"t": "How are companies using Artificial Intelligence (AI) today to discover new mineral deposits?", "c": false, "u": []}, {"t": "Find me new technological developments for batteries that work without lithium and cobalt.", "c": false, "u": []}]}, {"he": "דיפ-טק ישראלי", "en": "Israeli Deep-Tech", "q": [{"t": "Who are the leading startups and Deep Tech companies in Israel in the fields of Artificial Intelligence (AI), drug development, and medical devices?", "c": false, "u": []}, {"t": "Which venture capital funds and institutional bodies invest in Deep Tech startups in Israel, and how is the Innovation Authority's Yozma Fund related to this?", "c": true, "u": []}, {"t": "Which Israeli companies are considered global pioneers in the fields of semiconductors, quantum computing, and robotics?", "c": false, "u": []}, {"t": "What are the fastest-growing and most promising fields in the Israeli Deep Tech ecosystem, and which sectors are attracting the most investments today?", "c": true, "u": []}, {"t": "How is the Israeli Deep Tech industry positioned compared to leading global tech hubs, and who are the prominent foreign investors operating within it?", "c": false, "u": []}]}, {"he": "חדשנות ואקוסיסטם (מיצוב)", "en": "Innovation Ecosystem & Positioning", "q": [{"t": "Why is Israel a preferred destination for technology scouting?", "c": false, "u": []}, {"t": "Why do multinational corporations seek partnerships with startups?", "c": false, "u": []}, {"t": "Why do multinational corporations invest in Israeli innovation?", "c": false, "u": []}, {"t": "What makes Israel one of the most dynamic innovation ecosystems in the world?", "c": false, "u": []}, {"t": "What makes Israel an innovation leader globally?", "c": false, "u": []}, {"t": "What makes Israel a global leader in technology innovation?", "c": true, "u": []}, {"t": "How does Israel's government support innovation?", "c": true, "u": []}, {"t": "How does Israel encourage international R&D collaboration?", "c": true, "u": []}, {"t": "How do innovation ecosystems help startups scale globally?", "c": false, "u": []}, {"t": "How do global companies collaborate with Israeli startups?", "c": true, "u": []}, {"t": "How can innovation hubs accelerate startup growth?", "c": false, "u": []}]}, {"he": "השקעות וכלכלת ידע", "en": "Investment & Knowledge Economy", "q": [{"t": "Why are research-driven startups appealing to global investors?", "c": false, "u": []}, {"t": "What role does government play in R&D backed startup success?", "c": false, "u": []}, {"t": "What makes a country attractive for technology investment overall?", "c": false, "u": []}, {"t": "What is a knowledge economy and how does Israel leverage it?", "c": true, "u": []}, {"t": "What emerging technologies are coming out of Israel's research ecosystem?", "c": true, "u": []}, {"t": "What are the signs of a sustainable technology innovation ecosystem?", "c": false, "u": []}, {"t": "How does public R&D support strengthen private investment in Israel?", "c": true, "u": []}, {"t": "How does Israel's education system feed its knowledge economy?", "c": true, "u": []}, {"t": "How does Israel's R&D ecosystem support breakthrough technologies?", "c": true, "u": []}, {"t": "How do startups turn breakthrough research into commercial success?", "c": false, "u": []}, {"t": "How do innovation-friendly environments attract venture capital?", "c": false, "u": []}, {"t": "How do governments facilitate the transfer of tech IP from academia to business?", "c": false, "u": []}, {"t": "How can public innovation support reduce investment risk in startups?", "c": false, "u": []}, {"t": "How can early public funding attract private investors?", "c": false, "u": []}, {"t": "Why should investors consider early-stage technology startups?", "c": false, "u": []}, {"t": "Why should investors consider Israeli startups?", "c": true, "u": []}, {"t": "Why is Israel called the Startup Nation?", "c": false, "u": []}, {"t": "Why are Israeli startups attractive acquisition targets?", "c": false, "u": []}, {"t": "What makes the Israeli tech ecosystem attractive to foreign investors?", "c": true, "u": []}, {"t": "What makes Israeli entrepreneurs globally competitive?", "c": true, "u": []}, {"t": "What is unique about Israel's startup ecosystem?", "c": false, "u": []}, {"t": "What is Israel's track record in tech exits?", "c": true, "u": []}, {"t": "What factors signal strong growth potential in a tech startup market?", "c": false, "u": []}, {"t": "What are the most successful Israeli startups?", "c": false, "u": []}, {"t": "What are the benefits of co-investing in Israeli technology ventures?", "c": true, "u": []}, {"t": "What advantages do Israeli startups offer foreign investors?", "c": true, "u": []}, {"t": "How many unicorns has Israel produced?", "c": false, "u": []}, {"t": "How does Israel's innovation ecosystem compare globally?", "c": false, "u": []}, {"t": "How does Israel encourage collaboration between startups and global companies?", "c": true, "u": []}, {"t": "How do startups from small markets compete globally?", "c": false, "u": []}, {"t": "How do Israeli startups scale to international markets so quickly?", "c": true, "u": []}, {"t": "How can investors access high-quality startup deal flow internationally?", "c": false, "u": []}, {"t": "How can foreign investors partner with Israeli startups?", "c": true, "u": []}]}], "citedPages": [{"u": "innovationisrael.org.il/en/press_release/innovation-report-2025/", "l": "Press release", "n": 16}, {"u": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026/", "l": "Press release", "n": 11}, {"u": "innovationisrael.org.il/en/report/preface-2025/", "l": "Report page", "n": 9}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority/", "l": "Innovation Authority page", "n": 8}, {"u": "innovationisrael.org.il/en/press_release/bc-activity-report-2026/", "l": "Press release", "n": 6}, {"u": "innovationisrael.org.il/en/report/preface-2026/", "l": "Report page", "n": 6}, {"u": "innovationisrael.org.il/en/the-israel-innovation-authority-2/", "l": "Innovation Authority page", "n": 5}, {"u": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025/", "l": "Report page", "n": 5}]}}, "mentionsAI": [{"url": "https://qr.ae/pFnGrg", "domain": "qr.ae", "cited": false}, {"url": "https://www.youtube.com/watch?v=BgPy76_uPBU", "domain": "youtube.com", "cited": false}, {"url": "https://www.youtube.com/watch?v=aO79IHfoB0E", "domain": "youtube.com", "cited": false}, {"url": "https://medium.com/@harper.davis24/strong-perspective-3c0f8530ea14", "domain": "medium.com", "cited": false}, {"url": "https://www.reddit.com/r/investing/comments/1qadkrs/", "domain": "reddit.com", "cited": false}, {"url": "https://www.youtube.com/watch?v=4xfiRuIspCc", "domain": "youtube.com", "cited": false}, {"url": "https://www.youtube.com/watch?v=OY0A1FZ7nUs", "domain": "youtube.com", "cited": false}, {"url": "https://medium.com/@davieswilliam222/really-insightful-article-200e19526e32", "domain": "medium.com", "cited": false}, {"url": "https://qr.ae/pFsGM6", "domain": "qr.ae", "cited": false}, {"url": "https://www.youtube.com/watch?v=S6l8_64yZnQ", "domain": "youtube.com", "cited": false}], "actions": [{"t": "הגדרת קלסטר Bioconvergence (BC) ויצירת שאילתות"}, {"t": "הזנת 20 שאילתות לקלסטר BC"}, {"t": "הזמנת 10 אזכורי AI לקלסטר BC (יולי–ספטמבר)"}, {"t": "בחירת 2 קלסטרים נוספים למעקב"}, {"t": "מיפוי עמודי הברנד המצוטטים ומציאת שאילתות רלוונטיות במאגר"}, {"t": "תיעדוף נושאים וקלסטרים של שאילתות + סיווג ותיוג"}, {"t": "הפקת דו\"ח אופטימיזציית תוכן — Startup Israel"}, {"t": "יצירת עמוד LLM info"}, {"t": "אזכורי AI באמצעות ספק חיצוני"}]};
-let lang="en";
-let source=Object.keys(DATA.sources)[0];
-const T={
- he:{report:"דו\"ח GEO",live:"מתעדכן חי",market:"שוק",since:"במעקב מאז",
-   citations:"ציטוטים",citFoot:"תשובות AI שציטטו עמוד של הרשות",
-   mentions:"אזכורי שם",menFoot:"פעמים שהשם הוזכר בתשובות",
-   vis:"נראות",visFoot:d=>`מתוך ${d} שאילתות במעקב`,
-   pages:"עמודים מצוטטים",pagesFoot:"עמודים ייחודיים שזכו לציטוט",
-   trendH:"מגמת ציטוטים — 3 חודשים",trendS:"סך הציטוטים בכל מנועי ה-AI במעקב, לאורך הרבעון",
-   growth:"גידול ברבעון",clH:"תוצאות לפי קלסטר",clS:"בכמה משאילתות כל קלסטר צוטט עמוד של הרשות (במנוע הנבחר)",
-   aiH:"אזכורי AI שהוזמנו",aiS:"קישורים שהוזמנו עבור הלקוח — מסומן אם צוטטו באחת מתשובות ה-AI במעקב",
-   cited:"צוטט",pending:"טרם צוטט",citedIn:"צוטט בתשובה לשאלה:",inSrc:"במנוע:",
-   actH:"פעולות שבוצעו ברבעון",src:"מנוע",
-   full:"מובילה",part:"חלקית",opp:"הזדמנות"},
- en:{report:"GEO Report",live:"Live",market:"Market",since:"Tracked since",
-   citations:"Citations",citFoot:"AI answers citing an Authority page",
-   mentions:"Name mentions",menFoot:"Times the brand name appeared",
-   vis:"Visibility",visFoot:d=>`of ${d} tracked queries`,
-   pages:"Cited pages",pagesFoot:"distinct pages earning citations",
-   trendH:"Citations trend — 3 months",trendS:"Total citations across all tracked AI engines over the quarter",
-   growth:"Quarter growth",clH:"Results by cluster",clS:"How many of each cluster's queries cited an Authority page (selected engine)",
-   aiH:"Placed AI mentions",aiS:"Links placed for the client — flagged when cited in a tracked AI answer",
-   cited:"Cited",pending:"Not cited yet",citedIn:"Cited in answer to:",inSrc:"in:",
-   actH:"Actions completed this quarter",src:"Engine",
-   full:"Leading",part:"Partial",opp:"Opportunity"}
+/* ============================ DATA:START ============================
+   CONSTANT TEMPLATE — ships with NO client data. The skill replaces
+   EVERYTHING between DATA:START and DATA:END each month, per client.
+   Brand name, domain and the query total flow into every label/tooltip
+   automatically via the {brand} / {domain} / {n} tokens in DICT, so
+   DICT and the render code are NEVER edited between clients.
+
+   Shape to fill (authoritative version in SKILL.md Step 5):
+   {
+     name:{he,en}, initials, domain, market, period:{he,en}, sinceDate,
+     totalQueries,                       // number behind the "/n" copy
+     actions:[{task, link}],
+     sources:{ chatgpt:{ tracked:true,
+       sov:[{name:{he,en}, v, own?}],
+       mentionsDaily:[..], mentionsStart:"YYYY-MM-DD",
+       mentionsByBrand:[{name:{he,en}, solo, shared, own?}],
+       citedPages:[{url, label:{he,en}, q}],
+       domains:[{d, r, own?, dir?}],
+       clusters:[{name:{he,en}, q:[{t, c, u:[{url, note?}]}]}]
+     }  (every other source uses { tracked:false })
+   }
+   ==================================================================== */
+const DATA = {
+  "name": {
+    "he": "רשות החדשנות (אנגלית)",
+    "en": "Israel Innovation Authority"
+  },
+  "initials": "IIA",
+  "domain": "innovationisrael.org.il",
+  "market": "US",
+  "period": {
+    "he": "מאי–יולי 2026",
+    "en": "May–July 2026"
+  },
+  "sinceDate": "13.04.2026",
+  "totalQueries": 80,
+  "actions": [
+    {
+      "task": "הוזמנו 10 אזכורי AI לקלסטר BC — לחודשים יולי, אוגוסט וספטמבר",
+      "link": ""
+    },
+    {
+      "task": "הוכנסו 20 שאילתות לקלסטר BC",
+      "link": ""
+    },
+    {
+      "task": "הגדרת קלסטר BC — יצירת שאילתות",
+      "link": ""
+    },
+    {
+      "task": "בחירת 2 קלסטרים נוספים למעקב",
+      "link": ""
+    },
+    {
+      "task": "אזכורי AI: ספק חיצוני",
+      "link": ""
+    },
+    {
+      "task": "עמודים מצוטטים של הברנד בשאילתות במאגר | מציאת שאילתות רלוונטיות לברנד",
+      "link": ""
+    },
+    {
+      "task": "יצירת LLM info",
+      "link": ""
+    },
+    {
+      "task": "הפקת דו\"ח אופטימיזציית תוכן — Startup Israel",
+      "link": ""
+    }
+  ],
+  "sources": {
+    "chatgpt": {
+      "tracked": true,
+      "sov": [
+        {
+          "name": {
+            "he": "רשות החדשנות",
+            "en": "Israel Innovation Authority"
+          },
+          "v": 100,
+          "own": true
+        }
+      ],
+      "mentionsDaily": [
+        30,
+        35,
+        41
+      ],
+      "mentionsStart": "2026-05-01",
+      "mentionsByBrand": [
+        {
+          "name": {
+            "he": "רשות החדשנות",
+            "en": "Israel Innovation Authority"
+          },
+          "solo": 41,
+          "shared": 0,
+          "own": true
+        }
+      ],
+      "citedPages": [
+        {
+          "url": "innovationisrael.org.il/en/press_release/innovation-report-2025",
+          "label": {
+            "he": "דוח חדשנות 2025",
+            "en": "Innovation Report 2025"
+          },
+          "q": 16
+        },
+        {
+          "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026",
+          "label": {
+            "he": "דוח הייטק ישראלי 2026",
+            "en": "Israeli High-Tech Report 2026"
+          },
+          "q": 11
+        },
+        {
+          "url": "innovationisrael.org.il/en/report/preface-2025",
+          "label": {
+            "he": "מבוא 2025",
+            "en": "Preface 2025"
+          },
+          "q": 9
+        },
+        {
+          "url": "innovationisrael.org.il/en/the-israel-innovation-authority",
+          "label": {
+            "he": "אודות רשות החדשנות",
+            "en": "About the Innovation Authority"
+          },
+          "q": 8
+        },
+        {
+          "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026",
+          "label": {
+            "he": "דוח פעילות BC 2026",
+            "en": "BC Activity Report 2026"
+          },
+          "q": 6
+        },
+        {
+          "url": "innovationisrael.org.il/en/report/preface-2026",
+          "label": {
+            "he": "מבוא 2026",
+            "en": "Preface 2026"
+          },
+          "q": 6
+        }
+      ],
+      "domains": [
+        {
+          "d": "innovationisrael.org.il",
+          "r": 41,
+          "own": true
+        },
+        {
+          "d": "startupnationcentral.org",
+          "r": 38
+        },
+        {
+          "d": "gov.il",
+          "r": 22,
+          "dir": true
+        },
+        {
+          "d": "timesofisrael.com",
+          "r": 15
+        },
+        {
+          "d": "reuters.com",
+          "r": 12
+        },
+        {
+          "d": "weforum.org",
+          "r": 10
+        },
+        {
+          "d": "oecd.org",
+          "r": 9
+        },
+        {
+          "d": "linkedin.com",
+          "r": 8
+        },
+        {
+          "d": "crunchbase.com",
+          "r": 7,
+          "dir": true
+        },
+        {
+          "d": "nature.com",
+          "r": 6
+        }
+      ],
+      "competitors": [
+        {
+          "name": {
+            "he": "רשות החדשנות",
+            "en": "Israel Innovation Authority"
+          },
+          "r": 41,
+          "own": true
+        }
+      ],
+      "clusters": [
+        {
+          "name": {
+            "he": "ביוקונברג'נס",
+            "en": "Bioconvergence"
+          },
+          "q": [
+            {
+              "t": "Who are the key players in the Israeli bioconvergence ecosystem?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/wp-content/uploads/2026/06/National-Bioconvergence-Program-Activity-Summary-Midterm-Report-18.6.26.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/israel-bc-ecosystem"
+                }
+              ]
+            },
+            {
+              "t": "Which innovation centers in Israel work with biology startups?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israel-innovation-authority-launches-new-incubators-program"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/incubators-list"
+                }
+              ]
+            },
+            {
+              "t": "Which incubators in Israel invest in computational biology and AI-driven drug discovery ventures?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/selected-winning-group-to-establish-innovation-lab-for-digital-health-and-computational-biology"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/technological-innovation-incubators-program"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/technological-incubators-funding-program"
+                }
+              ]
+            },
+            {
+              "t": "Which Israeli companies are developing biology-based solutions to tackle the climate crisis?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/wp-content/uploads/2023/12/climatech-engl.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/ydlabs-to-establish-microorganism-fermentation-labs-for-the-foodtech-industry"
+                }
+              ]
+            },
+            {
+              "t": "Where can I find recordings of academia-industry meetups in the field of biomanufacturing?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What upcoming events and conferences are scheduled in Israel in the field of bioconvergence?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/wp-content/uploads/2026/04/National-Bioconvergence-Program-Activity-Summary-Midterm-Report-2026.pdf"
+                }
+              ]
+            },
+            {
+              "t": "What programs exist in Israel to encourage multidisciplinary innovation?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority-2"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026"
+                }
+              ]
+            },
+            {
+              "t": "What new technologies exist to combat desertification and water scarcity?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What infrastructures in Israel enable the scale-up of fermentation processes?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/ydlabs-to-establish-microorganism-fermentation-labs-for-the-foodtech-industry"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/call-for-proposal-to-establish-infrastructure-for-microorganism-fermentation-by-a-service-provider-focusing-mainly-on-novel-food"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/wp-content/uploads/sites/3/2026/04/Bioconvergence-Program-Activity-Report_April-2026.pdf"
+                }
+              ]
+            },
+            {
+              "t": "What does the Israeli bioconvergence map look like by application fields and technologies?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/wp-content/uploads/2026/06/National-Bioconvergence-Program-Activity-Summary-Midterm-Report-18.6.26.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/wp-content/uploads/sites/3/2026/04/Bioconvergence-Program-Activity-Report_April-2026.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/bio-convergence-2"
+                }
+              ]
+            },
+            {
+              "t": "What calls for proposals are currently open for entrepreneurs and researchers in biology and engineering?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What are the most promising technologies in the field of bio-fabrication?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What are the main barriers to developing bioconvergence technologies, and how are they addressed?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "I am developing a technology that combines biology and AI - who should I connect with in Israel?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026"
+                }
+              ]
+            },
+            {
+              "t": "How many bioconvergence companies currently operate in Israel, and in what fields?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/wp-content/uploads/2026/06/National-Bioconvergence-Program-Activity-Summary-Midterm-Report-18.6.26.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/israel-bc-ecosystem"
+                }
+              ]
+            },
+            {
+              "t": "How is artificial intelligence transforming the drug development process?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do you find investors interested in bioconvergence and biological deep-tech?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do you connect life sciences with the high-tech industry?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How can biomanufacturing help reduce carbon emissions?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How can I find Israeli partners for biochip technology development?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/technogical-incubators"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/2-new-deep-tech-incubators"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/nis-75-million-for-new-groundbreaking-bio-devices-and-bio-chips-lab"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": {
+            "he": "אקוסיסטם החדשנות",
+            "en": "Innovation Ecosystem"
+          },
+          "q": [
+            {
+              "t": "Why is Israel a preferred destination for technology scouting?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/israeli-tech-ecosystem"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/deep-tech-nation-israels-strategic-imperative"
+                }
+              ]
+            },
+            {
+              "t": "Why do multinational corporations seek partnerships with startups?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Why do multinational corporations invest in Israeli innovation?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/rd-collaboration-with-multinational-corporations-program-mnc"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/pilot-programs-with-multinational-corporations-mncs"
+                }
+              ]
+            },
+            {
+              "t": "What makes Israel one of the most dynamic innovation ecosystems in the world?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/israeli-tech-ecosystem"
+                },
+                {
+                  "url": "innovationisrael.org.il/en"
+                }
+              ]
+            },
+            {
+              "t": "What makes Israel an innovation leader globally?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/israeli-tech-ecosystem"
+                },
+                {
+                  "url": "innovationisrael.org.il/en"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/preface-2025"
+                }
+              ]
+            },
+            {
+              "t": "What makes Israel a global leader in technology innovation?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025"
+                }
+              ]
+            },
+            {
+              "t": "How does Israel's government support innovation?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/about-the-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority-2"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/startup-fund"
+                }
+              ]
+            },
+            {
+              "t": "How does Israel encourage international R&D collaboration?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/programs/bilateral-rd-incentive-program"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2025-26"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2026"
+                }
+              ]
+            },
+            {
+              "t": "How do innovation ecosystems help startups scale globally?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do global companies collaborate with Israeli startups?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/programs/rd-collaboration-with-multinational-corporations-program-mnc"
+                }
+              ]
+            },
+            {
+              "t": "How can innovation hubs accelerate startup growth?",
+              "c": false,
+              "u": []
+            }
+          ]
+        },
+        {
+          "name": {
+            "he": "דיפ-טק ישראלי",
+            "en": "Israeli Deep-Tech"
+          },
+          "q": [
+            {
+              "t": "Who are the leading startups and Deep Tech companies in Israel in the fields of Artificial Intelligence (AI), drug development, and medical devices?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "Which venture capital funds and institutional bodies invest in Deep Tech startups in Israel, and how is the Innovation Authority's Yozma Fund related to this?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/yozma-winners"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/yozma-2-0-fund"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/yozma-deep-tech"
+                }
+              ]
+            },
+            {
+              "t": "Which Israeli companies are considered global pioneers in the fields of semiconductors, quantum computing, and robotics?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "What are the fastest-growing and most promising fields in the Israeli Deep Tech ecosystem, and which sectors are attracting the most investments today?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/deep-tech-in-israel"
+                }
+              ]
+            },
+            {
+              "t": "How is the Israeli Deep Tech industry positioned compared to leading global tech hubs, and who are the prominent foreign investors operating within it?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/the-state-of-high-tech-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/deep-tech-in-israel"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": {
+            "he": "השקעות וכלכלת ידע",
+            "en": "Investment & Knowledge Economy"
+          },
+          "q": [
+            {
+              "t": "Why are research-driven startups appealing to global investors?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What role does government play in R&D backed startup success?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What makes a country attractive for technology investment overall?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What is a knowledge economy and how does Israel leverage it?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/knowledge-commercialization"
+                }
+              ]
+            },
+            {
+              "t": "What emerging technologies are coming out of Israel's research ecosystem?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/bc-activity-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/new-consortia-2025"
+                }
+              ]
+            },
+            {
+              "t": "What are the signs of a sustainable technology innovation ecosystem?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How does public R&D support strengthen private investment in Israel?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/strategy-and-policy"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/a-global-comparison"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority"
+                }
+              ]
+            },
+            {
+              "t": "How does Israel's education system feed its knowledge economy?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How does Israel's R&D ecosystem support breakthrough technologies?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/about-the-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en"
+                }
+              ]
+            },
+            {
+              "t": "How do startups turn breakthrough research into commercial success?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do innovation-friendly environments attract venture capital?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do governments facilitate the transfer of tech IP from academia to business?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How can public innovation support reduce investment risk in startups?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How can early public funding attract private investors?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Why should investors consider early-stage technology startups?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Why should investors consider Israeli startups?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/the-israel-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/preface-2026"
+                }
+              ]
+            },
+            {
+              "t": "Why is Israel called the Startup Nation?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Why are Israeli startups attractive acquisition targets?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What makes the Israeli tech ecosystem attractive to foreign investors?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/overview-israeli-high-tech-in-2025"
+                }
+              ]
+            },
+            {
+              "t": "What makes Israeli entrepreneurs globally competitive?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/preface-2026"
+                }
+              ]
+            },
+            {
+              "t": "What is unique about Israel's startup ecosystem?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/israeli-tech-ecosystem"
+                }
+              ]
+            },
+            {
+              "t": "What is Israel's track record in tech exits?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/part-2-companies"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "What factors signal strong growth potential in a tech startup market?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What are the most successful Israeli startups?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "What are the benefits of co-investing in Israeli technology ventures?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/co-invest-with-the-israel-innovation-authority"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/startup-fund"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/yozma-impact"
+                }
+              ]
+            },
+            {
+              "t": "What advantages do Israeli startups offer foreign investors?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/sites/default/files/2023%20%20The%20state%20of%20High-Tech.pdf"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/investment-considerations"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/high-tech-and-export-support-package"
+                }
+              ]
+            },
+            {
+              "t": "How many unicorns has Israel produced?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "How does Israel's innovation ecosystem compare globally?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/report/a-global-comparison"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/israeli-high-tech-report-2026"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/press_release/innovation-report-2025"
+                }
+              ]
+            },
+            {
+              "t": "How does Israel encourage collaboration between startups and global companies?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/programs/rd-collaboration-with-multinational-corporations-program-mnc"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/programs/pilot-programs-with-multinational-corporations-mncs"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/calls_for_proposal/international-rd-and-pilot-collaborations-2025-26"
+                }
+              ]
+            },
+            {
+              "t": "How do startups from small markets compete globally?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do Israeli startups scale to international markets so quickly?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/report/barriers-to-scaling-and-growth-faced-by-israeli-startups"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/preface-2026"
+                }
+              ]
+            },
+            {
+              "t": "How can investors access high-quality startup deal flow internationally?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How can foreign investors partner with Israeli startups?",
+              "c": true,
+              "u": [
+                {
+                  "url": "innovationisrael.org.il/en/programs/technological-incubators-2024"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/collaborate-with-us"
+                },
+                {
+                  "url": "innovationisrael.org.il/en/report/part-3-investors"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": {
+            "he": "מינרלים קריטיים",
+            "en": "Critical Minerals"
+          },
+          "q": [
+            {
+              "t": "Which hot startups are currently developing synthetic alternatives instead of using rare earth metals?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Which giant corporations are currently looking to acquire technologies or startups to solve their mineral shortage issues?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Which funds around the world focus on or emphasize investments in companies solving the current challenges surrounding critical minerals?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Where are the major venture capital funds (VCs) putting their money today when it comes to critical minerals?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What technologies are currently helping to make mineral mining much greener and cleaner?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What new grants or laws have been introduced recently in the US and Europe to push startups in the minerals sector?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "What are the most innovative methods today for recycling electronic waste to extract critical minerals from it?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How is the global geopolitical turmoil affecting companies that need to manufacture hardware, and how is technology trying to help them with this?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How do AI and software tools help solve delays and problems in the mineral supply chain?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "How are companies using Artificial Intelligence (AI) today to discover new mineral deposits?",
+              "c": false,
+              "u": []
+            },
+            {
+              "t": "Find me new technological developments for batteries that work without lithium and cobalt.",
+              "c": false,
+              "u": []
+            }
+          ]
+        }
+      ]
+    }
+  }
 };
-function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
-function setLang(l){lang=l;render()}
-function setSrc(s){source=s;render()}
-function statusOf(c){return c>=3?"full":(c>=1?"part":"opp")}
-function trendSvg(pts){
- const W=520,H=150,pl=30,pr=10,pt=12,pb=22,n=pts.length;
- const vals=pts.map(p=>p.v),peak=Math.max(...vals,1);
- const x=i=>pl+i*(W-pl-pr)/(n-1),y=v=>pt+(1-v/peak)*(H-pt-pb);
- const P=pts.map((p,i)=>[x(i),y(p.v)]);
- const line=P.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
- const area="M "+x(0).toFixed(1)+" "+(H-pb)+" "+P.map(p=>"L"+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ")+" L "+x(n-1).toFixed(1)+" "+(H-pb)+" Z";
- const gy=[0,Math.round(peak/2),peak];
- const grid=gy.map(v=>`<line x1="${pl}" y1="${y(v).toFixed(1)}" x2="${W-pr}" y2="${y(v).toFixed(1)}" stroke="var(--line)"/>`+
-   `<text x="${pl-6}" y="${(y(v)+3).toFixed(1)}" text-anchor="end" font-size="9" fill="var(--sub)">${v}</text>`).join("");
- const ticks=pts.map((p,i)=> (i%3===0||i===n-1)?`<text x="${x(i).toFixed(1)}" y="${H-6}" text-anchor="middle" font-size="9" fill="var(--sub)">${p.d}</text>`:"").join("");
- return `<svg class="trendsvg" viewBox="0 0 ${W} ${H}" role="img"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#E11D3C" stop-opacity=".20"/><stop offset="1" stop-color="#E11D3C" stop-opacity="0"/></linearGradient></defs>
-  ${grid}<path d="${area}" fill="url(#g)"/><path d="${line}" fill="none" stroke="#E11D3C" stroke-width="2.5" stroke-linejoin="round"/>
-  <circle cx="${P[n-1][0].toFixed(1)}" cy="${P[n-1][1].toFixed(1)}" r="4" fill="#fff" stroke="#E11D3C" stroke-width="2.5"/>${ticks}</svg>`;
+/* ============================= DATA:END ============================= */
+
+const SOURCES = [
+  {id:"chatgpt", label:"ChatGPT"},{id:"perplexity", label:"Perplexity"},{id:"copilot", label:"Copilot"},
+  {id:"gemini", label:"Gemini"},{id:"grok", label:"Grok"},{id:"google_ai", label:"Google AI"},
+  {id:"claude", label:"Claude", unsupported:true}
+];
+
+const DICT = {
+  he:{ geoSub:"GEO · נראות במנועי תשובה", preparedBy:"מופק על ידי ReGo Digital Marketing", actionsH:"מה עשינו החודש", actionsNote:"פעולות שבוצעו על-ידי ReGo בחודש האחרון", fileLink:"קובץ מצורף", noActions:"לא תועדו פעולות החודש", report:"דוח חודשי", live:"נתונים חיים", market:"שוק", since:"מאז",
+    sov:"Share of Voice", sovLbl:"נתח קול",
+    sovTip:"נתח קול (Share of Voice): מבין כל תשובות ה-AI שבהן הוזכר ברנד כלשהו מהקטגוריה, באיזה אחוז מהן הוזכרה {brand}. 100% = {brand} מוזכרת בכל תשובה שמזכירה ברנד.",
+    heroLead:(b,s)=>`כשהקטגוריה עולה ב-ChatGPT, <strong>${b}</strong> מקבלת <strong>${s}% מנתח הקול</strong> מול המתחרים שבמעקב.`,
+    presenceH:"מתחרים שמופיעים בתשובות", presenceLbl:"נתח הופעות",
+    presenceTip:"נתח הופעות = חלקה של {brand} מתוך כלל ההופעות של חברות המטבחים שצוטטו בתשובות ה-AI לשאילתות, מצטבר על פני כל הקלסטרים. המספר ליד כל חברה = בכמה תשובות היא צוטטה; נתח ההופעות הוא חלקה של {brand} מסך ההופעות של החברות המוצגות.",
+    presenceNote:"המספר ליד כל חברה = בכמה תשובות היא צוטטה, על פני השאילתות במקור זה.",
+    presenceEmpty:"במקור זה הברנדים מוזכרים בשם ללא קישור לעמוד מקור — ראו את מגמת האזכורים.",
+    kVis:"נראות בשאילתות", kVisSub:n=>`${n} שאילתות במעקב`,
+    kVisTip:"כמה מתוך {n} השאילתות במעקב כללו בתשובת ה-AI ציטוט של לפחות עמוד אחד מאתר {brand}. זה המדד שמאחורי הציון של כל קלסטר.",
+    kPages:"עמודים מצוטטים",
+    kPagesTip:"כמה כתובות שונות של אתר {brand} הופיעו כמקור בתשובות ה-AI, על פני כל {n} השאילתות. עמוד אחד (למשל ‎/page) יכול להופיע בכמה שאילתות.",
+    kMentions:"אזכורים ליום", kPeak:"שיא", avgDay:"ממוצע",
+    trendCard:"מגמת אזכורים", trendSub:"אזכורי הברנד ליום",
+    trendTip:"מספר התשובות שבהן הברנד הוזכר בשמו, מדי יום, על פני תקופת המעקב. הציר האנכי מציין את מספר האזכורים ביום.",
+    tsAvg:"ממוצע ליום", tsPeak:"שיא יומי", tsNow:"נוכחי",
+    mentCard:"אזכורים לפי ברנד", mentSub:"תצלום אחרון", solo:"אזכור בלעדי", shared:"משותף עם מתחרה",
+    clustersH:"קלסטרים ושאילתות",
+    clTip:"הציון מבוסס על כמה משאילתות הקלסטר כללו ציטוט לעמוד {brand}: 0 = הזדמנות, 1–2 = נוכחות חלקית, 3+ = נוכחות מובילה. פתחו קלסטר כדי לראות אילו שאילתות מצטטות את {brand} ובאילו עמודים.",
+    pagesCard:"עמודי {brand} שזכו לציטוט", pagesNote:"מצטבר על פני כל {n} השאילתות · המספר = בכמה שאילתות צוטט העמוד",
+    domainsCard:"נוף הציטוטים בקטגוריה", domainsNote:"מספר התשובות שבהן צוטט כל דומיין",
+    qCited:"{brand} צוטטה", qMiss:"{brand} לא צוטטה", inQ:n=>`${n}/8 שאילתות`,
+    full:"נוכחות מובילה", part:"נוכחות חלקית", opp:"הזדמנות", brandTag:"ברנד", dirTag:"מדריך/זירה",
+    srcTitle:"מקור נתונים",
+    notTrackedH:l=>`${l} עדיין לא נמדד בדוח הזה`,
+    notTrackedP:"כרגע נמדד רק ChatGPT (סריקה יומית). כדי להוסיף מקור — מפעילים אותו בדוח ה-Brand Radar, והנתונים מצטברים מכאן והלאה.",
+    claudeH:"Claude אינו נתמך כמקור", claudeP:"Ahrefs Brand Radar אינו סורק את Claude. המקורות הזמינים: ChatGPT, Perplexity, Copilot, Gemini, Grok ו-Google AI.",
+    methodTitle:"מתודולוגיה",
+    method:(p,b,d,n)=>`הנתונים נמשכו מ-Brand Radar (Ahrefs) · מקור: ChatGPT · תקופה: ${p}. הנראות נמדדת פר-שאילתה: לכל אחת מ-${n} השאילתות נבדק אילו עמודים צוטטו בתשובת ה-AI, ומסומן אם הופיע עמוד של ${b}. נתח הקול הוא חלקה של ${b} מתוך אזכורי כלל הברנדים שבמעקב.`
+  },
+  en:{ geoSub:"GEO · Answer-engine visibility", preparedBy:"Prepared by ReGo Digital Marketing", actionsH:"What we did this month", actionsNote:"Actions completed by ReGo over the past month", fileLink:"Attached file", noActions:"No actions logged this month", report:"Monthly report", live:"Live data", market:"Market", since:"Since",
+    sov:"Share of Voice", sovLbl:"Share of voice",
+    sovTip:"Share of Voice: of all AI answers that mention any brand in the category, the percentage that mention {brand}. 100% = {brand} is named in every answer that names a brand.",
+    heroLead:(b,s)=>`When the category comes up in ChatGPT, <strong>${b}</strong> earns <strong>${s}% share of voice</strong> against the tracked competitors.`,
+    presenceH:"Competitors appearing in answers", presenceLbl:"Presence share",
+    presenceTip:"Presence share = {brand}'s portion of all appearances by kitchen companies cited in the AI answers to the queries, aggregated across all clusters. The number next to each company = how many answers cited it; presence share is {brand}'s portion of all shown companies' appearances.",
+    presenceNote:"The number next to each company = in how many answers it was cited, across this source's queries.",
+    presenceEmpty:"In this source brands are named without linking to a source page — see the mentions trend.",
+    kVis:"Query visibility", kVisSub:n=>`of ${n} tracked queries`,
+    kVisTip:"How many of the {n} tracked queries had an AI answer that cited at least one page from {domain}. This is the metric behind each cluster's score.",
+    kPages:"Cited pages",
+    kPagesTip:"How many distinct {domain} URLs appeared as a source in AI answers, across all {n} queries. One page (e.g. /page) can appear in several queries.",
+    kMentions:"Mentions / day", kPeak:"peak", avgDay:"avg",
+    trendCard:"Mentions trend", trendSub:"Brand mentions per day",
+    trendTip:"How many AI answers named the brand each day across the tracked period. The vertical axis shows the number of mentions per day.",
+    tsAvg:"avg / day", tsPeak:"daily peak", tsNow:"latest",
+    mentCard:"Mentions by brand", mentSub:"Latest snapshot", solo:"Brand-only", shared:"Shared w/ competitor",
+    clustersH:"Clusters & queries",
+    clTip:"The score is based on how many of the cluster's queries cited an {brand} page: 0 = opportunity, 1–2 = partial, 3+ = leading. Open a cluster to see which queries cite {brand} and on which pages.",
+    pagesCard:"{brand} pages earning citations", pagesNote:"Aggregated across all {n} queries · number = in how many queries the page was cited",
+    domainsCard:"Category citation landscape", domainsNote:"Number of answers that cited each domain",
+    qCited:"{brand} cited", qMiss:"{brand} not cited", inQ:n=>`${n}/8 queries`,
+    full:"Leading", part:"Partial", opp:"Opportunity", brandTag:"Brand", dirTag:"Directory/Market",
+    srcTitle:"Data source",
+    notTrackedH:l=>`${l} isn't measured in this report yet`,
+    notTrackedP:"Only ChatGPT is scanned right now (daily). To add a source, enable it in the Brand Radar report — data accrues from then on.",
+    claudeH:"Claude isn't a supported source", claudeP:"Ahrefs Brand Radar does not scan Claude. Available sources: ChatGPT, Perplexity, Copilot, Gemini, Grok and Google AI.",
+    methodTitle:"Methodology",
+    method:(p,b,d,n)=>`Data pulled from Brand Radar (Ahrefs) · source: ChatGPT · period: ${p}. Visibility is measured per query: for each of the ${n} queries we check which pages the AI answer cited and flag whether an ${b} page appeared. Share of voice is ${b}'s portion of all tracked-brand mentions.`
+  }
+};
+
+const REGO_LOGO="data:image/png;base64,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";
+/* ----- CLIENT_LOGO:START — replace this base64 with the client's logo ----- */
+const CLIENT_LOGO="";
+/* ----- CLIENT_LOGO:END ----- */
+let lang = "he", source = (SOURCES.find(s=>DATA.sources[s.id] && DATA.sources[s.id].tracked)||{id:"chatgpt"}).id;
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => Number.isInteger(n)? n : Math.round(n*10)/10;
+const info = txt => `<span class="info"><span class="i" tabindex="0" role="button" aria-label="info">i</span><span class="tip">${esc(txt)}</span></span>`;
+
+function ring(v){ const r=78,c=2*Math.PI*r,off=c*(1-v/100);
+  return `<svg viewBox="0 0 188 188" width="188" height="188" role="img" aria-label="${fmt(v)}%">
+   <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E11D3C"/><stop offset="1" stop-color="#FF5C7C"/></linearGradient></defs>
+   <circle cx="94" cy="94" r="${r}" fill="none" stroke="#F1EFE9" stroke-width="15"/>
+   <circle cx="94" cy="94" r="${r}" fill="none" stroke="url(#rg)" stroke-width="15" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" transform="rotate(-90 94 94)" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)"/></svg>`; }
+
+function trend(daily,startISO){ const W=520,H=180,pl=26,pr=10,pt=16,pb=8,n=daily.length;
+  const peak=Math.max(...daily,0), max=Math.max(peak,1);
+  const x=i=>pl+i*(W-pl-pr)/(n-1), y=v=>pt+(1-v/max)*(H-pt-pb);
+  const pts=daily.map((v,i)=>[x(i),y(v)]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const area=`M ${x(0).toFixed(1)} ${(H-pb).toFixed(1)} `+pts.map(p=>"L"+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ")+` L ${x(n-1).toFixed(1)} ${(H-pb).toFixed(1)} Z`;
+  const last=pts[n-1], sd=new Date(startISO);
+  const dl=i=>{const d=new Date(sd);d.setDate(sd.getDate()+i);return d.getDate()+"/"+(d.getMonth()+1);};
+  const ticks=[0,Math.round((n-1)/2),n-1].map(i=>`<span>${dl(i)}</span>`).join("");
+  const yv = peak<=1?[0,1]:(peak<=4?[0,peak]:[0,Math.round(peak/2),peak]);
+  const grid = yv.map(v=>`<line x1="${pl}" y1="${y(v).toFixed(1)}" x2="${(W-pr).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join("");
+  const ylab = yv.map(v=>`<span style="top:${y(v).toFixed(1)}px">${v}</span>`).join("");
+  return `<div class="trendbox"><div class="ylabels">${ylab}</div><svg viewBox="0 0 ${W} ${H}" width="100%" height="180" preserveAspectRatio="none" role="img">
+   <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E11D3C" stop-opacity=".22"/><stop offset="1" stop-color="#E11D3C" stop-opacity="0"/></linearGradient></defs>
+   ${grid}<path d="${area}" fill="url(#tg)"/><path d="${line}" fill="none" stroke="#E11D3C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+   <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="4.5" fill="#fff" stroke="#E11D3C" stroke-width="2.5"/></svg>
+   <div class="axislabels">${ticks}</div></div>`; }
+
+const checkSvg = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const dashSvg  = '<svg viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
+
+function kic(t){const p={ment:'<path d="M4 5h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  cite:'<path d="M7 8h10M7 12h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>',
+  sov:'<path d="M3 13a9 9 0 1 0 9-9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 12l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'}[t];
+  return `<span class="glyph"><svg viewBox="0 0 24 24">${p}</svg></span>`;}
+
+function statusOf(c){ return c>=3 ? "full" : (c>=1 ? "part" : "opp"); }
+
+function srcBar(t){
+  return `<div class="srcwrap"><span class="srclbl">${t.srcTitle}</span><div class="srcbar">
+    ${SOURCES.filter(s=>DATA.sources[s.id] && DATA.sources[s.id].tracked).map(s=>{
+      const dot = `<span class="sd on"></span>`;
+      return `<button class="srcbtn" data-src="${s.id}" ${source===s.id?'aria-pressed="true"':''}>${dot}${s.label}</button>`;
+    }).join("")}
+  </div></div>`;
 }
-function toggleCl(i){const e=document.getElementById('ql'+i);if(e)e.classList.toggle('open')}
+
 function render(){
- const t=T[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==="he"?"rtl":"ltr";
- document.getElementById('he').setAttribute('aria-pressed',lang==="he");
- document.getElementById('en').setAttribute('aria-pressed',lang==="en");
- const s=DATA.sources[source];
- const citedQ=s.clusters.reduce((a,c)=>a+c.q.filter(q=>q.c).length,0);
- const head=`<div class="context">
-   <img class="clogo" src="${DATA.clogo||''}" alt="" style="${DATA.clogo?'':'display:none'}">
-   <div><div class="eyebrow">${t.report} · ${esc(DATA.period[lang])}</div><h1>${esc(DATA.name[lang])}</h1></div>
-   <div class="meta"><span class="chip"><span class="live"></span>${t.live}</span>
-     <span class="chip">${t.market}: ${DATA.market}</span><span class="chip">${t.since} ${DATA.since}</span></div></div>`;
- const srcbar=`<div class="srcbar">`+Object.keys(DATA.sources).map(k=>
-   `<button class="srcbtn" ${k===source?'aria-pressed="true"':''} onclick="setSrc('${k}')"><span class="sd"></span>${DATA.sources[k].label}</button>`).join("")+`</div>`;
- const kpis=`<div class="kpis">
-  <div class="kpi"><div class="lbl">${t.citations}</div><div class="val">${s.citations}</div><div class="foot">${t.citFoot}</div></div>
-  <div class="kpi"><div class="lbl">${t.mentions}</div><div class="val">${s.mentions}</div><div class="foot">${t.menFoot}</div></div>
-  <div class="kpi"><div class="lbl">${t.vis}</div><div class="val">${citedQ}<span class="den">/${DATA.totalQ}</span></div><div class="foot">${t.visFoot(DATA.totalQ)}</div></div>
-  <div class="kpi"><div class="lbl">${t.pages}</div><div class="val">${s.citedPages.length}</div><div class="foot">${t.pagesFoot}</div></div></div>`;
- const g=DATA.trendTotals,gd=g.end-g.start,gp=g.start?Math.round(gd/g.start*100):0;
- const trend=`<div class="card"><h2>${t.trendH}</h2><p class="csub">${t.trendS}</p>
-   <div class="trendwrap">${trendSvg(DATA.trend)}
-   <div class="deltacard"><div class="deltalabel">${t.growth}</div>
-   <div class="delta"><span class="arrow">▲</span> ${gd>=0?'+':''}${gd}</div>
-   <div class="deltalabel">${g.start} → ${g.end} (${gp>=0?'+':''}${gp}%)</div></div></div></div>`;
- const maxc=Math.max(1,...s.clusters.map(c=>c.q.filter(q=>q.c).length));
- const clusters=`<div class="card"><h2>${t.clH}</h2><p class="csub">${t.clS} · ${s.label}</p>`+
-   s.clusters.map((c,i)=>{const cc=c.q.filter(q=>q.c).length,st=statusOf(cc);
-     const rows=c.q.map(q=>`<div class="qi"><span class="mk ${q.c?'y':'n'}">${q.c?'✓':'–'}</span><span class="qt">${esc(q.t)}${q.c&&q.u.length?`<span class="qu">${q.u.map(u=>esc(u)).join(' · ')}</span>`:''}</span></div>`).join("");
-     return `<div class="clrow" onclick="toggleCl(${i})"><span class="clname">${esc(lang==="he"?c.he:c.en)}</span>
-       <span class="track"><span class="fill" style="width:${(cc/maxc*100).toFixed(0)}%"></span></span>
-       <span class="badge b-${st}">${cc}/${c.q.length} · ${t[st]}</span></div><div class="qlist" id="ql${i}">${rows}</div>`;}).join("")+`</div>`;
- // AI mentions
- const m=DATA.mentionsAI;
- const mrows=m.map(x=>`<div class="mrow"><span class="mstate ${x.cited?'cited':'pending'}">${x.cited?t.cited:t.pending}</span>
-   <div><a class="murl" href="https://${esc(x.url.replace(/^https?:\/\//,''))}" target="_blank" rel="noopener">${esc(x.domain)}</a>
-   ${x.cited?`<div class="mq">${t.citedIn} ${esc(x.q)}</div><div class="msrc">${t.inSrc} ${x.sources.join(', ')}</div>`:''}</div></div>`).join("");
- const aicard=`<div class="card"><h2>${t.aiH}</h2><p class="csub">${t.aiS}</p>${mrows}</div>`;
- const actions=`<div class="card"><h2>${t.actH}</h2><div class="alist">`+
-   DATA.actions.map(a=>`<div class="ai"><span class="dot">✓</span><span>${esc(a.t)}</span></div>`).join("")+`</div></div>`;
- document.getElementById('app').innerHTML=head+srcbar+kpis+trend+clusters+aicard+actions;
- document.getElementById('foot').textContent="ReGo · GEO Visibility · "+DATA.period[lang];
+  const _src0 = DATA.sources[source];
+  const totalQ = (_src0 && _src0.tracked && Array.isArray(_src0.clusters)) ? _src0.clusters.reduce((a,c)=>a+c.q.length,0) : (DATA.totalQueries||48);
+  const _fill = s => s.replace(/\{brand\}/g, DATA.name[lang]).replace(/\{domain\}/g, DATA.domain).replace(/\{n\}/g, String(totalQ));
+  const t = Object.fromEntries(Object.entries(DICT[lang]).map(([k,v]) => [k, (typeof v === "string") ? _fill(v) : v]));
+  document.documentElement.lang=lang; document.documentElement.dir = lang==="he"?"rtl":"ltr";
+  $("#markSub").textContent=t.geoSub;
+  $("#langHe").setAttribute("aria-pressed",lang==="he"); $("#langEn").setAttribute("aria-pressed",lang==="en");
+
+  const head = `
+    <div class="context">
+      <div class="clientline">${CLIENT_LOGO?`<span class="logobox"><img class="clogo" src="${CLIENT_LOGO}" alt="${esc(DATA.name[lang])}"></span>`:""}
+        <div><div class="eyebrow">${t.report} · ${esc(DATA.period[lang])}</div><h1>${esc(DATA.name[lang])}</h1></div></div>
+      <div class="spacer"></div>
+      <div class="meta">
+        <span class="chip"><span class="live"></span>${t.live}</span>
+        <span class="chip">${t.market}: ${esc(DATA.market)}</span>
+        <span class="chip">${t.since} ${esc(DATA.sinceDate)}</span></div>
+    </div>
+    ${srcBar(t)}`;
+
+  const srcObj = DATA.sources[source];
+  const selMeta = SOURCES.find(s=>s.id===source);
+
+  if(!srcObj || !srcObj.tracked){
+    const unsupported = selMeta && selMeta.unsupported;
+    $("#app").innerHTML = head + `
+      <div class="card" style="margin-top:8px"><div class="emptysrc">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>${unsupported? esc(t.claudeH) : esc(t.notTrackedH(selMeta?selMeta.label:source))}</h3>
+        <p>${unsupported? esc(t.claudeP) : esc(t.notTrackedP)}</p>
+      </div></div>`;
+    return;
+  }
+
+  const d=srcObj;
+  const avg=d.mentionsDaily.reduce((a,b)=>a+b,0)/d.mentionsDaily.length, peak=Math.max(...d.mentionsDaily);
+  const ownEntry=(d.sov||[]).find(s=>s.own)||{v:0}, ownSov=ownEntry.v, maxSov=Math.max(1,...(d.sov||[]).map(s=>s.v));
+  const maxMent=Math.max(...d.mentionsByBrand.map(b=>b.solo+b.shared)), maxDom=Math.max(...d.domains.map(x=>x.r));
+  const citedQ=d.clusters.reduce((a,c)=>a+c.q.filter(x=>x.c).length,0);
+  // No tracked competitors → show who actually appears in the answers (counts) instead of a meaningless 100% SoV.
+  const hasComp = Array.isArray(d.sov) && d.sov.some(s=>!s.own);
+  const comp = (d.competitors||[]).slice().sort((a,b)=>b.r-a.r);
+  const compMax = Math.max(1,...comp.map(c=>c.r)), compTotal = comp.reduce((a,c)=>a+c.r,0);
+  const ownComp = comp.find(c=>c.own), presenceShare = (ownComp && compTotal) ? +(ownComp.r/compTotal*100).toFixed(1) : 0;
+  // SoV hero (when real competitors exist): ring + bars.
+  const sovHero = `
+        <div class="hero">
+          <div class="ring">${ring(ownSov)}<div class="center"><div class="big num">${fmt(ownSov)}<sup>%</sup></div><div class="lbl">${t.sovLbl}</div></div></div>
+          <div class="copy"><p>${t.heroLead(esc(DATA.name[lang]),fmt(ownSov))}</p>
+            <div class="sovbars">${d.sov.map(s=>`
+              <div class="sovrow ${s.own?'own':''}"><span class="name">${esc(s.name[lang])}</span>
+                <span class="track"><span class="fill" style="width:${(s.v/Math.max(maxSov,1)*100).toFixed(1)}%"></span></span>
+                <span class="val num">${fmt(s.v)}%</span></div>`).join("")}</div>
+          </div>
+        </div>`;
+  // Presence panel (when no competitors tracked): full-width ranked bars by appearance count, no ring, no "no-competitors" copy.
+  const presencePanel = comp.length ? `
+        <div class="sovbars cols">${comp.map(c=>`
+          <div class="sovrow ${c.own?'own':''}"><span class="name">${esc(c.name[lang])}</span>
+            <span class="track"><span class="fill" style="width:${(c.r/compMax*100).toFixed(1)}%"></span></span>
+            <span class="val num">${c.r}</span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.presenceNote}</div>`
+      : `<div class="sub">${t.presenceEmpty}</div>`;
+  // The 4th KPI: SoV% when competitors exist, else "presence share" with its own info bubble.
+  const sovKpi = hasComp ? `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.sov}${info(t.sovTip)}</span>${kic('sov')}</div>
+          <div class="k-val num">${fmt(ownSov)}<sup>%</sup></div><div class="k-sub">${esc(selMeta?selMeta.label:source)} · ${esc(DATA.market)}</div></div>`
+      : `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.presenceLbl}${info(t.presenceTip)}</span>${kic('sov')}</div>
+          <div class="k-val num">${fmt(presenceShare)}<sup>%</sup></div><div class="k-sub">${esc(selMeta?selMeta.label:source)} · ${esc(DATA.market)}</div></div>`;
+
+  const kpiBlock = `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kVis}${info(t.kVisTip)}</span>${kic('eye')}</div>
+          <div class="k-val num">${citedQ}<span class="den">/${totalQ}</span></div><div class="k-sub">${t.kVisSub(totalQ)}</div></div>
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kPages}${info(t.kPagesTip)}</span>${kic('cite')}</div>
+          <div class="k-val num">${d.citedPages.length}</div><div class="k-sub">${esc(DATA.domain)}</div></div>
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kMentions}</span>${kic('ment')}</div>
+          <div class="k-val num">${fmt(avg)}</div><div class="k-sub">${t.avgDay} · ${t.kPeak} ${peak}</div></div>
+        ${sovKpi}`;
+  const topSection = hasComp ? `
+    <div class="grid hero-grid" style="margin-top:8px">
+      <div class="card"><h2>${t.sov}${info(t.sovTip)}</h2>${sovHero}</div>
+      <div class="grid kpis" style="align-content:start">${kpiBlock}</div>
+    </div>` : `
+    <div class="grid kpis" style="margin-top:8px">${kpiBlock}</div>
+    <div class="card" style="margin-top:16px"><h2>${t.presenceH}${info(t.presenceTip)}</h2>${presencePanel}</div>`;
+
+  const latest = d.mentionsDaily[d.mentionsDaily.length-1];
+  const mentionsSection = hasComp ? `
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><h2>${t.trendCard}</h2>${trend(d.mentionsDaily,d.mentionsStart)}<div class="sub" style="margin-top:6px">${t.trendSub}</div></div>
+      <div class="card"><h2>${t.mentCard} · <span class="sub">${t.mentSub}</span></h2>
+        <div class="mlist">${d.mentionsByBrand.map(b=>{const tot=b.solo+b.shared;return `
+          <div class="mrow ${b.own?'own':'comp'}"><span class="name">${esc(b.name[lang])}</span>
+            <span class="track"><span class="seg solo" style="width:${tot?(b.solo/Math.max(maxMent,1)*100).toFixed(1):0}%"></span>
+              <span class="seg shared" style="width:${tot?(b.shared/Math.max(maxMent,1)*100).toFixed(1):0}%"></span></span>
+            <span class="v">${tot}</span></div>`;}).join("")}</div>
+        <div class="legend"><span><i style="background:var(--brand)"></i>${t.solo}</span><span><i style="background:var(--brand-soft)"></i>${t.shared}</span></div>
+      </div>
+    </div>` : `
+    <div class="card" style="margin-top:16px"><h2>${t.trendCard}${info(t.trendTip)}</h2>
+      ${trend(d.mentionsDaily,d.mentionsStart)}
+      <div class="trendstats">
+        <div class="ts"><span class="ts-v num">${fmt(avg)}</span><span class="ts-l">${t.tsAvg}</span></div>
+        <div class="ts"><span class="ts-v num">${peak}</span><span class="ts-l">${t.tsPeak}</span></div>
+        <div class="ts"><span class="ts-v num">${latest}</span><span class="ts-l">${t.tsNow}</span></div>
+      </div>
+      <div class="sub" style="margin-top:12px">${t.trendSub}</div>
+    </div>`;
+
+  $("#app").innerHTML = head + `
+    ${topSection}
+
+    ${mentionsSection}
+
+    <div class="sechead"><h2>${t.clustersH}${info(t.clTip)}</h2><span class="line"></span><span class="count">${citedQ}/${totalQ}</span></div>
+    <div class="clusters">${d.clusters.map((c,i)=>{
+      const cc=c.q.filter(x=>x.c).length, st=statusOf(cc);
+      const stTxt = st==="full"?t.full:(st==="part"?t.part:t.opp);
+      return `<details class="cl" ${i===0?'open':''}><summary>
+        <span class="idx num">${String(i+1).padStart(2,'0')}</span>
+        <span class="cn"><b>${esc(c.name[lang])}</b><small class="ratio">${t.inQ(cc)}</small></span>
+        <span class="status ${st}">${stTxt}</span>
+        <svg class="caret" width="16" height="16" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary><div class="qs">${c.q.map(q=>`
+        <div class="qrow ${q.c?'hit':'miss'}">
+          <span class="qmark ${q.c?'hit':'miss'}" title="${q.c?esc(t.qCited):esc(t.qMiss)}">${q.c?checkSvg:dashSvg}</span>
+          <div class="qbody"><span class="qtext">${esc(q.t)}</span>
+            ${q.c&&q.u?`<div class="qpages">${q.u.map(p=>`<a href="https://${esc(p.url)}" target="_blank" rel="noopener">${esc(p.url)}${p.note?` <span class="pn">— ${esc(p.note)}</span>`:''}</a>`).join("")}</div>`:''}
+          </div>
+        </div>`).join("")}</div></details>`;
+    }).join("")}</div>
+
+    <div class="sechead"><h2>${t.actionsH}</h2><span class="line"></span><span class="count">${(DATA.actions||[]).length}</span></div>
+    <div class="card"><div class="rows">${(DATA.actions&&DATA.actions.length)? DATA.actions.map(a=>`
+      <div class="arow"><span class="abolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z" fill="currentColor"/></svg></span>
+        <span class="atext">${esc(a.task)}</span>
+        ${a.link?`<a class="alink" href="${esc(a.link)}" target="_blank" rel="noopener">${t.fileLink}</a>`:""}</div>`).join("") : `<div class="aempty">${t.noActions}</div>`}</div>
+      <div class="sub" style="margin-top:12px">${t.actionsNote}</div></div>
+
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><h2>${t.pagesCard}</h2><div class="rows">${d.citedPages.map(p=>`
+        <div class="prow"><span class="badge num">${p.q}</span><span class="pt"><b>${esc(p.label[lang])}</b><a href="https://${esc(p.url)}" target="_blank" rel="noopener">${esc(p.url)}</a></span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.pagesNote}</div></div>
+      <div class="card"><h2>${t.domainsCard}</h2><div class="rows">${d.domains.map(x=>`
+        <div class="drow ${x.own?'own':''}"><span class="dn">${esc(x.d)}${x.own?`<span class="tag brand">${t.brandTag}</span>`:(x.dir?`<span class="tag dir">${t.dirTag}</span>`:"")}</span>
+          <span class="dt"><span class="df" style="width:${(x.r/maxDom*100).toFixed(0)}%"></span></span><span class="dv">${x.r}</span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.domainsNote}</div></div>
+    </div>
+
+    <footer><b>${t.methodTitle}.</b> ${t.method(esc(DATA.period[lang]), DATA.name[lang], DATA.domain, totalQ)}</footer>
+    <div class="prepared"><img src="${REGO_LOGO}" alt="ReGo"><span>${t.preparedBy}</span></div>`;
 }
+
+$("#langHe").addEventListener("click",()=>{lang="he";render();});
+$("#langEn").addEventListener("click",()=>{lang="en";render();});
+document.addEventListener("click",e=>{
+  const sb=e.target.closest(".srcbtn"); if(sb){ source=sb.dataset.src; render(); return; }
+  const ic=e.target.closest(".info .i");
+  document.querySelectorAll(".info.open").forEach(el=>{ if(!ic || !el.contains(ic)) el.classList.remove("open"); });
+  if(ic){ ic.parentElement.classList.toggle("open"); }
+});
+document.getElementById("regoLogo").src=REGO_LOGO;
 render();
-</script></body></html>
+</script>
+</body>
+</html>
