@@ -83,6 +83,9 @@
   .kpi .k-val sup{font-size:15px; color:var(--muted)} .kpi .k-val .den{font-size:18px; color:var(--faint)}
   .kpi .k-sub{font-size:12px; font-weight:600; color:var(--faint)}
   .kpi .glyph{width:30px;height:30px;border-radius:9px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand)} .kpi .glyph svg{width:16px;height:16px}
+  .nonamebox{background:var(--brand-soft); border-radius:12px; padding:16px 18px}
+  .nonamebox b{display:block; font-size:14px; margin-bottom:6px; color:var(--brand)}
+  .nonamebox p{margin:0; color:var(--muted); font-weight:600; font-size:13px; line-height:1.6}
   .trendbox{direction:ltr; position:relative}
   .trendbox .ylabels{position:absolute; inset-block:0; left:0; width:22px; pointer-events:none}
   .trendbox .ylabels span{position:absolute; left:0; width:20px; text-align:right; transform:translateY(-50%); font-size:10.5px; font-weight:700; color:var(--faint)}
@@ -307,27 +310,23 @@ const DATA = {
  "actions": [
   {
    "task": "בחירת קלסטר לאופטימיזציה – תכנון טיול בפיליפינים",
-   "link": "https://app.clickup.com/t/86cafpb1b"
+   "link": ""
   },
   {
    "task": "יצירת דו״ח פערים לקלסטר – תכנון טיול בפיליפינים",
-   "link": "https://app.clickup.com/t/86cajvagc"
+   "link": ""
   },
   {
    "task": "שיפור תוכן לעמוד קיים – flight-to-the-philippines-rate-comparison",
-   "link": "https://app.clickup.com/t/86cajvbjg"
+   "link": ""
   },
   {
    "task": "הזמנת אזכורי AI לרבעון – קלסטר תכנון טיול לפיליפינים",
-   "link": "https://app.clickup.com/t/86cajvc0h"
+   "link": ""
   },
   {
    "task": "הוספת עמודים מאופטמים למעקב ב-Watch List",
-   "link": "https://app.clickup.com/t/86cajvc7f"
-  },
-  {
-   "task": "סרטון סטטוס חודשי ללקוח",
-   "link": "https://app.clickup.com/t/86cau7e6e"
+   "link": ""
   }
  ],
  "extMentions": [],
@@ -2568,15 +2567,15 @@ const DATA = {
     },
     {
      "name": {
-      "he": "Decoconuts",
-      "en": "Decoconuts"
+      "he": "מסלול אסיה",
+      "en": "Maslul Asia"
      },
      "r": 1
     },
     {
      "name": {
-      "he": "מסלול אסיה",
-      "en": "Maslul Asia"
+      "he": "Decoconuts",
+      "en": "Decoconuts"
      },
      "r": 1
     },
@@ -3077,7 +3076,7 @@ const DICT = {
     kPagesTip:"כמה כתובות שונות של אתר {brand} הופיעו כמקור בתשובות ה-AI, על פני כל {n} השאילתות. עמוד אחד (למשל ‎/page) יכול להופיע בכמה שאילתות.",
     kMentions:"אזכורים ליום", kPeak:"שיא", avgDay:"ממוצע",
     trendCard:"מגמת אזכורים", trendSub:"אזכורי הברנד ליום",
-    trendTip:"מספר התשובות שבהן הברנד הוזכר בשמו, מדי יום, על פני תקופת המעקב. הציר האנכי מציין את מספר האזכורים ביום.",
+    noAbsH:"במנוע הזה הברנד לא מוזכר ולא מצוטט",noAbsP:"ב-43 השאילתות שבמעקב, ChatGPT אינו מצטט את {brand} ואינו נוקב בשמה. זה פער ברמת הקטגוריה ולא פער מול המתחרים: ב-39 מתוך 43 השאילתות הוא מצטט אתרי תיירות רשמיים של הפיליפינים (tourism.gov.ph, philippines.travel ודומיהם), ורק בשאילתה אחת מתוך 43 הוא מצטט אתר ישראלי כלשהו — כך שגם אף סוכנות ישראלית מתחרה אינה מופיעה שם.",noNameH:"במנוע הזה הברנד מצוטט אך לא נקרא בשמו",noNameP:"‏{brand} מצוטטת כאן ב-{cited} מתוך {n} השאילתות, אבל המנוע כמעט אינו נוקב בשמות ברנדים בגוף התשובה — הוא מפנה לאתר באמצעות קישור מקור. לכן מדד ״אזכורים ליום״, שסופר הופעות של שם הברנד בטקסט, מציג 0 עבור מנוע זה. המדד הרלוונטי כאן הוא הנראות בשאילתות והעמודים המצוטטים.",trendTip:"מספר התשובות שבהן הברנד הוזכר בשמו, מדי יום, על פני תקופת המעקב. הציר האנכי מציין את מספר האזכורים ביום.",
     tsAvg:"ממוצע ליום", tsPeak:"שיא יומי", tsNow:"נוכחי",
     mentCard:"אזכורים לפי ברנד", mentSub:"תצלום אחרון", solo:"אזכור בלעדי", shared:"משותף עם מתחרה",
     clustersH:"קלסטרים ושאילתות",
@@ -3107,7 +3106,7 @@ const DICT = {
     kPagesTip:"How many distinct {domain} URLs appeared as a source in AI answers, across all {n} queries. One page (e.g. /page) can appear in several queries.",
     kMentions:"Mentions / day", kPeak:"peak", avgDay:"avg",
     trendCard:"Mentions trend", trendSub:"Brand mentions per day",
-    trendTip:"How many AI answers named the brand each day across the tracked period. The vertical axis shows the number of mentions per day.",
+    noAbsH:"On this engine the brand is neither mentioned nor cited",noAbsP:"Across the 43 tracked queries, ChatGPT neither cites {brand} nor names it. This is a category-level gap rather than a gap against competitors: in 39 of 43 queries it cites official Philippine tourism sites (tourism.gov.ph, philippines.travel and similar), and in only 1 of 43 does it cite any Israeli site at all — so no competing Israeli agency appears there either.",noNameH:"On this engine the brand is cited but not named",noNameP:"{brand} is cited here in {cited} of {n} queries, but this engine rarely names brands in the body of the answer — it points to the site through a source link. So the “mentions / day” metric, which counts brand-name occurrences in the text, reads 0 for this engine. The meaningful metrics here are query visibility and the cited pages.",trendTip:"How many AI answers named the brand each day across the tracked period. The vertical axis shows the number of mentions per day.",
     tsAvg:"avg / day", tsPeak:"daily peak", tsNow:"latest",
     mentCard:"Mentions by brand", mentSub:"Latest snapshot", solo:"Brand-only", shared:"Shared w/ competitor",
     clustersH:"Clusters & queries",
@@ -3281,13 +3280,14 @@ function render(){
       </div>
     </div>` : `
     <div class="card" style="margin-top:16px"><h2>${t.trendCard}${info(t.trendTip)}</h2>
+      ${peak===0?`<div class="nonamebox"><b>${citedQ>0?t.noNameH:t.noAbsH}</b><p>${esc((citedQ>0?t.noNameP:t.noAbsP).replace("{cited}",citedQ))}</p></div>`:`
       ${trend(d.mentionsDaily,d.mentionsStart)}
       <div class="trendstats">
         <div class="ts"><span class="ts-v num">${fmt(avg)}</span><span class="ts-l">${t.tsAvg}</span></div>
         <div class="ts"><span class="ts-v num">${peak}</span><span class="ts-l">${t.tsPeak}</span></div>
         <div class="ts"><span class="ts-v num">${latest}</span><span class="ts-l">${t.tsNow}</span></div>
       </div>
-      <div class="sub" style="margin-top:12px">${t.trendSub}</div>
+      <div class="sub" style="margin-top:12px">${t.trendSub}</div>`}
     </div>`;
 
   $("#app").innerHTML = head + `
@@ -3299,7 +3299,7 @@ function render(){
     <div class="clusters">${d.clusters.map((c,i)=>{
       const cc=c.q.filter(x=>x.c).length, st=statusOf(cc);
       const stTxt = st==="full"?t.full:(st==="part"?t.part:t.opp);
-      return `<details class="cl" ${i===0?'open':''}><summary>
+      return `<details class="cl" open><summary>
         <span class="idx num">${String(i+1).padStart(2,'0')}</span>
         <span class="cn"><b>${esc(c.name[lang])}</b><small class="ratio">${t.clSummary(c.q.filter(x=>x.m).length,cc,c.q.length)}</small></span>
         <span class="status ${st}">${stTxt}</span>
@@ -4149,16 +4149,16 @@ const CLUSTER = {
     },
     {
      "name": {
-      "he": "Decoconuts",
-      "en": "Decoconuts"
+      "he": "Trip Expert",
+      "en": "Trip Expert"
      },
      "r": 1,
      "own": false
     },
     {
      "name": {
-      "he": "Trip Expert",
-      "en": "Trip Expert"
+      "he": "מסלול אסיה",
+      "en": "Maslul Asia"
      },
      "r": 1,
      "own": false
@@ -4323,16 +4323,16 @@ const CLUSTER = {
     },
     {
      "name": {
-      "he": "לטייל בעולם",
-      "en": "Letayel Baolam"
+      "he": "המדריך לפיליפינים",
+      "en": "Philippines Guide"
      },
      "r": 1,
      "own": false
     },
     {
      "name": {
-      "he": "המדריך לפיליפינים",
-      "en": "Philippines Guide"
+      "he": "לטייל בעולם",
+      "en": "Letayel Baolam"
      },
      "r": 1,
      "own": false
@@ -4847,16 +4847,16 @@ const CLUSTER = {
     },
     {
      "name": {
-      "he": "Go East",
-      "en": "Go East"
+      "he": "מוסקט",
+      "en": "Muscat"
      },
      "r": 2,
      "own": false
     },
     {
      "name": {
-      "he": "מוסקט",
-      "en": "Muscat"
+      "he": "Go East",
+      "en": "Go East"
      },
      "r": 2,
      "own": false
