@@ -1,0 +1,3720 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPADA · GEO Visibility · נובמבר 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF6; --card:#FFFFFF; --ink:#17161D; --muted:#75727F; --faint:#A9A6B2;
+    --line:#ECE9E2; --brand:#E11D3C; --brand-2:#FF5C7C; --brand-soft:#FDEAEE;
+    --comp:#CFCCD8; --amber:#E8A11C; --pos:#1E9E6A; --neg:#D2483F;
+    --shadow:0 1px 2px rgba(20,19,30,.04), 0 8px 24px rgba(20,19,30,.05); --r:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--paper); color:var(--ink); font-family:"Heebo",system-ui,-apple-system,Segoe UI,Arial,sans-serif; font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased}
+  .num{font-family:"Sora","Heebo",system-ui,sans-serif; font-feature-settings:"tnum" 1; letter-spacing:-.01em}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 22px 64px}
+  .topbar{position:sticky; top:0; z-index:20; background:#0F0E14; backdrop-filter:saturate(1.2) blur(10px); border-bottom:1px solid rgba(255,255,255,.08)}
+  .topbar .inner{max-width:1120px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; gap:16px}
+  .mark{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.02em}
+  .mark .dot{width:11px; height:11px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 4px var(--brand-soft)}
+  .mark small{font-weight:600; color:#9C99A6; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase}
+  .spacer{flex:1}
+  .lang{display:inline-flex; border:1px solid rgba(255,255,255,.14); border-radius:10px; overflow:hidden; background:rgba(255,255,255,.06)}
+  .lang button{font-family:inherit; font-weight:700; font-size:13px; border:0; background:transparent; color:#C9C7D0; padding:9px 12px; cursor:pointer}
+  .lang button[aria-pressed="true"]{background:#fff; color:#0F0E14}
+  .lang button:focus-visible{outline:2px solid var(--brand); outline-offset:-2px}
+  .context{display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; padding:24px 0 4px}
+  .eyebrow{font-size:12.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand)}
+  .context h1{font-family:"Sora","Heebo",sans-serif; font-size:clamp(26px,4vw,38px); margin:0; font-weight:800; letter-spacing:-.025em; line-height:1.05}
+  .clientline{display:flex; align-items:center; gap:11px}
+  .avatar{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff; display:grid; place-items:center; font-weight:800; font-size:17px; flex:none}
+  .meta{display:flex; gap:8px; flex-wrap:wrap; align-items:center; color:var(--muted); font-size:13.5px; font-weight:600}
+  .chip{display:inline-flex; align-items:center; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:5px 11px; font-size:12.5px; font-weight:700; color:var(--muted)}
+  .chip .live{width:7px;height:7px;border-radius:50%;background:var(--pos)}
+  .srcwrap{display:flex; align-items:center; gap:10px 14px; flex-wrap:wrap; padding:18px 0 6px}
+  .srclbl{font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--faint)}
+  .srcbar{display:flex; gap:8px; flex-wrap:wrap}
+  .srcbtn{font-family:inherit; font-weight:700; font-size:13px; border:1px solid var(--line); background:var(--card); color:var(--muted); padding:8px 13px; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; gap:7px; box-shadow:var(--shadow)}
+  .srcbtn[aria-pressed="true"]{background:var(--ink); color:#fff; border-color:var(--ink)}
+  .srcbtn .sd{width:6px;height:6px;border-radius:50%}
+  .srcbtn .sd.on{background:var(--pos)} .srcbtn .sd.off{background:var(--faint)}
+  .srcbtn:focus-visible{outline:2px solid var(--brand); outline-offset:2px}
+  .info{position:relative; display:inline-flex; vertical-align:middle; margin-inline-start:6px}
+  .info .i{width:16px; height:16px; border-radius:50%; border:1.5px solid var(--faint); color:var(--muted); font-size:11px; font-weight:800; line-height:1; display:grid; place-items:center; cursor:pointer; font-family:"Sora",sans-serif; background:var(--card)}
+  .info .tip{display:none; position:absolute; top:150%; inset-inline-end:-6px; width:min(280px,76vw); background:var(--ink); color:#fff; font-weight:600; font-size:12px; line-height:1.55; padding:11px 13px; border-radius:11px; box-shadow:0 10px 30px rgba(20,19,30,.22); z-index:40; text-align:start}
+  .info:hover .tip, .info:focus-within .tip, .info.open .tip{display:block}
+  .info .i:focus-visible{outline:2px solid var(--brand); outline-offset:2px}
+  .grid{display:grid; gap:16px}
+  .hero-grid{grid-template-columns:1.15fr 1fr; align-items:stretch}
+  .two{grid-template-columns:1fr 1fr}
+  .kpis{grid-template-columns:repeat(4,1fr)}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow)}
+  .card h2{font-size:13px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 16px; display:flex; align-items:center}
+  .card .sub{color:var(--faint); font-weight:600; font-size:12px}
+  .hero{display:flex; gap:22px; align-items:center}
+  .ring{flex:none; width:188px; height:188px; position:relative}
+  .ring .center{position:absolute; inset:0; display:grid; place-content:center; text-align:center}
+  .ring .big{font-family:"Sora",sans-serif; font-size:42px; font-weight:800; line-height:1}
+  .ring .big sup{font-size:18px; font-weight:700; color:var(--muted)}
+  .ring .lbl{font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:6px}
+  .hero .copy{flex:1; min-width:0}
+  .hero .copy p{margin:0 0 16px; color:var(--muted); font-weight:600}
+  .hero .copy strong{color:var(--ink)}
+  .sovbars{display:flex; flex-direction:column; gap:9px}
+  .sovbars.cols{display:grid; grid-template-columns:1fr 1fr; gap:11px 30px}
+  .sovbars.cols .sovrow .track{height:11px; background:#F6EEF0}
+  .sovbars.cols .sovrow .fill{background:#F4A6B8}
+  .sovbars.cols .sovrow.own .fill{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .sovrow{display:grid; grid-template-columns:84px 1fr 46px; align-items:center; gap:10px; font-size:13px}
+  .sovrow .name{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .sovrow .track{height:9px; background:#F1EFE9; border-radius:999px; overflow:hidden}
+  .sovrow .fill{height:100%; border-radius:999px; background:var(--comp)}
+  .sovrow.own .fill{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .sovrow.own .name{color:var(--brand)} .sovrow .val{text-align:end; font-weight:700; color:var(--muted)} .sovrow.own .val{color:var(--brand)}
+  .kpi .k-top{display:flex; align-items:center; justify-content:space-between; gap:8px}
+  .kpi .k-label{font-size:12.5px; font-weight:700; color:var(--muted); display:flex; align-items:center}
+  .kpi .k-val{font-family:"Sora",sans-serif; font-size:32px; font-weight:800; letter-spacing:-.02em; margin:10px 0 2px; line-height:1}
+  .kpi .k-val sup{font-size:15px; color:var(--muted)} .kpi .k-val .den{font-size:18px; color:var(--faint)}
+  .kpi .k-sub{font-size:12px; font-weight:600; color:var(--faint)}
+  .kpi .glyph{width:30px;height:30px;border-radius:9px;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand)} .kpi .glyph svg{width:16px;height:16px}
+  .trendbox{direction:ltr; position:relative}
+  .trendbox .ylabels{position:absolute; inset-block:0; left:0; width:22px; pointer-events:none}
+  .trendbox .ylabels span{position:absolute; left:0; width:20px; text-align:right; transform:translateY(-50%); font-size:10.5px; font-weight:700; color:var(--faint)}
+  .trendstats{display:flex; gap:30px; margin-top:14px; padding-top:14px; border-top:1px solid var(--line)}
+  .trendstats .ts{display:flex; flex-direction:column; gap:2px}
+  .trendstats .ts-v{font-family:"Sora",sans-serif; font-size:24px; font-weight:800; line-height:1; color:var(--ink)}
+  .trendstats .ts:first-child .ts-v{color:var(--brand)}
+  .trendstats .ts-l{font-size:12px; font-weight:600; color:var(--muted)}
+  .axislabels{direction:ltr; display:flex; justify-content:space-between; margin-top:8px; padding:0 2% 0 5%; color:var(--faint); font-size:11px; font-weight:600}
+  .mlist{display:flex; flex-direction:column; gap:11px}
+  .mrow{display:grid; grid-template-columns:78px 1fr 30px; align-items:center; gap:10px; font-size:13px}
+  .mrow .name{font-weight:700} .mrow.own .name{color:var(--brand)}
+  .mrow .track{height:22px; background:#F5F3EE; border-radius:7px; overflow:hidden; display:flex} .mrow .seg{height:100%}
+  .mrow .seg.solo{background:linear-gradient(90deg,var(--brand),var(--brand-2))} .mrow .seg.shared{background:var(--brand-soft)}
+  .mrow.comp .seg.solo{background:var(--comp)} .mrow.comp .seg.shared{background:#E7E5EE}
+  .mrow .v{text-align:end; font-weight:800; font-family:"Sora",sans-serif}
+  .legend{display:flex; gap:16px; margin-top:14px; font-size:12px; font-weight:600; color:var(--muted); flex-wrap:wrap}
+  .legend span{display:inline-flex; align-items:center; gap:7px} .legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+  .clusters{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .cl{border:1px solid var(--line); border-radius:13px; overflow:hidden; background:#fff}
+  .cl summary{list-style:none; cursor:pointer; padding:15px 18px; display:flex; align-items:center; gap:12px}
+  .cl summary::-webkit-details-marker{display:none}
+  .cl .idx{font-family:"Sora",sans-serif; font-weight:800; color:var(--faint); font-size:13px; width:22px; flex:none}
+  .cl .cn{flex:1; min-width:0} .cl .cn b{display:block; font-weight:700; font-size:15px}
+  .ratio{font-family:"Sora",sans-serif; font-weight:800; font-size:13px; color:var(--muted)}
+  .status{font-size:11px; font-weight:800; padding:4px 9px; border-radius:999px; white-space:nowrap}
+  .status.full{background:#E7F6EE; color:#157a4f} .status.part{background:#FBF1DD; color:#9a6a09} .status.opp{background:#FDEAEE; color:#B0173A}
+  .cl .caret{color:var(--faint); transition:transform .2s; flex:none} .cl[open] .caret{transform:rotate(180deg)}
+  .cl .qs{padding:0 16px 14px; display:flex; flex-direction:column; gap:2px}
+  .qrow{display:flex; gap:11px; padding:10px 4px; border-top:1px solid var(--line)}
+  .qrow .qmark{flex:none; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; margin-top:1px}
+  .qrow .qmark.hit{background:#E7F6EE; color:var(--pos)} .qrow .qmark.miss{background:#F4F2EC; color:var(--faint)}
+  .qrow .qmark svg{width:12px;height:12px}
+  .qbody{flex:1; min-width:0}
+  .qtext{font-size:13px; line-height:1.45; color:var(--ink)} .qrow.miss .qtext{color:var(--muted)}
+  .qpages{display:flex; flex-direction:column; gap:3px; margin-top:6px}
+  .qpages a{font-size:12px; color:var(--brand); text-decoration:none; font-weight:600; word-break:break-all; direction:ltr; text-align:start}
+  .qpages a:hover{text-decoration:underline} .qpages a .pn{color:var(--faint); direction:rtl}
+  .rows{display:flex; flex-direction:column}
+  .prow{display:flex; align-items:center; gap:12px; padding:12px 0; border-top:1px solid var(--line)} .prow:first-child{border-top:0}
+  .prow .badge{font-family:"Sora",sans-serif; font-weight:800; font-size:14px; min-width:30px; height:30px; padding:0 8px; border-radius:9px; display:grid; place-items:center; background:var(--brand-soft); color:var(--brand); flex:none}
+  .prow .pt{flex:1; min-width:0} .prow .pt b{display:block; font-weight:700; font-size:14px}
+  .prow .pt a{color:var(--muted); font-weight:600; font-size:12px; word-break:break-all; direction:ltr; display:inline-block; text-decoration:none} .prow .pt a:hover{color:var(--brand); text-decoration:underline}
+  .drow{display:grid; grid-template-columns:1fr 60px 38px; align-items:center; gap:10px; padding:10px 0; border-top:1px solid var(--line); font-size:13.5px} .drow:first-child{border-top:0}
+  .drow .dn{font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis} .drow .dt{height:7px; background:#F1EFE9; border-radius:999px; overflow:hidden}
+  .drow .df{height:100%; background:var(--comp); border-radius:999px} .drow.own .dn{color:var(--brand)} .drow.own .df{background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+  .drow .dv{text-align:end; font-weight:800; font-family:"Sora",sans-serif; color:var(--muted)}
+  .tag{font-size:10.5px; font-weight:800; padding:2px 7px; border-radius:6px; margin-inline-start:8px; vertical-align:middle} .tag.brand{background:var(--brand-soft); color:var(--brand)} .tag.dir{background:#F2F1ED; color:var(--faint)}
+  .sechead{display:flex; align-items:center; gap:12px; margin:30px 2px 4px}
+  .sechead h2{font-family:"Sora","Heebo",sans-serif; font-size:19px; font-weight:800; margin:0; letter-spacing:-.01em; display:flex; align-items:center}
+  .sechead .line{flex:1; height:1px; background:var(--line)} .sechead .count{color:var(--faint); font-weight:700; font-size:13px}
+  .emptysrc{text-align:center; padding:54px 24px}
+  .emptysrc .ic{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin:0 auto 16px}
+  .emptysrc h3{margin:0 0 8px;font-size:19px;font-weight:800} .emptysrc p{margin:0 auto;max-width:440px;color:var(--muted);font-weight:600}
+  footer{margin-top:34px; padding-top:20px; border-top:1px solid var(--line); color:var(--faint); font-size:12.5px; font-weight:600; line-height:1.7} footer b{color:var(--muted)}
+  .rego{height:30px; width:auto; display:block}
+  .logobox{height:46px; padding:6px 12px; background:#fff; border:1px solid var(--line); border-radius:12px; display:inline-flex; align-items:center; box-shadow:var(--shadow)}
+  .clogo{height:26px; width:auto; display:block}
+  .prepared{margin-top:18px; background:#0F0E14; border-radius:14px; padding:15px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .prepared img{height:26px; width:auto} .prepared span{color:#C9C7D0; font-weight:600; font-size:12.5px}
+  .arow{display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-top:1px solid var(--line)} .arow:first-child{border-top:0}
+  .abolt{flex:none; width:28px;height:28px;border-radius:8px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin-top:1px} .abolt svg{width:15px;height:15px}
+  .atext{flex:1; min-width:0; font-size:14px; font-weight:600; line-height:1.45}
+  .alink{flex:none; font-size:12px; font-weight:700; color:var(--brand); text-decoration:none; border:1px solid var(--line); padding:5px 10px; border-radius:8px; white-space:nowrap} .alink:hover{background:var(--brand-soft)}
+  .aempty{color:var(--faint); font-weight:600; padding:6px 0}
+  @media (max-width:880px){ .hero-grid,.two,.clusters{grid-template-columns:1fr} .kpis{grid-template-columns:1fr 1fr} .hero{flex-direction:column; align-items:flex-start} .ring{margin:0 auto} .sovbars.cols{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="topbar"><div class="inner">
+    <div class="mark"><img id="regoLogo" class="rego" alt="ReGo Digital Marketing"><small id="markSub">GEO Visibility</small></div>
+    <div class="spacer"></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="langHe" aria-pressed="true">עברית</button>
+      <button id="langEn" aria-pressed="false">EN</button>
+    </div>
+  </div></div>
+  <div class="wrap" id="app"></div>
+
+<script>
+/* ============================ DATA:START ============================
+   CONSTANT TEMPLATE — ships with NO client data. The skill replaces
+   EVERYTHING between DATA:START and DATA:END each month, per client.
+   Brand name, domain and the query total flow into every label/tooltip
+   automatically via the {brand} / {domain} / {n} tokens in DICT, so
+   DICT and the render code are NEVER edited between clients.
+
+   Shape to fill (authoritative version in SKILL.md Step 5):
+   {
+     name:{he,en}, initials, domain, market, period:{he,en}, sinceDate,
+     totalQueries,                       // number behind the "/n" copy
+     actions:[{task, link}],
+     sources:{ chatgpt:{ tracked:true,
+       sov:[{name:{he,en}, v, own?}],
+       mentionsDaily:[..], mentionsStart:"YYYY-MM-DD",
+       mentionsByBrand:[{name:{he,en}, solo, shared, own?}],
+       citedPages:[{url, label:{he,en}, q}],
+       domains:[{d, r, own?, dir?}],
+       clusters:[{name:{he,en}, q:[{t, c, u:[{url, note?}]}]}]
+     }  (every other source uses { tracked:false })
+   }
+   ==================================================================== */
+const DATA = {
+ "name": {
+  "he": "SPADA",
+  "en": "SPADA"
+ },
+ "initials": "SP",
+ "domain": "spada.co.il",
+ "market": "IL",
+ "period": {
+  "he": "נובמבר 2026",
+  "en": "November 2026"
+ },
+ "sinceDate": "15.10.2026",
+ "totalQueries": 31,
+ "actions": [
+  {
+   "task": "השלמת קלאסטר ריצוף בשרון - דף הבית וסכימות",
+   "link": ""
+  },
+  {
+   "task": "אופטימיזציה לקלאסטר ריצוף ופרקט לפי ערים",
+   "link": ""
+  },
+  {
+   "task": "אזכורי AI ספדה - נובמבר (קלסטר ריצוף ופרקט לפי ערים)",
+   "link": ""
+  },
+  {
+   "task": "יצירת Note ייחודי לברנד",
+   "link": ""
+  }
+ ],
+ "sources": {
+  "chatgpt": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 72.5,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 56.4
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 9.2
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 12.4
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 6.4
+    }
+   ],
+   "mentionsDaily": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "mentionsStart": "2026-10-15",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 7,
+     "shared": 6,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 4,
+     "shared": 8
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 0,
+     "shared": 2
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 0,
+     "shared": 1
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 10
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-בשרון/",
+     "label": {
+      "he": "ריצוף ופרקט באזור השרון",
+      "en": "Flooring & parquet in the Sharon"
+     },
+     "q": 4
+    },
+    {
+     "url": "www.spada.co.il/אדריכלים/",
+     "label": {
+      "he": "אדריכלים ומעצבים",
+      "en": "Architects & designers"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-וחיפוי/",
+     "label": {
+      "he": "ריצוף וחיפוי",
+      "en": "Flooring & cladding"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/אודות/",
+     "label": {
+      "he": "אודות",
+      "en": "About"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/שאלות-נפוצות/",
+     "label": {
+      "he": "שאלות נפוצות",
+      "en": "FAQ"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "stone-hasharon.com",
+     "r": 15
+    },
+    {
+     "d": "spada.co.il",
+     "r": 14,
+     "own": true
+    },
+    {
+     "d": "alony.co.il",
+     "r": 13
+    },
+    {
+     "d": "easy.co.il",
+     "r": 11,
+     "dir": true
+    },
+    {
+     "d": "kerenstone.co.il",
+     "r": 7
+    },
+    {
+     "d": "ogenceramica.co.il",
+     "r": 5
+    },
+    {
+     "d": "tzmfloor.co.il",
+     "r": 5
+    },
+    {
+     "d": "getparket.co.il",
+     "r": 4
+    },
+    {
+     "d": "arcdb.co.il",
+     "r": 4,
+     "dir": true
+    },
+    {
+     "d": "oz-ceramica.co.il",
+     "r": 3
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/אודות/"
+        }
+       ]
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/אודות/"
+        },
+        {
+         "url": "www.spada.co.il/שאלות-נפוצות/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        }
+       ]
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        },
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  },
+  "gemini": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 13.2,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 89.5
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 10.5
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 15.8
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 73.7
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 2.6
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 0
+    }
+   ],
+   "mentionsDaily": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "mentionsStart": "2026-10-15",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 4,
+     "shared": 3,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 3,
+     "shared": 12
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 0,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 0,
+     "shared": 5
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 0,
+     "shared": 11
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 2
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 0,
+     "shared": 0
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/flooring-hasharon/",
+     "label": {
+      "he": "ריצוף באזור השרון (flooring-hasharon)",
+      "en": "Flooring in the Sharon (flooring-hasharon)"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/אדריכלים/",
+     "label": {
+      "he": "אדריכלים ומעצבים",
+      "en": "Architects & designers"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-ברעננה/",
+     "label": {
+      "he": "עמוד עיר - רעננה",
+      "en": "City page - Ra'anana"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/",
+     "label": {
+      "he": "עמוד עיר - אבן יהודה",
+      "en": "City page - Even Yehuda"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "easy.co.il",
+     "r": 11,
+     "dir": true
+    },
+    {
+     "d": "spada.co.il",
+     "r": 8,
+     "own": true
+    },
+    {
+     "d": "b144.co.il",
+     "r": 5,
+     "dir": true
+    },
+    {
+     "d": "רצפים.com",
+     "r": 4,
+     "dir": true
+    },
+    {
+     "d": "oz-ceramica.co.il",
+     "r": 3
+    },
+    {
+     "d": "levhasharon.co.il",
+     "r": 3
+    },
+    {
+     "d": "inbal-tiles.com",
+     "r": 3
+    },
+    {
+     "d": "arielmarble.net",
+     "r": 2
+    },
+    {
+     "d": "merkaz-hasharon.co.il",
+     "r": 2
+    },
+    {
+     "d": "greatparquet.co.il",
+     "r": 2
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-ברעננה/"
+        }
+       ]
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  },
+  "copilot": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 28.6,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 14.3
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 71.4
+    }
+   ],
+   "mentionsDaily": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "mentionsStart": "2026-10-29",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 4,
+     "shared": 2,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 2,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 2,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 2,
+     "shared": 0
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/אדריכלים/",
+     "label": {
+      "he": "אדריכלים ומעצבים",
+      "en": "Architects & designers"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/אולם-תצוגה-ריצוף/",
+     "label": {
+      "he": "מאמר - אולם תצוגה ריצוף",
+      "en": "Article - flooring showroom"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "stone-hasharon.com",
+     "r": 6
+    },
+    {
+     "d": "parquet-basharon.co.il",
+     "r": 6
+    },
+    {
+     "d": "ogenceramica.co.il",
+     "r": 6
+    },
+    {
+     "d": "halamish.com",
+     "r": 5
+    },
+    {
+     "d": "spada.co.il",
+     "r": 4,
+     "own": true
+    },
+    {
+     "d": "levhasharon.co.il",
+     "r": 4
+    },
+    {
+     "d": "studio4.co.il",
+     "r": 4
+    },
+    {
+     "d": "negev-new.co.il",
+     "r": 4
+    },
+    {
+     "d": "portzelan.co.il",
+     "r": 3
+    },
+    {
+     "d": "mody.co.il",
+     "r": 3
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אולם-תצוגה-ריצוף/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  },
+  "perplexity": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 92.3,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 7.7
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 0
+    }
+   ],
+   "mentionsDaily": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    9
+   ],
+   "mentionsStart": "2026-11-03",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 12,
+     "shared": 1,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 0,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 1,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 1,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 0,
+     "shared": 0
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/",
+     "label": {
+      "he": "מאמר - איפה לקנות ריצוף בשרון",
+      "en": "Article - where to buy flooring in the Sharon"
+     },
+     "q": 10
+    },
+    {
+     "url": "www.spada.co.il/מדריכים/",
+     "label": {
+      "he": "מדריכים",
+      "en": "Guides hub"
+     },
+     "q": 8
+    },
+    {
+     "url": "www.spada.co.il/flooring-hasharon/",
+     "label": {
+      "he": "ריצוף באזור השרון (flooring-hasharon)",
+      "en": "Flooring in the Sharon (flooring-hasharon)"
+     },
+     "q": 5
+    },
+    {
+     "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/",
+     "label": {
+      "he": "מאמר - איפה לקנות ריצוף איכותי",
+      "en": "Article - where to buy quality flooring"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בעמק-חפר/",
+     "label": {
+      "he": "עמוד עיר - עמק חפר",
+      "en": "City page - Emek Hefer"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בכפר-סבא/",
+     "label": {
+      "he": "עמוד עיר - כפר סבא",
+      "en": "City page - Kfar Saba"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/",
+     "label": {
+      "he": "עמוד עיר - אבן יהודה",
+      "en": "City page - Even Yehuda"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בהוד-השרון/",
+     "label": {
+      "he": "עמוד עיר - הוד השרון",
+      "en": "City page - Hod HaSharon"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-בשרון/",
+     "label": {
+      "he": "ריצוף ופרקט באזור השרון",
+      "en": "Flooring & parquet in the Sharon"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-וחיפוי/",
+     "label": {
+      "he": "ריצוף וחיפוי",
+      "en": "Flooring & cladding"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/מאמרים/3/",
+     "label": {
+      "he": "מגזין עיצוב",
+      "en": "Design magazine"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/category/ריצוף-וחיפוי/page/2/",
+     "label": {
+      "he": "קטגוריה - ריצוף וחיפויים",
+      "en": "Category - flooring"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-ברמת-אפעל/",
+     "label": {
+      "he": "עמוד עיר - רמת אפעל",
+      "en": "City page - Ramat Ef'al"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בהרצליה/",
+     "label": {
+      "he": "עמוד עיר - הרצליה",
+      "en": "City page - Herzliya"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בתל-מונד/",
+     "label": {
+      "he": "עמוד עיר - תל מונד",
+      "en": "City page - Tel Mond"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "d.co.il",
+     "r": 18,
+     "dir": true
+    },
+    {
+     "d": "b144.co.il",
+     "r": 17,
+     "dir": true
+    },
+    {
+     "d": "spada.co.il",
+     "r": 14,
+     "own": true
+    },
+    {
+     "d": "midrag.co.il",
+     "r": 12,
+     "dir": true
+    },
+    {
+     "d": "ynet.co.il",
+     "r": 12
+    },
+    {
+     "d": "easy.co.il",
+     "r": 7,
+     "dir": true
+    },
+    {
+     "d": "pro.co.il",
+     "r": 6,
+     "dir": true
+    },
+    {
+     "d": "bonimbayit.co.il",
+     "r": 6,
+     "dir": true
+    },
+    {
+     "d": "top-renovations.co.il",
+     "r": 4,
+     "dir": true
+    },
+    {
+     "d": "wood-gallery.co.il",
+     "r": 4
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בכפר-סבא/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/category/ריצוף-וחיפוי/page/2/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-ברמת-אפעל/"
+        },
+        {
+         "url": "www.spada.co.il/מאמרים/3/"
+        },
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בהרצליה/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בתל-מונד/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בכפר-סבא/"
+        },
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/"
+        }
+       ]
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        }
+       ]
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בעמק-חפר/"
+        }
+       ]
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בהוד-השרון/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בעמק-חפר/"
+        }
+       ]
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/"
+        }
+       ]
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בהוד-השרון/"
+        },
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בעמק-חפר/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        },
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  },
+  "google_ai_overviews": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 80.0,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 11.3
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 17.5
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 18.8
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 7.0
+    }
+   ],
+   "mentionsDaily": [
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mentionsStart": "2026-10-15",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 8,
+     "shared": 5,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 0,
+     "shared": 5
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 0,
+     "shared": 2
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 0,
+     "shared": 5
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 0,
+     "shared": 2
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/flooring-hasharon/",
+     "label": {
+      "he": "ריצוף באזור השרון (flooring-hasharon)",
+      "en": "Flooring in the Sharon (flooring-hasharon)"
+     },
+     "q": 5
+    },
+    {
+     "url": "www.spada.co.il/אדריכלים/",
+     "label": {
+      "he": "אדריכלים ומעצבים",
+      "en": "Architects & designers"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-בשרון/",
+     "label": {
+      "he": "ריצוף ופרקט באזור השרון",
+      "en": "Flooring & parquet in the Sharon"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/",
+     "label": {
+      "he": "מאמר - איפה לקנות ריצוף בשרון",
+      "en": "Article - where to buy flooring in the Sharon"
+     },
+     "q": 2
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-בנתניה/",
+     "label": {
+      "he": "עמוד עיר - נתניה",
+      "en": "City page - Netanya"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/",
+     "label": {
+      "he": "מאמר - איפה לקנות ריצוף איכותי",
+      "en": "Article - where to buy quality flooring"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/מאיפה-כדאי-לרכוש-ריצוף-לבית-המדריך-המל/",
+     "label": {
+      "he": "מאמר - מאיפה כדאי לרכוש ריצוף לבית",
+      "en": "Article - where to buy home flooring"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/מדריכים/",
+     "label": {
+      "he": "מדריכים",
+      "en": "Guides hub"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/המלצות/",
+     "label": {
+      "he": "המלצות",
+      "en": "Testimonials"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/outdoor-flooring-r11-guide/",
+     "label": {
+      "he": "מאמר - ריצוף חוץ R11",
+      "en": "Article - R11 outdoor flooring"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "spada.co.il",
+     "r": 15,
+     "own": true
+    },
+    {
+     "d": "midrag.co.il",
+     "r": 10,
+     "dir": true
+    },
+    {
+     "d": "easy.co.il",
+     "r": 8,
+     "dir": true
+    },
+    {
+     "d": "stone-hasharon.com",
+     "r": 7
+    },
+    {
+     "d": "oz-ceramica.co.il",
+     "r": 4
+    },
+    {
+     "d": "tzmfloor.co.il",
+     "r": 3
+    },
+    {
+     "d": "barami.co.il",
+     "r": 3
+    },
+    {
+     "d": "venezia.co.il",
+     "r": 3
+    },
+    {
+     "d": "ogenceramica.co.il",
+     "r": 3
+    },
+    {
+     "d": "infinitysurfaces.co.il",
+     "r": 3
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-איכותי-לבית-או-לעסק/"
+        },
+        {
+         "url": "www.spada.co.il/מאיפה-כדאי-לרכוש-ריצוף-לבית-המדריך-המל/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/המלצות/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        },
+        {
+         "url": "www.spada.co.il/מדריכים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-בנתניה/"
+        }
+       ]
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        },
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        },
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/איפה-לקנות-ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/outdoor-flooring-r11-guide/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  },
+  "google_ai_mode": {
+   "tracked": true,
+   "sov": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "v": 37.3,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "v": 70.0
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "v": 3.3
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "v": 8.7
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "v": 46.7
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "v": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "v": 44.7
+    }
+   ],
+   "mentionsDaily": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mentionsStart": "2026-10-15",
+   "mentionsByBrand": [
+    {
+     "name": {
+      "he": "SPADA",
+      "en": "SPADA"
+     },
+     "solo": 9,
+     "shared": 4,
+     "own": true
+    },
+    {
+     "name": {
+      "he": "אלוני",
+      "en": "Alony"
+     },
+     "solo": 4,
+     "shared": 5
+    },
+    {
+     "name": {
+      "he": "נגב קרמיקה",
+      "en": "Negev Ceramics"
+     },
+     "solo": 1,
+     "shared": 1
+    },
+    {
+     "name": {
+      "he": "חזי בנק",
+      "en": "Hezi Bank"
+     },
+     "solo": 0,
+     "shared": 2
+    },
+    {
+     "name": {
+      "he": "מודי",
+      "en": "Mody"
+     },
+     "solo": 0,
+     "shared": 3
+    },
+    {
+     "name": {
+      "he": "אבני טל",
+      "en": "Avnei Tal"
+     },
+     "solo": 0,
+     "shared": 0
+    },
+    {
+     "name": {
+      "he": "סנה",
+      "en": "Sene"
+     },
+     "solo": 0,
+     "shared": 1
+    }
+   ],
+   "citedPages": [
+    {
+     "url": "www.spada.co.il/flooring-hasharon/",
+     "label": {
+      "he": "ריצוף באזור השרון (flooring-hasharon)",
+      "en": "Flooring in the Sharon (flooring-hasharon)"
+     },
+     "q": 5
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-בשרון/",
+     "label": {
+      "he": "ריצוף ופרקט באזור השרון",
+      "en": "Flooring & parquet in the Sharon"
+     },
+     "q": 4
+    },
+    {
+     "url": "www.spada.co.il/",
+     "label": {
+      "he": "דף הבית",
+      "en": "Homepage"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-וחיפוי/",
+     "label": {
+      "he": "ריצוף וחיפוי",
+      "en": "Flooring & cladding"
+     },
+     "q": 3
+    },
+    {
+     "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/",
+     "label": {
+      "he": "עמוד עיר - אבן יהודה",
+      "en": "City page - Even Yehuda"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/אדריכלים/",
+     "label": {
+      "he": "אדריכלים ומעצבים",
+      "en": "Architects & designers"
+     },
+     "q": 1
+    },
+    {
+     "url": "www.spada.co.il/המלצות/",
+     "label": {
+      "he": "המלצות",
+      "en": "Testimonials"
+     },
+     "q": 1
+    }
+   ],
+   "domains": [
+    {
+     "d": "spada.co.il",
+     "r": 12,
+     "own": true
+    },
+    {
+     "d": "easy.co.il",
+     "r": 11,
+     "dir": true
+    },
+    {
+     "d": "stone-hasharon.com",
+     "r": 6
+    },
+    {
+     "d": "levhasharon.co.il",
+     "r": 4
+    },
+    {
+     "d": "d.co.il",
+     "r": 3,
+     "dir": true
+    },
+    {
+     "d": "alony.co.il",
+     "r": 3
+    },
+    {
+     "d": "b144.co.il",
+     "r": 3,
+     "dir": true
+    },
+    {
+     "d": "barami.co.il",
+     "r": 2
+    },
+    {
+     "d": "parquet-basharon.co.il",
+     "r": 2
+    },
+    {
+     "d": "laminam.co.il",
+     "r": 2
+    }
+   ],
+   "clusters": [
+    {
+     "name": {
+      "he": "המותג SPADA",
+      "en": "SPADA brand"
+     },
+     "q": [
+      {
+       "t": "ספדה או אלוני, איפה עדיף לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        }
+       ]
+      },
+      {
+       "t": "האם כדאי לקנות ריצוף בספדה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      },
+      {
+       "t": "מה הביקורות על ספדה ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/"
+        },
+        {
+         "url": "www.spada.co.il/המלצות/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "איפה קונים ריצוף בשרון",
+      "en": "Where to buy flooring in the Sharon"
+     },
+     "q": [
+      {
+       "t": "מי ספק הריצוף הכי מומלץ בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "אילו חנויות ריצוף מומלצות יש בעמק חפר?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "אנחנו בונים בית בשרון, איפה כדאי לקנות ריצוף?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באזור השרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף בשרון שווה לבקר בו?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-וחיפוי/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף ופרקט לפי ערים",
+      "en": "Flooring & parquet by city"
+     },
+     "q": [
+      {
+       "t": "איזו חנות ריצוף מומלצת יש בהוד השרון או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור הרצליה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה אולם תצוגה לריצוף מומלץ ליד נתניה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזו חנות ריצוף ופרקט מומלצת יש ברעננה או באזור?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף באזור כפר סבא?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף ופרקט באבן יהודה או קרוב אליה?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/ריצוף-ופרקט-באבן-יהודה/"
+        },
+        {
+         "url": "www.spada.co.il/ריצוף-בשרון/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "אדריכלים ומעצבי פנים",
+      "en": "Architects & interior designers"
+     },
+     "q": [
+      {
+       "t": "איזה ספק ריצוף נותן הטבות לאדריכלים ומעצבי פנים?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף וסניטריה עובד עם מעצבי פנים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/אדריכלים/"
+        }
+       ]
+      },
+      {
+       "t": "איפה מעצבי פנים קונים ריצוף לפרויקטים?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      },
+      {
+       "t": "איזה ספק ריצוף מומלץ לאדריכלים בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף וסניטריה במקום אחד",
+      "en": "Flooring & sanitary in one place"
+     },
+     "q": [
+      {
+       "t": "אני משפץ אמבטיה, איפה כדאי לקנות ריצוף, כלים סניטריים וארון במקום אחד?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי להזמין מקלחון בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ברזים וכלים סניטריים בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ארונות אמבטיה בשרון?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה אפשר לקנות ריצוף וכלים סניטריים באותו מקום בשרון?",
+       "c": true,
+       "u": [
+        {
+         "url": "www.spada.co.il/flooring-hasharon/"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "קניית פרקט",
+      "en": "Buying parquet"
+     },
+     "q": [
+      {
+       "t": "איזה ספק פרקט הכי מומלץ?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט SPC?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט עץ אלון איכותי?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות פרקט בשרון?",
+       "c": false,
+       "u": []
+      }
+     ]
+    },
+    {
+     "name": {
+      "he": "ריצוף אירופאי פרימיום",
+      "en": "Premium European tiles"
+     },
+     "q": [
+      {
+       "t": "איפה כדאי לקנות ריצוף חוץ נגד החלקה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות ריצוף טרצו?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איזה ספק ריצוף מייבא אריחים מאירופה?",
+       "c": false,
+       "u": []
+      },
+      {
+       "t": "איפה כדאי לקנות גרניט פורצלן איטלקי?",
+       "c": false,
+       "u": []
+      }
+     ]
+    }
+   ]
+  }
+ }
+};
+/* ============================= DATA:END ============================= */
+
+const SOURCES = [
+  {id:"chatgpt", label:"ChatGPT"},{id:"perplexity", label:"Perplexity"},{id:"copilot", label:"Copilot"},
+  {id:"gemini", label:"Gemini"},{id:"grok", label:"Grok"},{id:"google_ai_overviews", label:"AI Overviews"},{id:"google_ai_mode", label:"AI Mode"},
+  {id:"claude", label:"Claude", unsupported:true}
+];
+
+const DICT = {
+  he:{ geoSub:"GEO · נראות במנועי תשובה", preparedBy:"מופק על ידי ReGo Digital Marketing", actionsH:"מה עשינו החודש", actionsNote:"פעולות שבוצעו על-ידי ReGo בחודש האחרון", fileLink:"קובץ מצורף", noActions:"לא תועדו פעולות החודש", report:"דוח חודשי", live:"נתונים חיים", market:"שוק", since:"מאז",
+    sov:"Share of Voice", sovLbl:"נתח קול",
+    sovTip:"נתח קול (Share of Voice): מבין כל תשובות ה-AI שבהן הוזכר ברנד כלשהו מהקטגוריה, באיזה אחוז מהן הוזכרה {brand}. 100% = {brand} מוזכרת בכל תשובה שמזכירה ברנד.",
+    heroLead:(b,s)=>`כשהקטגוריה עולה במנוע ה-AI הנבחר, <strong>${b}</strong> מקבלת <strong>${s}% מנתח הקול</strong> מול המתחרים שבמעקב.`,
+    presenceH:"מתחרים שמופיעים בתשובות", presenceLbl:"נתח הופעות",
+    presenceTip:"נתח הופעות = חלקה של {brand} מתוך כלל ההופעות של חברות המטבחים שצוטטו בתשובות ה-AI לשאילתות, מצטבר על פני כל הקלסטרים. המספר ליד כל חברה = בכמה תשובות היא צוטטה; נתח ההופעות הוא חלקה של {brand} מסך ההופעות של החברות המוצגות.",
+    presenceNote:"המספר ליד כל חברה = בכמה תשובות היא צוטטה, על פני השאילתות במקור זה.",
+    presenceEmpty:"במקור זה הברנדים מוזכרים בשם ללא קישור לעמוד מקור — ראו את מגמת האזכורים.",
+    kVis:"נראות בשאילתות", kVisSub:n=>`${n} שאילתות במעקב`,
+    kVisTip:"כמה מתוך {n} השאילתות במעקב כללו בתשובת ה-AI ציטוט של לפחות עמוד אחד מאתר {brand}. זה המדד שמאחורי הציון של כל קלסטר.",
+    kPages:"עמודים מצוטטים",
+    kPagesTip:"כמה כתובות שונות של אתר {brand} הופיעו כמקור בתשובות ה-AI, על פני כל {n} השאילתות. עמוד אחד (למשל ‎/page) יכול להופיע בכמה שאילתות.",
+    kMentions:"אזכורים ליום", kPeak:"שיא", avgDay:"ממוצע",
+    trendCard:"מגמת אזכורים", trendSub:"אזכורי הברנד ליום",
+    trendTip:"מספר התשובות שבהן הברנד הוזכר בשמו, מדי יום, על פני תקופת המעקב. הציר האנכי מציין את מספר האזכורים ביום.",
+    tsAvg:"ממוצע ליום", tsPeak:"שיא יומי", tsNow:"נוכחי",
+    mentCard:"אזכורים לפי ברנד", mentSub:"תצלום אחרון", solo:"אזכור בלעדי", shared:"משותף עם מתחרה",
+    clustersH:"קלסטרים ושאילתות",
+    clTip:"הציון מבוסס על כמה משאילתות הקלסטר כללו ציטוט לעמוד {brand}: 0 = הזדמנות, 1–2 = נוכחות חלקית, 3+ = נוכחות מובילה. פתחו קלסטר כדי לראות אילו שאילתות מצטטות את {brand} ובאילו עמודים.",
+    pagesCard:"עמודי {brand} שזכו לציטוט", pagesNote:"מצטבר על פני כל {n} השאילתות · המספר = בכמה שאילתות צוטט העמוד",
+    domainsCard:"נוף הציטוטים בקטגוריה", domainsNote:"מספר התשובות שבהן צוטט כל דומיין",
+    qCited:"{brand} צוטטה", qMiss:"{brand} לא צוטטה", inQ:(n,d)=>`${n}/${d} שאילתות`,
+    full:"נוכחות מובילה", part:"נוכחות חלקית", opp:"הזדמנות", brandTag:"ברנד", dirTag:"מדריך/זירה",
+    srcTitle:"מקור נתונים",
+    notTrackedH:l=>`${l} עדיין לא נמדד בדוח הזה`,
+    notTrackedP:"כרגע נמדד רק ChatGPT (סריקה יומית). כדי להוסיף מקור — מפעילים אותו בדוח ה-Brand Radar, והנתונים מצטברים מכאן והלאה.",
+    claudeH:"Claude אינו נתמך כמקור", claudeP:"Ahrefs Brand Radar אינו סורק את Claude. המקורות הזמינים: ChatGPT, Perplexity, Copilot, Gemini, Grok ו-Google AI.",
+    methodTitle:"מתודולוגיה",
+    method:(p,b,d,n)=>`הנתונים נמשכו מ-Brand Radar (Ahrefs) · מקורות: ChatGPT, Gemini, Copilot, Perplexity, Google AI Overviews, Google AI Mode · תקופה: ${p}. הנראות נמדדת פר-שאילתה: לכל אחת מ-${n} השאילתות נבדק אילו עמודים צוטטו בתשובת ה-AI, ומסומן אם הופיע עמוד של ${b}. נתח הקול הוא חלקה של ${b} מתוך אזכורי כלל הברנדים שבמעקב.`
+  },
+  en:{ geoSub:"GEO · Answer-engine visibility", preparedBy:"Prepared by ReGo Digital Marketing", actionsH:"What we did this month", actionsNote:"Actions completed by ReGo over the past month", fileLink:"Attached file", noActions:"No actions logged this month", report:"Monthly report", live:"Live data", market:"Market", since:"Since",
+    sov:"Share of Voice", sovLbl:"Share of voice",
+    sovTip:"Share of Voice: of all AI answers that mention any brand in the category, the percentage that mention {brand}. 100% = {brand} is named in every answer that names a brand.",
+    heroLead:(b,s)=>`When the category comes up in the selected AI engine, <strong>${b}</strong> earns <strong>${s}% share of voice</strong> against the tracked competitors.`,
+    presenceH:"Competitors appearing in answers", presenceLbl:"Presence share",
+    presenceTip:"Presence share = {brand}'s portion of all appearances by kitchen companies cited in the AI answers to the queries, aggregated across all clusters. The number next to each company = how many answers cited it; presence share is {brand}'s portion of all shown companies' appearances.",
+    presenceNote:"The number next to each company = in how many answers it was cited, across this source's queries.",
+    presenceEmpty:"In this source brands are named without linking to a source page — see the mentions trend.",
+    kVis:"Query visibility", kVisSub:n=>`of ${n} tracked queries`,
+    kVisTip:"How many of the {n} tracked queries had an AI answer that cited at least one page from {domain}. This is the metric behind each cluster's score.",
+    kPages:"Cited pages",
+    kPagesTip:"How many distinct {domain} URLs appeared as a source in AI answers, across all {n} queries. One page (e.g. /page) can appear in several queries.",
+    kMentions:"Mentions / day", kPeak:"peak", avgDay:"avg",
+    trendCard:"Mentions trend", trendSub:"Brand mentions per day",
+    trendTip:"How many AI answers named the brand each day across the tracked period. The vertical axis shows the number of mentions per day.",
+    tsAvg:"avg / day", tsPeak:"daily peak", tsNow:"latest",
+    mentCard:"Mentions by brand", mentSub:"Latest snapshot", solo:"Brand-only", shared:"Shared w/ competitor",
+    clustersH:"Clusters & queries",
+    clTip:"The score is based on how many of the cluster's queries cited an {brand} page: 0 = opportunity, 1–2 = partial, 3+ = leading. Open a cluster to see which queries cite {brand} and on which pages.",
+    pagesCard:"{brand} pages earning citations", pagesNote:"Aggregated across all {n} queries · number = in how many queries the page was cited",
+    domainsCard:"Category citation landscape", domainsNote:"Number of answers that cited each domain",
+    qCited:"{brand} cited", qMiss:"{brand} not cited", inQ:(n,d)=>`${n}/${d} queries`,
+    full:"Leading", part:"Partial", opp:"Opportunity", brandTag:"Brand", dirTag:"Directory/Market",
+    srcTitle:"Data source",
+    notTrackedH:l=>`${l} isn't measured in this report yet`,
+    notTrackedP:"Only ChatGPT is scanned right now (daily). To add a source, enable it in the Brand Radar report — data accrues from then on.",
+    claudeH:"Claude isn't a supported source", claudeP:"Ahrefs Brand Radar does not scan Claude. Available sources: ChatGPT, Perplexity, Copilot, Gemini, Grok and Google AI.",
+    methodTitle:"Methodology",
+    method:(p,b,d,n)=>`Data pulled from Brand Radar (Ahrefs) · sources: ChatGPT, Gemini, Copilot, Perplexity, Google AI Overviews, Google AI Mode · period: ${p}. Visibility is measured per query: for each of the ${n} queries we check which pages the AI answer cited and flag whether an ${b} page appeared. Share of voice is ${b}'s portion of all tracked-brand mentions.`
+  }
+};
+
+const REGO_LOGO="data:image/png;base64,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";
+/* ----- CLIENT_LOGO:START — replace this base64 with the client's logo ----- */
+const CLIENT_LOGO="data:image/png;base64,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";
+/* ----- CLIENT_LOGO:END ----- */
+let lang = "he", source = (SOURCES.find(s=>DATA.sources[s.id] && DATA.sources[s.id].tracked)||{id:"chatgpt"}).id;
+const $ = (s,el=document)=>el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => Number.isInteger(n)? n : Math.round(n*10)/10;
+const info = txt => `<span class="info"><span class="i" tabindex="0" role="button" aria-label="info">i</span><span class="tip">${esc(txt)}</span></span>`;
+
+function ring(v){ const r=78,c=2*Math.PI*r,off=c*(1-v/100);
+  return `<svg viewBox="0 0 188 188" width="188" height="188" role="img" aria-label="${fmt(v)}%">
+   <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E11D3C"/><stop offset="1" stop-color="#FF5C7C"/></linearGradient></defs>
+   <circle cx="94" cy="94" r="${r}" fill="none" stroke="#F1EFE9" stroke-width="15"/>
+   <circle cx="94" cy="94" r="${r}" fill="none" stroke="url(#rg)" stroke-width="15" stroke-linecap="round" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" transform="rotate(-90 94 94)" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)"/></svg>`; }
+
+function trend(daily,startISO){ const W=520,H=180,pl=26,pr=10,pt=16,pb=8,n=daily.length;
+  const peak=Math.max(...daily,0), max=Math.max(peak,1);
+  const x=i=>pl+i*(W-pl-pr)/(n-1), y=v=>pt+(1-v/max)*(H-pt-pb);
+  const pts=daily.map((v,i)=>[x(i),y(v)]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const area=`M ${x(0).toFixed(1)} ${(H-pb).toFixed(1)} `+pts.map(p=>"L"+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ")+` L ${x(n-1).toFixed(1)} ${(H-pb).toFixed(1)} Z`;
+  const last=pts[n-1], sd=new Date(startISO);
+  const dl=i=>{const d=new Date(sd);d.setDate(sd.getDate()+i);return d.getDate()+"/"+(d.getMonth()+1);};
+  const ticks=[0,Math.round((n-1)/2),n-1].map(i=>`<span>${dl(i)}</span>`).join("");
+  const yv = peak<=1?[0,1]:(peak<=4?[0,peak]:[0,Math.round(peak/2),peak]);
+  const grid = yv.map(v=>`<line x1="${pl}" y1="${y(v).toFixed(1)}" x2="${(W-pr).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join("");
+  const ylab = yv.map(v=>`<span style="top:${y(v).toFixed(1)}px">${v}</span>`).join("");
+  return `<div class="trendbox"><div class="ylabels">${ylab}</div><svg viewBox="0 0 ${W} ${H}" width="100%" height="180" preserveAspectRatio="none" role="img">
+   <defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E11D3C" stop-opacity=".22"/><stop offset="1" stop-color="#E11D3C" stop-opacity="0"/></linearGradient></defs>
+   ${grid}<path d="${area}" fill="url(#tg)"/><path d="${line}" fill="none" stroke="#E11D3C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+   <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="4.5" fill="#fff" stroke="#E11D3C" stroke-width="2.5"/></svg>
+   <div class="axislabels">${ticks}</div></div>`; }
+
+const checkSvg = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const dashSvg  = '<svg viewBox="0 0 24 24"><path d="M6 12h12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
+
+function kic(t){const p={ment:'<path d="M4 5h16v10H8l-4 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  cite:'<path d="M7 8h10M7 12h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>',
+  sov:'<path d="M3 13a9 9 0 1 0 9-9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 12l5-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'}[t];
+  return `<span class="glyph"><svg viewBox="0 0 24 24">${p}</svg></span>`;}
+
+function statusOf(c){ return c>=3 ? "full" : (c>=1 ? "part" : "opp"); }
+
+function srcBar(t){
+  return `<div class="srcwrap"><span class="srclbl">${t.srcTitle}</span><div class="srcbar">
+    ${SOURCES.filter(s=>DATA.sources[s.id] && DATA.sources[s.id].tracked).map(s=>{
+      const dot = `<span class="sd on"></span>`;
+      return `<button class="srcbtn" data-src="${s.id}" ${source===s.id?'aria-pressed="true"':''}>${dot}${s.label}</button>`;
+    }).join("")}
+  </div></div>`;
+}
+
+function render(){
+  const _src0 = DATA.sources[source];
+  const totalQ = (_src0 && _src0.tracked && Array.isArray(_src0.clusters)) ? _src0.clusters.reduce((a,c)=>a+c.q.length,0) : (DATA.totalQueries||48);
+  const _fill = s => s.replace(/\{brand\}/g, DATA.name[lang]).replace(/\{domain\}/g, DATA.domain).replace(/\{n\}/g, String(totalQ));
+  const t = Object.fromEntries(Object.entries(DICT[lang]).map(([k,v]) => [k, (typeof v === "string") ? _fill(v) : v]));
+  document.documentElement.lang=lang; document.documentElement.dir = lang==="he"?"rtl":"ltr";
+  $("#markSub").textContent=t.geoSub;
+  $("#langHe").setAttribute("aria-pressed",lang==="he"); $("#langEn").setAttribute("aria-pressed",lang==="en");
+
+  const head = `
+    <div class="context">
+      <div class="clientline">${CLIENT_LOGO?`<span class="logobox"><img class="clogo" src="${CLIENT_LOGO}" alt="${esc(DATA.name[lang])}"></span>`:""}
+        <div><div class="eyebrow">${t.report} · ${esc(DATA.period[lang])}</div><h1>${esc(DATA.name[lang])}</h1></div></div>
+      <div class="spacer"></div>
+      <div class="meta">
+        <span class="chip"><span class="live"></span>${t.live}</span>
+        <span class="chip">${t.market}: ${esc(DATA.market)}</span>
+        <span class="chip">${t.since} ${esc(DATA.sinceDate)}</span></div>
+    </div>
+    ${srcBar(t)}`;
+
+  const srcObj = DATA.sources[source];
+  const selMeta = SOURCES.find(s=>s.id===source);
+
+  if(!srcObj || !srcObj.tracked){
+    const unsupported = selMeta && selMeta.unsupported;
+    $("#app").innerHTML = head + `
+      <div class="card" style="margin-top:8px"><div class="emptysrc">
+        <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>${unsupported? esc(t.claudeH) : esc(t.notTrackedH(selMeta?selMeta.label:source))}</h3>
+        <p>${unsupported? esc(t.claudeP) : esc(t.notTrackedP)}</p>
+      </div></div>`;
+    return;
+  }
+
+  const d=srcObj;
+  const avg=d.mentionsDaily.reduce((a,b)=>a+b,0)/d.mentionsDaily.length, peak=Math.max(...d.mentionsDaily);
+  const ownEntry=(d.sov||[]).find(s=>s.own)||{v:0}, ownSov=ownEntry.v, maxSov=Math.max(1,...(d.sov||[]).map(s=>s.v));
+  const maxMent=Math.max(...d.mentionsByBrand.map(b=>b.solo+b.shared)), maxDom=Math.max(...d.domains.map(x=>x.r));
+  const citedQ=d.clusters.reduce((a,c)=>a+c.q.filter(x=>x.c).length,0);
+  // No tracked competitors → show who actually appears in the answers (counts) instead of a meaningless 100% SoV.
+  const hasComp = Array.isArray(d.sov) && d.sov.some(s=>!s.own);
+  const comp = (d.competitors||[]).slice().sort((a,b)=>b.r-a.r);
+  const compMax = Math.max(1,...comp.map(c=>c.r)), compTotal = comp.reduce((a,c)=>a+c.r,0);
+  const ownComp = comp.find(c=>c.own), presenceShare = (ownComp && compTotal) ? +(ownComp.r/compTotal*100).toFixed(1) : 0;
+  // SoV hero (when real competitors exist): ring + bars.
+  const sovHero = `
+        <div class="hero">
+          <div class="ring">${ring(ownSov)}<div class="center"><div class="big num">${fmt(ownSov)}<sup>%</sup></div><div class="lbl">${t.sovLbl}</div></div></div>
+          <div class="copy"><p>${t.heroLead(esc(DATA.name[lang]),fmt(ownSov))}</p>
+            <div class="sovbars">${d.sov.map(s=>`
+              <div class="sovrow ${s.own?'own':''}"><span class="name">${esc(s.name[lang])}</span>
+                <span class="track"><span class="fill" style="width:${(s.v/Math.max(maxSov,1)*100).toFixed(1)}%"></span></span>
+                <span class="val num">${fmt(s.v)}%</span></div>`).join("")}</div>
+          </div>
+        </div>`;
+  // Presence panel (when no competitors tracked): full-width ranked bars by appearance count, no ring, no "no-competitors" copy.
+  const presencePanel = comp.length ? `
+        <div class="sovbars cols">${comp.map(c=>`
+          <div class="sovrow ${c.own?'own':''}"><span class="name">${esc(c.name[lang])}</span>
+            <span class="track"><span class="fill" style="width:${(c.r/compMax*100).toFixed(1)}%"></span></span>
+            <span class="val num">${c.r}</span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.presenceNote}</div>`
+      : `<div class="sub">${t.presenceEmpty}</div>`;
+  // The 4th KPI: SoV% when competitors exist, else "presence share" with its own info bubble.
+  const sovKpi = hasComp ? `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.sov}${info(t.sovTip)}</span>${kic('sov')}</div>
+          <div class="k-val num">${fmt(ownSov)}<sup>%</sup></div><div class="k-sub">${esc(selMeta?selMeta.label:source)} · ${esc(DATA.market)}</div></div>`
+      : `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.presenceLbl}${info(t.presenceTip)}</span>${kic('sov')}</div>
+          <div class="k-val num">${fmt(presenceShare)}<sup>%</sup></div><div class="k-sub">${esc(selMeta?selMeta.label:source)} · ${esc(DATA.market)}</div></div>`;
+
+  const kpiBlock = `
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kVis}${info(t.kVisTip)}</span>${kic('eye')}</div>
+          <div class="k-val num">${citedQ}<span class="den">/${totalQ}</span></div><div class="k-sub">${t.kVisSub(totalQ)}</div></div>
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kPages}${info(t.kPagesTip)}</span>${kic('cite')}</div>
+          <div class="k-val num">${d.citedPages.length}</div><div class="k-sub">${esc(DATA.domain)}</div></div>
+        <div class="card kpi"><div class="k-top"><span class="k-label">${t.kMentions}</span>${kic('ment')}</div>
+          <div class="k-val num">${fmt(avg)}</div><div class="k-sub">${t.avgDay} · ${t.kPeak} ${peak}</div></div>
+        ${sovKpi}`;
+  const topSection = hasComp ? `
+    <div class="grid hero-grid" style="margin-top:8px">
+      <div class="card"><h2>${t.sov}${info(t.sovTip)}</h2>${sovHero}</div>
+      <div class="grid kpis" style="align-content:start">${kpiBlock}</div>
+    </div>` : `
+    <div class="grid kpis" style="margin-top:8px">${kpiBlock}</div>
+    <div class="card" style="margin-top:16px"><h2>${t.presenceH}${info(t.presenceTip)}</h2>${presencePanel}</div>`;
+
+  const latest = d.mentionsDaily[d.mentionsDaily.length-1];
+  const mentionsSection = hasComp ? `
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><h2>${t.trendCard}</h2>${trend(d.mentionsDaily,d.mentionsStart)}<div class="sub" style="margin-top:6px">${t.trendSub}</div></div>
+      <div class="card"><h2>${t.mentCard} · <span class="sub">${t.mentSub}</span></h2>
+        <div class="mlist">${d.mentionsByBrand.map(b=>{const tot=b.solo+b.shared;return `
+          <div class="mrow ${b.own?'own':'comp'}"><span class="name">${esc(b.name[lang])}</span>
+            <span class="track"><span class="seg solo" style="width:${tot?(b.solo/Math.max(maxMent,1)*100).toFixed(1):0}%"></span>
+              <span class="seg shared" style="width:${tot?(b.shared/Math.max(maxMent,1)*100).toFixed(1):0}%"></span></span>
+            <span class="v">${tot}</span></div>`;}).join("")}</div>
+        <div class="legend"><span><i style="background:var(--brand)"></i>${t.solo}</span><span><i style="background:var(--brand-soft)"></i>${t.shared}</span></div>
+      </div>
+    </div>` : `
+    <div class="card" style="margin-top:16px"><h2>${t.trendCard}${info(t.trendTip)}</h2>
+      ${trend(d.mentionsDaily,d.mentionsStart)}
+      <div class="trendstats">
+        <div class="ts"><span class="ts-v num">${fmt(avg)}</span><span class="ts-l">${t.tsAvg}</span></div>
+        <div class="ts"><span class="ts-v num">${peak}</span><span class="ts-l">${t.tsPeak}</span></div>
+        <div class="ts"><span class="ts-v num">${latest}</span><span class="ts-l">${t.tsNow}</span></div>
+      </div>
+      <div class="sub" style="margin-top:12px">${t.trendSub}</div>
+    </div>`;
+
+  $("#app").innerHTML = head + `
+    ${topSection}
+
+    ${mentionsSection}
+
+    <div class="sechead"><h2>${t.clustersH}${info(t.clTip)}</h2><span class="line"></span><span class="count">${citedQ}/${totalQ}</span></div>
+    <div class="clusters">${d.clusters.map((c,i)=>{
+      const cc=c.q.filter(x=>x.c).length, st=statusOf(cc);
+      const stTxt = st==="full"?t.full:(st==="part"?t.part:t.opp);
+      return `<details class="cl" ${i===0?'open':''}><summary>
+        <span class="idx num">${String(i+1).padStart(2,'0')}</span>
+        <span class="cn"><b>${esc(c.name[lang])}</b><small class="ratio">${t.inQ(cc,c.q.length)}</small></span>
+        <span class="status ${st}">${stTxt}</span>
+        <svg class="caret" width="16" height="16" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary><div class="qs">${c.q.map(q=>`
+        <div class="qrow ${q.c?'hit':'miss'}">
+          <span class="qmark ${q.c?'hit':'miss'}" title="${q.c?esc(t.qCited):esc(t.qMiss)}">${q.c?checkSvg:dashSvg}</span>
+          <div class="qbody"><span class="qtext">${esc(q.t)}</span>
+            ${q.c&&q.u?`<div class="qpages">${q.u.map(p=>`<a href="https://${esc(p.url)}" target="_blank" rel="noopener">${esc(p.url)}${p.note?` <span class="pn">— ${esc(p.note)}</span>`:''}</a>`).join("")}</div>`:''}
+          </div>
+        </div>`).join("")}</div></details>`;
+    }).join("")}</div>
+
+    <div class="sechead"><h2>${t.actionsH}</h2><span class="line"></span><span class="count">${(DATA.actions||[]).length}</span></div>
+    <div class="card"><div class="rows">${(DATA.actions&&DATA.actions.length)? DATA.actions.map(a=>`
+      <div class="arow"><span class="abolt"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z" fill="currentColor"/></svg></span>
+        <span class="atext">${esc(a.task)}</span>
+        ${a.link?`<a class="alink" href="${esc(a.link)}" target="_blank" rel="noopener">${t.fileLink}</a>`:""}</div>`).join("") : `<div class="aempty">${t.noActions}</div>`}</div>
+      <div class="sub" style="margin-top:12px">${t.actionsNote}</div></div>
+
+    <div class="grid two" style="margin-top:16px">
+      <div class="card"><h2>${t.pagesCard}</h2><div class="rows">${d.citedPages.map(p=>`
+        <div class="prow"><span class="badge num">${p.q}</span><span class="pt"><b>${esc(p.label[lang])}</b><a href="https://${esc(p.url)}" target="_blank" rel="noopener">${esc(p.url)}</a></span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.pagesNote}</div></div>
+      <div class="card"><h2>${t.domainsCard}</h2><div class="rows">${d.domains.map(x=>`
+        <div class="drow ${x.own?'own':''}"><span class="dn">${esc(x.d)}${x.own?`<span class="tag brand">${t.brandTag}</span>`:(x.dir?`<span class="tag dir">${t.dirTag}</span>`:"")}</span>
+          <span class="dt"><span class="df" style="width:${(x.r/maxDom*100).toFixed(0)}%"></span></span><span class="dv">${x.r}</span></div>`).join("")}</div>
+        <div class="sub" style="margin-top:12px">${t.domainsNote}</div></div>
+    </div>
+
+    <footer><b>${t.methodTitle}.</b> ${t.method(esc(DATA.period[lang]), DATA.name[lang], DATA.domain, totalQ)}</footer>
+    <div class="prepared"><img src="${REGO_LOGO}" alt="ReGo"><span>${t.preparedBy}</span></div>`;
+}
+
+$("#langHe").addEventListener("click",()=>{lang="he";render();});
+$("#langEn").addEventListener("click",()=>{lang="en";render();});
+document.addEventListener("click",e=>{
+  const sb=e.target.closest(".srcbtn"); if(sb){ source=sb.dataset.src; render(); return; }
+  const ic=e.target.closest(".info .i");
+  document.querySelectorAll(".info.open").forEach(el=>{ if(!ic || !el.contains(ic)) el.classList.remove("open"); });
+  if(ic){ ic.parentElement.classList.toggle("open"); }
+});
+document.getElementById("regoLogo").src=REGO_LOGO;
+render();
+</script>
+</body>
+</html>
